@@ -10,6 +10,7 @@ library(knitr)
 
 ## Final projects
 
+<!--
 - [Ana: Training effects on vowel duration in L2 English](https://github.com/anarinzler/final_project)
 - [Eileen: Stress in Munster Irish](https://github.com/eileenblum/mim3)
 - [Jessyca: Cue weighting in L2 stress perception](https://github.com/jesscampos9/research_project)
@@ -20,11 +21,12 @@ library(knitr)
 - [Julio: The use of DOM in Spanish among Romanian-speaking L2 learners](https://github.com/julioclo/finalproject)
 - [Chris: Acoustic Correlates of Stress in Lithuanian](https://github.com/coakden/Final-Project)
 - [Francisco: Disproving the Functional Load Hypothesis with Stronger Data Analysis](https://github.com/BatFran/Research-Project)
+-->
 
 ## Programming assignments for Data Science for Linguistics.
 
 
-```{r, echo=FALSE, results='asis'}
+```{r, echo=FALSE, results='asis', eval=F}
 #
 # Automate TOC
 # - After each PA is assigned, update list_elements[X]
@@ -54,30 +56,32 @@ for (element in 1:length(link_names)) {
 }
 
 # Combine everything into an unordered list
-cat(paste0('- ', link_names, link_ref, '\n'))
+cat(paste0('- ', link_names[1], link_ref[1], '\n'))
 ```
 
 
 ---
 
 
-```{r, child='./staging/pa1.md'}
+```{r, child='./staging/pa1.md', eval=F}
 ```
 
-```{r, child='./staging/pa2.md'}
+```{r, child='./staging/pa2.md', eval=F}
 ```
 
-```{r, child='./staging/pa3.md'}
+```{r, child='./staging/pa3.md', eval=F}
 ```
 
-```{r, child='./staging/pa4.md'}
+```{r, child='./staging/pa4.md', eval=F}
 ```
 
-```{r, child='./staging/pa5.md'}
+```{r, child='./staging/pa5.md', eval=F}
 ```
 
 [w2015]: https://nhorton.people.amherst.edu/mererenovation/17_Wickham.PDF
 [R4DS]: http://r4ds.had.co.nz/index.html
-[githubtut]: http://www.jvcasillas.com/ru_teaching/ru_spanish_589/589_01_s2018/sources/tuts/github_setup/index.html
+[githubtut]: https://ds4ling.github.io/sources/tuts/github_setup/index.html
+<!--
 [pa4_fricatives]: https://github.com/jvcasillas/datasci_assignments/raw/master/misc/data/pa_4_data/fricatives.zip
 [pa5_learning]: https://github.com/jvcasillas/datasci_assignments/raw/master/misc/data/pa_5_data/pa_5_data.zip
+-->
