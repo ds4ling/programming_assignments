@@ -119,8 +119,6 @@ This is how the file structure currently looks:
            │
            ├── README.md
            └── misc
-               ├── links
-               │   └── README.md
                └── students
                    ├── README.md
                    └── firstname_lastname

@@ -65,8 +65,6 @@ programming_assignments
        │
        ├── README.md
        └── misc
-           ├── links
-           │   └── README.md
            └── students
                ├── README.md
                └── firstname_lastname
