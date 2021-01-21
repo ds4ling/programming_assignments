@@ -8,9 +8,10 @@ library(knitr)
 
 # datasci_assignments
 
+<!--
+
 ## Final projects
 
-<!--
 - [Ana: Training effects on vowel duration in L2 English](https://github.com/anarinzler/final_project)
 - [Eileen: Stress in Munster Irish](https://github.com/eileenblum/mim3)
 - [Jessyca: Cue weighting in L2 stress perception](https://github.com/jesscampos9/research_project)
@@ -63,7 +64,7 @@ cat(paste0('- ', link_names[1], link_ref[1], '\n'))
 ---
 
 
-```{r, child='./staging/pa1.md', eval=F}
+```{r, child='./staging/pa1.md', eval=T}
 ```
 
 ```{r, child='./staging/pa2.md', eval=F}

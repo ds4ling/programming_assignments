@@ -4,15 +4,12 @@
 
 ### Overview
 
-In this assignment you will practice the basics of working with project repos
-using GitHub and the GitHub desktop app. Specifically, you will fork this 
-repo, clone it to your computer, contribute to it, push changes from your local 
-repo (your computer) to your upstream branch (your forked copy on GitHub), and, 
-finally, submit a pull request to merge your contribution with the master repo 
+In this assignment you will practice the basics of working with project repos using GitHub and the GitHub desktop app. 
+Specifically, you will fork this repo, clone it to your computer, contribute to it, push changes from your local repo (your computer) to your upstream branch (your forked copy on GitHub), and, finally, submit a pull request to merge your contribution with the master repo
 (the professor's copy).
 
 **Assigned**: Week 1  
-**Due**: Monday, 1/22 before 10pm  
+**Due**: Wednesday, 1/27 before 10pm  
 
 ### Instructions
 
@@ -35,9 +32,9 @@ lastname\_firstname folder you just made).
 text as you read (nothing to turn in).
 5. Read QML Ch. 1 (pp. 1-33). Do the R examples included in the text as
 you read (nothing to turn in).
-6. Commit the changes to your upstream branch. Check your repo on GitHub to 
-make sure it worked, and then submit a pull-request. It should include the 
-following...
+6. Commit the changes to your upstream branch, i.e., your copy of the repo on 
+github.com. Check your repo on GitHub to make sure it worked, and then submit a 
+pull-request. It should include the following...
     1. your dropbox folder (lastname\_firstname)
     2. a README.md file
     3. a summaries folder (inside your dropbox)
@@ -64,7 +61,7 @@ and follow all the instructions.
 This is how the file structure currently looks:
 
 ```
-datasci_assignments
+programming_assignments
        │
        ├── README.md
        └── misc
