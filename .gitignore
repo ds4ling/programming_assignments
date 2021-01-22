@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+*.DS_Store
+
+misc/data
+staging/pa2.md
+staging/pa3.md
+staging/pa4.md
+staging/pa5.md
