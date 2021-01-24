@@ -1,4 +1,4 @@
 - Name: Chaoyi Chen 
 - Email: chaoyi.chen@rutgers.edu
 - Website: chaoyichen7.blog
-- Goal: To learn quantitative methods to linguistics research 
+- Goal: to learn quantitative methods to linguistics research 
