@@ -2,7 +2,7 @@
 title: "Programming assignment 2"
 author: "Kyle Parrish"
 date: "Last update: 2021-02-04 09:39:43"
-output:
+output: github_document
 github_document:
 highlight: kate
 keep_md: yes
