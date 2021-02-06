@@ -32,7 +32,8 @@ spanishFunctionWords = spanishFunctionWords
 ``` r
 #bivariate plot
 
-ggplot(data = english, aes(x = Familiarity, y = WrittenFrequency, color = WordCategory)) + geom_point(alpha = .1) + geom_smooth(method = "lm", color = "grey35") + xlab("Familiarity") + ylab("Written Frequency") + ggtitle("Word familiarity and Written Frequency from English data")
+
+ggplot(data = beginningReaders, aes(x = LogRT, y = ReadingScore, color = OrthLength)) + geom_point(alpha = .1) + geom_smooth(method = "lm", color = "grey35") + xlab("Reading time") + ylab("Reading Score") + ggtitle("Word familiarity and Written Frequency from English data")
 ```
 
     ## `geom_smooth()` using formula 'y ~ x'
@@ -42,7 +43,7 @@ ggplot(data = english, aes(x = Familiarity, y = WrittenFrequency, color = WordCa
 ``` r
 #boxplot
 
-ggplot(data = english, aes(x = WrittenFrequency, y = RTnaming, fill = AgeSubject)) + geom_boxplot() + xlab("Written Frequency") + ylab("Reaction time") + ggtitle("A box plot by age of the distribution of wrtitten frequency and reaction time")
+ggplot(data = danish, aes(x = Sex, y = LogRT, fill = Affix)) + geom_boxplot() + xlab("Gender") + ylab("Reaction time") + ggtitle("A box plot by sex of the distribution of RT and per Danish affix")
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
