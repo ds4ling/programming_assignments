@@ -1,7 +1,7 @@
 ---
 title: "Programming assignment 2"
 author: "Chaoyi Chen"
-date: "Last update: 2021-02-07 23:09:43"
+date: "Last update: 2021-02-07 23:09:45"
 output:
   github_document:
   highlight: kate
