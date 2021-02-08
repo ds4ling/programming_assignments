@@ -1,12 +1,12 @@
 ---
 title: "Programming assignment 2"
 author: "Chaoyi Chen"
-date: "Last update: 2021-02-07 14:27:43"
+date: "Last update: 2021-02-07 23:09:43"
 output:
-github_document:
-highlight: kate
-keep_md: yes
-theme: united
+  github_document:
+  highlight: kate
+  keep_md: yes
+  theme: united
 ---
 
 **i. A bivariate scatterplot**
@@ -14,15 +14,17 @@ theme: united
 ```{r}
 library(tidyverse)
 library(languageR)
-ggplot(data = beginningReaders, mapping = aes(x = LogFrequency, y = LogRT),size =0.1) + 
-  labs(title = "beginningReaders-word frequency and reaction time") +
+beginningReaders %>%
+  ggplot(aes(x = LogFrequency, y = LogRT), size = 0.1) + # The original size of dots seems to be too big, so I found a code on the Internet to make it smaller.
+  labs(title = "beginningReaders-word frequency and reaction time") + # I didn't find any part of the book about adding a title to a plot, so I found it on the internet
   geom_point()
 ```
 
 
 **ii. A boxplot with different fill colors**
 ```{r}
-ggplot(data = danish, mapping = aes(x = Subject, y = LogRT,fill = Subject)) + 
+danish %>%
+  ggplot(aes(x = Subject, y = LogRT, fill = Subject)) +
   labs(title = "danish-reaction time among subjects") +
   geom_boxplot()
 ```
@@ -31,15 +33,12 @@ ggplot(data = danish, mapping = aes(x = Subject, y = LogRT,fill = Subject)) +
 
 
 ```{r}
-ggplot(data = english, mapping = aes(x = WordCategory, y = RTlexdec)) +
+english %>%
+  ggplot(aes(x = WordCategory, y = RTlexdec)) +
   labs(title = "english-wordcategory and reaction time") +
   geom_boxplot() +
-  facet_wrap(~ AgeSubject) +
-  stat_summary(
-    mapping = aes(x = WordCategory, y = RTlexdec),
-    fun.min = min,
-    fun.max = max,
-    fun = median)
+  facet_wrap(~AgeSubject) +
+  stat_summary(mapping = aes(x = WordCategory, y = RTlexdec),fun.min = min, fun.max = max, fun = median)
 ```
 
 
