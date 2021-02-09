@@ -1,7 +1,7 @@
 Programming assignment 2
 ================
 Chaoyi Chen
-Last update: 2021-02-07 23:09:43
+Last update: 2021-02-09
 
 **i. A bivariate scatterplot**
 
