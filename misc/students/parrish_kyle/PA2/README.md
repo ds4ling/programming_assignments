@@ -1,7 +1,7 @@
 Programming assignment 2
 ================
 Kyle Parrish
-Last update: 2021-02-04 09:39:43
+Last update: 2021-02-08
 
 ``` r
 # Load libraries 
@@ -38,7 +38,7 @@ ggplot(data = beginningReaders, aes(x = LogRT, y = ReadingScore, color = OrthLen
 
     ## `geom_smooth()` using formula 'y ~ x'
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](readme_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
 #boxplot
@@ -46,7 +46,7 @@ ggplot(data = beginningReaders, aes(x = LogRT, y = ReadingScore, color = OrthLen
 ggplot(data = danish, aes(x = Sex, y = LogRT, fill = Affix)) + geom_boxplot() + xlab("Gender") + ylab("Reaction time") + ggtitle("A box plot by sex of the distribution of RT and per Danish affix")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
+![](readme_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
 
 ``` r
 #plot with stat summary and facet
@@ -54,4 +54,4 @@ ggplot(data = danish, aes(x = Sex, y = LogRT, fill = Affix)) + geom_boxplot() + 
 ggplot(data = english) + stat_summary(mapping = aes(x = WordCategory, y = RTnaming), fun.min = min, fun.max = max, fun = median) + geom_jitter(data = english, aes(x = WordCategory, y = RTnaming), alpha = .1, color = "seagreen3") + facet_wrap(~ AgeSubject, nrow = 1)  + xlab("Word Category") + ylab("Reaction time") + ggtitle("Reaction times of word classes by age")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->
+![](readme_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->
