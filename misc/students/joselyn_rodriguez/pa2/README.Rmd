@@ -1,0 +1,76 @@
+---
+title: "Programming assignment 2"
+author: "Your name"
+date: "Last update: 2021-02-04 09:39:43"
+output:
+  github_document:
+  highlight: kate
+  keep_md: yes
+  theme: united
+---
+
+```{r loading packages}
+library(tidyverse)
+library(languageR)
+```
+
+# Assignment 
+
+### familiarize with datasets
+
+```{r}
+# some quick looks at the data
+summary(beginningReaders)
+head(beginningReaders)
+summary(danish)
+head(danish)
+summary(dativeSimplified)
+head(dativeSimplified)
+summary(english)
+head(english)
+summary(spanishFunctionWords)
+head(spanishFunctionWords)
+```
+
+
+### making plots 
+ 1. A bivariate scatterplot
+ 
+```{r bivariate}
+
+# looking at response times by word frequency - 
+
+bivariate_plot <- danish %>% 
+                    ggplot() +
+                    aes(x = LogWordFreq, y = LogRT) +
+                    geom_jitter() +
+                    geom_smooth(method = "lm")
+                  
+
+```
+ 
+ 2. A boxplot with different fill colors
+ 
+```{r boxplot}
+
+fill_colors <- beginningReaders %>% 
+                ggplot(aes(x = Subject, y = LogRT, fill = ReadingScore)) +
+                geom_boxplot() +
+                theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5))
+?element_text
+?geom_bar
+
+```
+ 
+ 3. A plot of your choice that includes a stat_summary and a facet.
+
+
+```{r statsummary}
+statsummary <- english %>%
+                ggplot() +
+                stat_summary(mapping = aes(x = WordCategory, y = RTnaming), fun.data = mean_sdl, geom  = "pointrange") + 
+                facet_grid( ~ AgeSubject)
+
+?stat_summary
+```
+
