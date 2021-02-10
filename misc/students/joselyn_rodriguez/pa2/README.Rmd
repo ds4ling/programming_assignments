@@ -42,7 +42,7 @@ summary(spanishFunctionWords)
 ```{r bivariate}
 
 # looking at response times across word frequencies. You'd assume the response times would get shorter as frequency increases and it looks to be the case
-danish %>% 
+bivariate_plot <- danish %>% 
     ggplot(aes(x = LogWordFreq, y = LogRT)) +
     geom_point(position = position_jitter(w = 0.1, h = 0.1)) + # jitter a bit horizontally and vertically to see all the points
     geom_smooth(method = "lm") + # add this in to see the general trend
@@ -54,7 +54,7 @@ danish %>%
 ```{r boxplot}
 
 # this is a graph is a bit crowded, but it shows the subjects' log response times and reading score 
-beginningReaders %>% 
+box_plot_plot <- beginningReaders %>% 
     ggplot(aes(x = Subject, y = LogRT, fill = ReadingScore)) +
     geom_boxplot() +
     theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
@@ -67,7 +67,7 @@ beginningReaders %>%
 ```{r statsummary}
 
 # graph of the log response time for different word categories faceted across age. It doesn't look like there's a difference
-english %>%
+statsummary_plot <- english %>%
     ggplot(aes(x = WordCategory, y = RTnaming)) +
     geom_point(alpha = 0.3, position = position_jitter(w = 0.3, h = 0.1)) + # also jittered this a bit
     stat_summary(color = "red", fun.data = mean_sdl, geom = "pointrange") +
