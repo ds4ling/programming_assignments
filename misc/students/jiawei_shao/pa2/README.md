@@ -1,7 +1,7 @@
 Programming assignment 2
 ================
 Jiawei Shao
-Last updated 2021-02-10 15:59:08
+Last updated 2021-02-10 16:03:24
 
 ``` r
 # A bivariate scatterplot

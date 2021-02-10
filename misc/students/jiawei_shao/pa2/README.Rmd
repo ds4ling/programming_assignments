@@ -38,7 +38,7 @@ library(tidyverse)
 
 
 ```{r, 'plot of choice'}
-
+ 
 # A plot of your choice that includes a stat_summary and a facet.
 library(languageR)
 library(tidyverse)
