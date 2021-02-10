@@ -1,7 +1,7 @@
 Programming assignment 2
 ================
 Joselyn Rodriguez
-Last update: 2021-02-04 09:39:43
+Last update: 2021-02-10
 
 ``` r
 library(tidyverse)
@@ -256,18 +256,28 @@ bivariate_plot <- danish %>%
     geom_point(position = position_jitter(w = 0.1, h = 0.1)) + # jitter a bit horizontally and vertically to see all the points
     geom_smooth(method = "lm") + # add this in to see the general trend
     labs(title = "Log Response Times of Word Frequencies",  x = "Log Word Frequency", y = "Log Response Time")
+
+print(bivariate_plot)
 ```
+
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](README_files/figure-gfm/bivariate-1.png)<!-- -->
 
 2.  A boxplot with different fill colors
 
 ``` r
 # this is a graph is a bit crowded, but it shows the subjects' log response times and reading score 
-box_plot_plot <- beginningReaders %>% 
+boxplot_plot <- beginningReaders %>% 
     ggplot(aes(x = Subject, y = LogRT, fill = ReadingScore)) +
     geom_boxplot() +
     theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 5)) +
     labs(title = "Log Response Time by Subject", y = "Log Response Time")
+
+print(boxplot_plot)
 ```
+
+![](README_files/figure-gfm/boxplot-1.png)<!-- -->
 
 3.  A plot of your choice that includes a stat\_summary and a facet.
 
@@ -279,4 +289,8 @@ statsummary_plot <- english %>%
     stat_summary(color = "red", fun.data = mean_sdl, geom = "pointrange") +
     facet_grid( ~ AgeSubject) +
     labs(title = "Log Response Time for Word Categories by Age", x = "Word Category", y = "Log Response Time")
+
+print(statsummary_plot)
 ```
+
+![](README_files/figure-gfm/statsummary-1.png)<!-- -->
