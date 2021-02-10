@@ -10,7 +10,7 @@ library(tidyverse)
     ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
 
     ## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-    ## ✓ tibble  3.0.5     ✓ dplyr   1.0.3
+    ## ✓ tibble  3.0.6     ✓ dplyr   1.0.4
     ## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
     ## ✓ readr   1.4.0     ✓ forcats 0.5.1
 
@@ -264,7 +264,7 @@ print(bivariate_plot)
 
 ![](README_files/figure-gfm/bivariate-1.png)<!-- -->
 
-2.  A boxplot with different fill colors
+1.  A boxplot with different fill colors
 
 ``` r
 # this is a graph is a bit crowded, but it shows the subjects' log response times and reading score 
@@ -279,7 +279,7 @@ print(boxplot_plot)
 
 ![](README_files/figure-gfm/boxplot-1.png)<!-- -->
 
-3.  A plot of your choice that includes a stat\_summary and a facet.
+1.  A plot of your choice that includes a stat\_summary and a facet.
 
 ``` r
 # graph of the log response time for different word categories faceted across age. It doesn't look like there's a difference
