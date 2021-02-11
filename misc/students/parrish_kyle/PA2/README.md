@@ -1,6 +1,7 @@
 Programming assignment 2
 ================
 Kyle Parrish
+Last update: 2021-02-10
 
 ``` r
 # Load libraries 
