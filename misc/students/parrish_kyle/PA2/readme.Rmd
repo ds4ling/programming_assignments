@@ -1,12 +1,11 @@
 ---
 title: "Programming assignment 2"
 author: "Kyle Parrish"
-date: "Last update: `r Sys.Date()`"
 output: github_document
-github_document:
 highlight: kate
 keep_md: yes
 theme: united
+
 ---
 
 
