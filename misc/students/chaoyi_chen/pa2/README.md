@@ -1,7 +1,7 @@
 Programming assignment 2
 ================
 Chaoyi Chen
-Last update: 2021-02-09
+Last update: 2021-02-10
 
 **i. A bivariate scatterplot**
 
@@ -48,7 +48,7 @@ facet.**
 english %>%
   ggplot(aes(x = WordCategory, y = RTlexdec)) +
   labs(title = "english-wordcategory and reaction time") +
-  geom_boxplot() +
+  geom_violin() +
   facet_wrap(~AgeSubject) +
   stat_summary(mapping = aes(x = WordCategory, y = RTlexdec),fun.min = min, fun.max = max, fun = median)
 ```
