@@ -1,0 +1,45 @@
+---
+title: "Programming assignment 2"
+author: "Gabriela Constantin-Dureci"
+date: "Last update:`r Sys.Date()`"
+output: github_document
+highlight: kate
+keep_md: yes
+theme: united
+---
+
+# Here comes Programming Assignment 2!
+
+## First Plot
+
+```{r}
+library(tidyverse)
+library(languageR)
+danish %>% 
+  ggplot(.,aes(x=Rank, y=LogRT))+
+  geom_point(color="darkgreen", shape="triangle")+
+  labs(x="Rank", y="Log Response Latency", title="Bivariate Scatterplot")+
+  theme_bw(base_size = 15)
+```
+
+## Second Plot
+
+```{r}
+beginningReaders %>% 
+  ggplot(.,aes(x=factor(ReadingScore), y=Trial, fill=factor(ReadingScore)))+
+  geom_boxplot()+
+  labs(x="Reading Score", y="Trial", title="Boxplot")+
+    theme_bw(base_size = 15)
+```
+
+## Third Plot
+
+```{r}
+english %>% 
+  ggplot(.,aes(x=WordCategory, y=AgeSubject))+
+    geom_jitter(color="magenta", shape="circle")+
+  facet_wrap(AgeSubject~.)+
+  stat_summary(fun.data=mean_sdl, geom = "pointrange")+
+  labs(x="Word Category", y="Age of Subject", title="Jitter Plot")+
+  theme_bw(base_size=15)
+```

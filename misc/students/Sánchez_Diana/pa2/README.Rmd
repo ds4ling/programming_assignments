@@ -1,0 +1,95 @@
+---
+title: "Programming assignment 2"
+author: "Diana Sanchez"
+date: "Last update: `Sys.Date()`"
+output: 
+  github_document:
+  highlight: kate
+  keep_md: yes
+  theme: united
+---
+
+
+```{r, load-packages-and-data, warning=F, message=F}
+library(languageR)
+library(tidyverse)
+```
+
+
+```{r, load-data}
+english = english
+danish = danish
+beginningReaders = beginningReaders
+
+
+```
+
+
+#Part 1:  beginningReaders Dataset
+
+```{r, scatterplot}
+glimpse(beginningReaders)
+head(beginningReaders)
+tail(beginningReaders)
+dim(beginningReaders)
+summary(beginningReaders)
+
+ggplot(beginningReaders, aes(x =  OrthLength, y = ReadingScore)) +
+geom_point(position = position_jitter(4), size = .5) +
+labs(x = "Orthographic Word Length", y = "Reading Score ", title = "Lexical Decision in Early Readers") +
+theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+
+#Part 2:  english Dataset
+
+```{r, boxplot}
+glimpse(english)
+head(english)
+tail(english)
+dim(english)
+summary(english)
+
+ggplot(english, aes(x =  AgeSubject, y = RTlexdec, fill = AgeSubject)) +
+geom_boxplot() +
+labs(x = "Age Group of Subjects", y = "Response Time for Lexical Decision", title = "English Visual Lexical Decision and Naming Latencies", fill = "Age of Group") +
+
+theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+
+
+
+#Part 3: danish Dataset - Plot with stat_summary and a facet
+
+
+```{r, stat_summary and facet}
+glimpse(danish)
+head(danish)
+tail(danish)
+dim(danish)
+summary(danish)
+
+ggplot(danish, aes(x = Affix, y = LogRT)) +
+  geom_point(position = position_jitter(2), size = .5) +
+ stat_summary(fun.data = mean_se, geom = 'pointrange') +
+
+  labs(x = "Affixes in Words", y = "Log Response Latency", title = "Danish Auditory Lexical Decision") +
+  facet_grid(Sex ~ .) +
+
+theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+
+
+
+
+
+
+
