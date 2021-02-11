@@ -1,0 +1,56 @@
+---
+title: "Programming assignment 2"
+author: "Patrick Thane"
+date: "Last update: 2021-02-06 18:18:21"
+output: 
+github_document: 
+highlight: kate
+keep_md: yes
+theme: united
+---
+
+# Setup and configuration
+```{r setup}
+library(languageR)
+library(tidyverse)
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, load-dataframes}
+beginningReaders = beginningReaders
+english = english
+spanishFunctionWords = spanishFunctionWords
+danish = danish
+dativeSimplified = dativeSimplified
+```
+
+# Scatterplots
+Note: This data needs to be tidied, but my understanding is that this is sufficient for this assignment.
+```{r, Reading_Data}
+beginningReaders %>%
+  ggplot(aes(x = LogRT, y = LogFrequency)) +
+  geom_point() +
+  labs(x = "Log-transformed reaction time in milliseconds for each trial", y = "log-transformed frequency of lexical item", title = "Reading latencies by frequency of lexical items")
+```
+
+# Boxplot
+Note: I must confess that I found the "sex" variable to be one that allowed me to complete the task in a relatively coherent way, although it pained me to make this type of distinction…
+```{r, Danish-boxplot}
+danish %>%
+  ggplot(aes(x = Affix, y = LogRT, color = Sex)) +
+  geom_boxplot() +
+  labs(x = "Danish suffix in online task", y = "Average reaction times (log-transformed in milliseconds)", title = "Average reaction time by suffix")
+```
+
+# Stat summary and facets
+```{r, stat-summary}
+english %>% 
+  ggplot(aes(x = LengthInLetters, y = RTlexdec, color = WordCategory)) +
+  facet_grid(cols = vars(AgeSubject)) +
+  stat_summary(fun = mean,
+               geom = 'pointrange', size = 1, 
+               position = position_dodge(width = 0.5)) +
+  scale_x_continuous(breaks = seq(0, 8, 1)) +
+  labs(x = "Word length in letters", y = "Average RT (log-transformed in milliseconds) of lexical decision", color = "Word class", title = "Average lexical decision latencies by word length per group")
+```
