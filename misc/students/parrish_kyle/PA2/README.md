@@ -54,3 +54,9 @@ ggplot(data = english) + stat_summary(mapping = aes(x = WordCategory, y = RTnami
 ```
 
 ![](readme_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->
+
+``` r
+ggplot(mtcars, aes(x = mpg, y = disp)) + geom_point()
+```
+
+![](readme_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
