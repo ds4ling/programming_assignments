@@ -1,88 +1,44 @@
 ---
-output: md_document
+title: “Programming assignment 2”
+highlight: kate
+keep_md: yes
+theme: united
 ---
 
-```{r echo=FALSE}
-library(knitr)
+Esto se esta poniendo dificil .. ahi vamos 
+
+``` {r, echo = FALSE}
+library(ggplot2)
+
+library(languageR)
+  #grafica con SemanticClass y Modality en Dative
+  data("dative")
+  ggplot(dative, aes (x = LengthOfTheme, y = Modality )) +
+    geom_point()
+```
+Esta es la pagina de Miguel
+He hecho varias graficas con Dative pero no veo una chula
+
+``` {r, echo = FALSE}
+library(ggplot2)
+library(languageR)
+
+ ggplot(beginningReaders, aes (x = ReadingScore, y = ProportionOfErrors)) +
+  geom_point(aes(col=ReadingScore), size = 1) 
+
 ```
 
-# datasci_assignments
+La siguiente es con Dativo otra vez con un summary en gris de la media
 
-<!--
+``` {r, echo = FALSE}
+library(ggplot2)
+library(languageR)
 
-## Final projects
-
-- [Ana: Training effects on vowel duration in L2 English](https://github.com/anarinzler/final_project)
-- [Eileen: Stress in Munster Irish](https://github.com/eileenblum/mim3)
-- [Jessyca: Cue weighting in L2 stress perception](https://github.com/jesscampos9/research_project)
-- [Dine: Acoustics of Shouting](https://github.com/dinemamadou/Final_project)
-- [Michele: Acquisition of null subjects](https://github.com/michelegoldin/research_project)
-- [Esther: Verb Frequency and DOM in Heritage Speakers of Spanish](https://github.com/estherhur/Final-paper)
-- [Nate: Drunk driving in Korea](https://github.com/nate-koser/Final)
-- [Julio: The use of DOM in Spanish among Romanian-speaking L2 learners](https://github.com/julioclo/finalproject)
-- [Chris: Acoustic Correlates of Stress in Lithuanian](https://github.com/coakden/Final-Project)
-- [Francisco: Disproving the Functional Load Hypothesis with Stronger Data Analysis](https://github.com/BatFran/Research-Project)
--->
-
-## Programming assignments for Data Science for Linguistics.
-
-
-```{r, echo=FALSE, results='asis', eval=F}
-#
-# Automate TOC
-# - After each PA is assigned, update list_elements[X]
-# - Reknit after update and push to github
-
-# Get list of folders in current directory
-pas <- dir(path = "./staging", pattern = "*.md")
-
-# remove .md
-list_elements <- substr(pas, start = 1, stop = max(nchar(pas)) - 3)
-
-# Use pa file names for link references
-link_names <- paste0('[', list_elements[1:5], ']')
-
-#
-# Get section ref for link
-#
-
-# initialize vector
-link_ref <- vector(mode = 'character', length = length(link_names))
-
-# store assignment number
-for (element in 1:length(link_names)) {
-
-  link_ref[element] <- paste0("(#assignment-", element, ")")
-
-}
-
-# Combine everything into an unordered list
-cat(paste0('- ', link_names[1], link_ref[1], '\n'))
+##grafica con SemanticClass y Modality en Dative
+  
+  ggplot(dative, aes (x = LengthOfTheme, y = Modality )) +
+    geom_point() +
+  stat_summary(fun = mean, size =3, color = 'grey') 
 ```
 
 
----
-
-
-```{r, child='./staging/pa1.md', eval=T}
-```
-
-```{r, child='./staging/pa2.md', eval=F}
-```
-
-```{r, child='./staging/pa3.md', eval=F}
-```
-
-```{r, child='./staging/pa4.md', eval=F}
-```
-
-```{r, child='./staging/pa5.md', eval=F}
-```
-
-[w2015]: https://nhorton.people.amherst.edu/mererenovation/17_Wickham.PDF
-[R4DS]: http://r4ds.had.co.nz/index.html
-[githubtut]: https://ds4ling.github.io/sources/tuts/github_setup/index.html
-<!--
-[pa4_fricatives]: https://github.com/jvcasillas/datasci_assignments/raw/master/misc/data/pa_4_data/fricatives.zip
-[pa5_learning]: https://github.com/jvcasillas/datasci_assignments/raw/master/misc/data/pa_5_data/pa_5_data.zip
--->
