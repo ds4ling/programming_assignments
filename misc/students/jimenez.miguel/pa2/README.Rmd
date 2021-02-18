@@ -1,8 +1,12 @@
 ---
 title: “Programming assignment 2”
-highlight: kate
-keep_md: yes
-theme: united
+author: “Miguel Jimenez”
+
+output:
+  github_document:
+  highlight: kate
+  keep_md: yes
+  theme: united
 ---
 
 Esto se esta poniendo dificil .. ahi vamos 
