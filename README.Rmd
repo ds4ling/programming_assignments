@@ -57,7 +57,7 @@ for (element in 1:length(link_names)) {
 }
 
 # Combine everything into an unordered list
-cat(paste0('- ', link_names[1], link_ref[1], '\n'))
+cat(paste0('- ', link_names[1:3], link_ref[1:3], '\n'))
 ```
 
 
@@ -67,10 +67,10 @@ cat(paste0('- ', link_names[1], link_ref[1], '\n'))
 ```{r, child='./staging/pa1.md', eval=T}
 ```
 
-```{r, child='./staging/pa2.md', eval=F}
+```{r, child='./staging/pa2.md', eval=T}
 ```
 
-```{r, child='./staging/pa3.md', eval=F}
+```{r, child='./staging/pa3.md', eval=T}
 ```
 
 ```{r, child='./staging/pa4.md', eval=F}
