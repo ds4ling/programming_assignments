@@ -1,1 +1,1 @@
-This Readme will shortly contain the link to my Github page containing my PA3.
+The link to my page is: https://pthane.github.io/DS4Ling-PA3/.  I have also included all of the relevant files in this folder for review as necessary.
