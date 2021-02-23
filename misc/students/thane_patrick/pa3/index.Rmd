@@ -1,0 +1,69 @@
+---
+title: "Index"
+author: "Patrick Thane"
+date: "2/21/2021"
+output: html_document
+---
+
+# Prepare and tidy data
+```{r setup, packages}
+library(tidyverse)
+library(languageR)
+library(knitr)
+library(sjPlot)
+options(sciphen = 999)
+
+data(package = "languageR")
+```
+
+```{r, load-data}
+etymology <- etymology
+```
+
+```{r, remove-outliers}
+etymology <- etymology %>% 
+  filter(., Valency < 15)
+```
+
+# Descriptive statistics
+```{r, descriptive-stats}
+etymology_descriptive <- etymology %>% 
+  group_by(Valency) %>% 
+  summarize(MeanWrittenFrequency = mean(WrittenFrequency), SDWrittenFrequency = sd(WrittenFrequency))
+
+kable(etymology_descriptive[1:3], caption = "**Figure 1.** Mean and standard deviation of log-transformed written frequencies in CELEX corpus for Dutch verbs by valence.")
+```
+
+# Correlation
+```{r, bivariate-regression}
+bivariate_valency_freq <- lm(Valency ~ WrittenFrequency, data = etymology)
+summary(bivariate_valency_freq)
+tab_model(bivariate_valency_freq)
+```
+
+**Figure 2** Results of bivariate linear regression.
+
+```{r, plot-correlation}
+etymology %>% 
+  ggplot(aes(x = Valency, y = WrittenFrequency, color = Regularity)) +
+  geom_point(position = position_jitter(2), size = 1.5) +
+  geom_smooth(method = lm) +
+  labs(x = "Valency", y = "Log-transformed written frequency", title = "Frequency of Dutch Verbs by Valency", color = "Morphological Regularity") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+**Figure 3.** Written frequency of verbal items in the CELEX corpus as a function of valency of 272 Dutch verbs.
+
+# Writeup
+In generative syntax, a given verb's *valency* refers to the total number of possible argument structures that are acceptable subcategorizations. The valence is a more precise metric of the flexibility with which individual verbs can be utilized, because it accounts for all of the possible phrase structures of its complements, rather than simply listing the number of arguments it can accept (e.g., copular, intransitive, transitive, ditransitive).  It is therefore plausible that a verbal item that has a higher valence will be more productive, as it accepts a greater quantity of possible complements, which in turn could plausibly mean that it can be used more flexibly and frequently.
+
+To address this question, we analyzed the written token frequencies of 285 Dutch verbs as found in the CELEX corpus, reported alongside their valencies.  A total of 13 items whose valence exceeded 15 were excluded from analysis, as they were not representative of the typical range found within 99% of Dutch verbs. A bivariate regression revealed a statistically-significant correlation between the log-transformed token frequency for each verb in the CELEX corpus (dependent variable) and valency (independent variable), both continuous. Figure 1 provides descriptive statistics by valency, Figure 2 provides a summary of this correlation, and Figure 3 shows the correlation by morphological regularity. Following Figure 3, it also appears that the correlation was particularly robust for those verbs that were morphologically irregular.
+
+# Bibliography and comments
+
+I worked on this project with Jessica, Kaylee, and Diana.  I made minor adjustments independently after we worked on the analysis together (sjPlot, figure labels), and the summary is mine. We also utilized the documentation for the languageR package as cited below to help us. We wanted to exhibit that we were familiar with the functions covered in class, and therefore removed the few outliers with valencies outside of the 15 range.  We did not do this on any theoretical grounds; the paragraph suggests otherwise (see 99% comment), but this claim was just for the purpose of the exercise.
+
+
+* Baayen, R. H. & Shafei-Bajestan, E. (2008). Data sets exemplifying statistical methods, and some facilitatory utility functions used, 1.5. In R. H. Baayen (Ed.), *Analyzing linguistic data: A practical introduction to statistics using R*. Cambridge: Cambridge University Press.
+* Baayen, R. H. & Moscoso del Prado Martin, F. (2005). Semantic density and past-tense formation in three Germanic languages, *Language*, *81*, 666-698.
+* Tabak, W., Schreuder, R & Baayen, R. H. (2005). Lexical statistics and lexical processing: semantic density, information complexity, sex, and irregularity in Dutch. In S. Kepser & M. Reis (Eds). *Linguistic evidence - Empirical, theoretical, and computational perspectives* (pp. 529-555). Berlin: Mouton de Gruyter.
