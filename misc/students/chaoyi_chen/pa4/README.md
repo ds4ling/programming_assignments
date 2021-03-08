@@ -1,1 +1,1 @@
-https://ccy07.github.io/pa4/slides/index#1
+https://ccy07.github.io/pa4/slides/index.html
