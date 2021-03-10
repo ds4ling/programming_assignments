@@ -1,0 +1,57 @@
+---
+title: "Programming Assignment 3"
+author: "Gabriela Constantin-Dureci"
+date: "2/21/2021"
+output: html_document
+---
+# Setup
+
+If you can read this, I have probably managed to follow the instructions for the setup component.
+
+# EDA
+
+For this assignment, I am working with the "sizeRatings" dataset. In order to find out more information about the dataset, I am using the glimpse function, "sizeRatings %>% (glimpse)", as well as "?sizeRatings".
+The dataset deals with "subjective estimates of the size of the referents of 81 English concrete nouns, collected from 38 subjects".
+
+## 1. *Loading the dataset and getting information about its structure*
+```{r}
+library(tidyverse)
+library(languageR)
+
+sizeRatings %>% (glimpse)
+?sizeRatings
+```
+
+## 2. *Tidying the dataset (if needed)*
+The dataset consiststs of 7 columns. It looks tidy (i.e., each variable has its own column and every observation occupiesa single row), so it is not necessary for me to tidy the data. If the dataset was untidy, I would have used the "pivot_wider" or "pivot_longer" functions. 
+
+## 3. *Calculating descriptive statistics*
+For this part of the assignment, I decided to calculate the mean as a measure of central tendency and the standard deviation and the variance as measures of spread/dispersion .
+
+```{r}
+sizeRatings %>% 
+group_by(Language) %>% 
+  summarize(mean_Rating=mean(Rating), sd_Rating=sd(Rating),var_Rating=var(Rating))
+```
+
+## 4. *Fitting a model to the data (bivariate regression)*
+
+The two continuous variables I chose are "Rating" and "MeanFamiliarity". (These were the only continuous variables in the dataset.)
+
+```{r}
+model_Language<- lm(sizeRatings$Rating ~ sizeRatings$MeanFamiliarity)
+summary(model_Language)
+```
+
+## 5. *Generating a plot that includes a regression line*
+
+```{r}
+ggplot(sizeRatings, aes(x=Rating, y=MeanFamiliarity))+
+  geom_smooth(method="lm")
+```
+
+## 6. *General observations*
+
+I will start with a general observation about my own learning with R and Data Science. Some things are becoming more automatic and clearer the more I practice them, so that is good.
+Regarding the assignment, I think it was a good review of what we did in class and it definitely helps to practice these notions.
+
