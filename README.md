@@ -159,7 +159,7 @@ Moreover, you will show your data visualization skills using `ggplot2`.
 
     title: “Programming assignment 2”  
     author: “Your name”  
-    date: “Last update: 2021-03-25 11:25:53”  
+    date: “Last update: 2021-03-25 19:05:31”  
     output:  
     github\_document:  
     highlight: kate  

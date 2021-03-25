@@ -70,4 +70,4 @@ cat(paste0('- ', link_names[1:5], link_ref[1:5], '\n'))
 [R4DS]: http://r4ds.had.co.nz/index.html
 [githubtut]: https://ds4ling.github.io/sources/tuts/github_setup/index.html
 [pa4_fricatives]: https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_4_data/fricatives.zip
-[pa5_learning]: https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_5_data/pa_5_data.zip
+[pa5_learning]: https://github.com/ds4ling/programming_assignments/blob/master/misc/data/pa_5_data/pa_5_data.zip
