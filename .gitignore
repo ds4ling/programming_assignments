@@ -5,7 +5,5 @@
 
 *.DS_Store
 
-misc/data/pa_4_data/create_fricative_data.R
-misc/data/pa_4_data/fricatives.csv
-misc/data/pa_4_data/README.md
+misc/
 staging/
