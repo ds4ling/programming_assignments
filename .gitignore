@@ -5,5 +5,5 @@
 
 *.DS_Store
 
-misc/
+misc/data/
 staging/
