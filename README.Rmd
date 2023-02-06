@@ -53,7 +53,7 @@ for (element in 1:length(link_names)) {
 ```{r, child='./staging/pa1.md', eval=T}
 ```
 
-```{r, child='./staging/pa2.md', eval=F}
+```{r, child='./staging/pa2.md', eval=T}
 ```
 
 ```{r, child='./staging/pa3.md', eval=F}
