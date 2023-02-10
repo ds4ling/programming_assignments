@@ -1,7 +1,7 @@
 ---
 title: "Programming assignment 2" 
 author: "Robert Esposito" 
-date: "Last update: 2023-02-08"
+date: "Last update: 2023-02-10"
 output: 
   html_document:
     highlight: kate 
@@ -26,6 +26,19 @@ library('tidyverse')
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
+```
+
+```r
+library('reshape2')
+```
+
+```
+## 
+## Attaching package: 'reshape2'
+## 
+## The following object is masked from 'package:tidyr':
+## 
+##     smiths
 ```
 
 
@@ -72,15 +85,22 @@ danish %>%
 
 
 ```r
-spanishMeta %>%
+english %>%
   ggplot() +
-  aes(x=Author,y=PubDate) +
+  aes(x=Voice,y=RTnaming) +
   geom_violin() +
-  stat_summary(fun="median")
+  facet_grid(~ AgeSubject) +
+  stat_summary(fun.y="mean")
 ```
 
 ```
-## Warning: Removed 3 rows containing missing values (`geom_segment()`).
+## Warning: The `fun.y` argument of `stat_summary()` is deprecated as of ggplot2 3.3.0.
+## ℹ Please use the `fun` argument instead.
+```
+
+```
+## Warning: Removed 2 rows containing missing values (`geom_segment()`).
+## Removed 2 rows containing missing values (`geom_segment()`).
 ```
 
 ![](README_files/figure-html/plot-3-1.png)<!-- -->

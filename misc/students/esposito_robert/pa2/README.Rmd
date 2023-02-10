@@ -14,6 +14,7 @@ output:
 
 library('languageR')
 library('tidyverse')
+library('reshape2')
 ```
 
 
@@ -47,15 +48,18 @@ beginningReaders %>%
 danish %>%
   ggplot() +
   aes(x=Sex,y=LogRT,fill=Sex) +
-  geom_boxplot()
+  geom_boxplot() +
+  labs(x="sex",y="reaction time",title="reaction time by sex")
 ```
 
 ```{r,'plot-3'}
-spanishMeta %>%
+english %>%
   ggplot() +
-  aes(x=Author,y=PubDate) +
+  aes(x=Voice,y=RTnaming) +
   geom_violin() +
-  stat_summary(fun="median")
-
+  facet_grid(~ AgeSubject) +
+  stat_summary(fun="mean") +
+  labs(title="naming reaction time by initial phoneme voicing across age",x="voicing",y="name reaction time")
+  
 ```
 
