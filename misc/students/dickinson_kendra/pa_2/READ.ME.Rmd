@@ -1,0 +1,120 @@
+---
+title: "Programming assignment 2"  
+author: "Kendra Dickinson"  
+date: "Last update: `r Sys.Date()`"
+output: 
+  html_document: 
+    highlight: kate
+    keep_md: yes
+    theme: united
+---
+**Load required packages
+```{r}
+library(languageR)
+library(tidyverse)
+```
+
+# Data set 1: beginningReaders
+
+```{r}
+#Exploring and organizing the data
+  #str(beginningReaders)
+  #dim(beginningReaders)
+  #summary(beginningReaders)
+```
+
+### Plot 1
+```{r,  beginningReaders.plot}
+
+beginningReaders %>%
+  ggplot()+
+  aes(x=LogFrequency, y=ProportionOfErrors)+
+  geom_point()+
+  geom_smooth(method="lm", se=TRUE)+
+  ggtitle("Word frequency by portion of errors \n")+
+  xlab("\n Log-transformed word frequency from Vermeer’s dictionary of Dutch children’s texts")+
+  ylab("Porportion of errors for a given word \n")+
+  theme(legend.position = "none")+
+  theme(plot.title = element_text(hjust = 0.5))+
+  theme(text = element_text(size = 15))+
+  theme(axis.title.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))
+  
+  
+```
+  
+<br>  
+<br>
+
+
+
+  
+# Data set 2: dativeSimplified
+
+```{r}
+#Exploring and organizing the data
+  #str(dativeSimplified)
+  #dim(dativeSimplified)
+  #summary(dativeSimplified)
+
+#Renaming factor values for maximum transparency in plot
+  levels(dativeSimplified$RealizationOfRec) <- c("Non-pronominal", "Pronominal")
+```
+
+### Plot 2
+```{r,  dativeSimplified.plot}
+
+dativeSimplified %>%
+  ggplot()+
+  aes(x=RealizationOfRec, y=LengthOfTheme, fill=RealizationOfRec)+
+  geom_boxplot()+
+  ggtitle("Dative realization by length of theme \n")+
+  xlab("\n Realization of Recipient")+
+  ylab("Length of Noun Phrase Theme \n")+
+  theme(legend.position = "none")+
+  theme(plot.title = element_text(hjust = 0.5))+
+  theme(text = element_text(size = 15))+
+  theme(axis.text.x = element_text(size = 15))+
+  theme(axis.title.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))
+  
+```
+
+<br>
+<br>
+
+# Data set 3: english
+
+```{r}
+#Exploring and organizing the data
+  #str(dativeSimplified)
+  #dim(dativeSimplified)
+  #summary(english)
+
+#Renaming factor values for maximum transparency in plot
+  levels(english$CV) <- c("consonant", "vowel")
+  levels(english$WordCategory) <- c("noun", "verb")
+
+```
+
+### Plot
+```{r,  english.plot}
+
+
+english%>%
+  ggplot()+
+  aes(x=CV, y=RTlexdec, fill=CV)+
+  stat_summary(fun.data = mean_se, geom="pointrange", pch=21)+
+  theme_test()+
+  theme(legend.position = "none")+
+  labs(x= "\n Initial phoneme", y= "Lexical decision response time \n",
+       title= "Mean decision response time by initial phoneme and lexical category \n", caption= "Mean +/- SE")+
+  theme(plot.title = element_text(hjust = 0.5))+
+  theme(text = element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 12))+
+  theme(axis.title.x = element_text(size = 12))+
+  theme(axis.title.y = element_text(size = 12))+
+  facet_grid(.~WordCategory)
+
+```
+
