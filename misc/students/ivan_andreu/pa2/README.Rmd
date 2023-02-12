@@ -1,0 +1,88 @@
+---
+title: "Programming assignment 2" 
+author: "Ivan Andreu Rascon" 
+date: "Last update: `r Sys.Date()`"
+output: 
+  html_document:
+    highlight: kate 
+    keep_md: yes
+    theme: "united"
+---
+
+#Libraries 
+
+```{r}
+
+library(tidyverse)
+library(languageR)
+  data(package="languageR")
+
+```
+
+#Plot 1
+
+##Data familiarization beginningReaders
+
+```{r}
+data(beginningReaders)
+summary(beginningReaders)
+head(beginningReaders)
+tail(beginningReaders)
+
+```
+
+# Plotting beginningReaders with a bivariate scatterplot
+
+
+```{r}
+ggplot(data = beginningReaders) + 
+  geom_point(mapping = aes(x = LogFrequency, y = ProportionOfErrors, color = "red", ))
+```
+
+##Data familiarization beginningReaders
+```{r}
+data(danish)
+summary(danish)
+head(danish)
+tail(danish)
+
+```
+
+```{r}
+
+
+danish %>%
+  ggplot() +
+  aes(x = PrevError, y = LogUP, fill = Sex) + geom_boxplot() + labs(x = "PrevError", y = "LogUP", title = "Un boxplot") + 
+  theme(axis.title=element_text(size=10),
+        axis.text.x = element_text(size=10), 
+        axis.text.y = element_text(size=10),
+        plot.title=element_text(size=10, hjust = 10))
+
+```
+
+
+
+##Data familiarization dativeSimplified
+```{r}
+data(english)
+summary(english)
+head(english)
+tail(english)
+
+```
+
+
+
+```{r}
+english %>%
+  ggplot() +
+  aes(x=Voice,y=RTnaming, fill = WordCategory) +  geom_col() +
+  facet_grid(~ AgeSubject) +
+  stat_summary(fun="median") +  labs(title="A plot with a stat_summary and a facet",x="Voice",y="RTnaming")
+
+
+```
+
+
+
