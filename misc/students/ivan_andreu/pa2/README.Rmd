@@ -39,7 +39,11 @@ ggplot(data = beginningReaders) +
   geom_point(mapping = aes(x = LogFrequency, y = ProportionOfErrors, color = "red", ))
 ```
 
+<<<<<<< HEAD
 ##Data familiarization danish
+=======
+##Data familiarization beginningReaders
+>>>>>>> 7290c0fd8b526b4f93907104490c4f4174a9a674
 ```{r}
 data(danish)
 summary(danish)
@@ -63,7 +67,11 @@ danish %>%
 
 
 
+<<<<<<< HEAD
 ##Data english
+=======
+##Data familiarization dativeSimplified
+>>>>>>> 7290c0fd8b526b4f93907104490c4f4174a9a674
 ```{r}
 data(english)
 summary(english)
