@@ -144,7 +144,11 @@ ggplot(data = beginningReaders) +
 
 ![](README_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
+<<<<<<< HEAD
+##Data familiarization danish
+=======
 ##Data familiarization beginningReaders
+>>>>>>> 7290c0fd8b526b4f93907104490c4f4174a9a674
 
 ```r
 data(danish)
@@ -257,7 +261,11 @@ danish %>%
 
 
 
+<<<<<<< HEAD
+##Data english
+=======
 ##Data familiarization dativeSimplified
+>>>>>>> 7290c0fd8b526b4f93907104490c4f4174a9a674
 
 ```r
 data(english)
