@@ -22,7 +22,6 @@ english -> english
 spanishFunctionWords -> spanishFunctionWords
 ```
 
-# Bivariate Scatterplot
 ```{r, bivariate-scatterplot}
 beginningReaders %>% 
   ggplot() + 
@@ -32,31 +31,11 @@ beginningReaders %>%
        title = "Reaction Times by Word Frequency")
 ```
 
-# Boxplot with different fill colors
-```{r, boxplot-with-different-fill-colors}
+```{r, boxplot with different fill colors}
 danish %>% 
   ggplot() + 
-  aes(x = Affix, y = LogRT, fill = Sex) + 
-  geom_boxplot() +
-  labs(x = "Affix", y = "Reaction Time",
-       title = "Reaction Times by Affix and Sex")
+  aes(x = factor(Rank), y = LogRT, fill = Sex) + 
+  geom_boxplot() + 
+  geom_point() 
 ```
-
-# Scatterplot with Stat Summary and Facet
-```{r, plot-of-my-choice-with-statsummary-facet}
-english %>% 
-  ggplot() + 
-  aes(x = WordCategory, y = RTnaming) + 
-  facet_grid(. ~ AgeSubject) + 
-  stat_summary(fun.data = mean_se, geom = "pointrange", pch = 19) + 
-  scale_y_continuous(breaks = seq(0, 10, 2),
-                     limits = c(0, 10)) +
-  labs(x = "Word Category", y = "Naming Reaction Time",
-       title = "Naming Reaction Times by Word Category and Age")
-```
-
-# Comments
-
-I selected the variables and datasets that I wanted to use and I did all the graphs. However, for the last one, I realized that the scale for the y axis was difficult to interpret (it started in 6) and I asked Patrick for help. He helped me to adjust the y axis. I hope it is fine.
-
 
