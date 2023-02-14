@@ -1,0 +1,65 @@
+---
+title: "Programming assignment 2" 
+author: "Robert Esposito" 
+date: "Last update: `r Sys.Date()`"
+output: 
+  html_document:
+    highlight: kate 
+    keep_md: yes
+    theme: "united"
+---
+
+```{r,'libraries'}
+## install.packages('languageR')
+
+library('languageR')
+library('tidyverse')
+library('reshape2')
+```
+
+
+```{r,'dfs-info',eval=FALSE}
+?beginningReaders
+?danish
+?dativeSimplified
+?english
+?spanishFunctionWords
+?spanishMeta
+```
+
+```{r,'load-dfs',eval=FALSE}
+beginningReaders
+english
+dativeSimplified
+danish
+spanishFunctionWords
+spanishMeta
+```
+
+```{r,'plot-1'}
+beginningReaders %>%
+  ggplot() + 
+  aes(x=LogFrequency,y=ProportionOfErrors) +
+  geom_point() +
+  labs(x="frequency of word",y="proportion of errors",title="Proportion of Errors by Word Frequency")
+```
+
+```{r,'plot-2'}
+danish %>%
+  ggplot() +
+  aes(x=Sex,y=LogRT,fill=Sex) +
+  geom_boxplot() +
+  labs(x="sex",y="reaction time",title="reaction time by sex")
+```
+
+```{r,'plot-3'}
+english %>%
+  ggplot() +
+  aes(x=Voice,y=RTnaming) +
+  geom_violin() +
+  facet_grid(~ AgeSubject) +
+  stat_summary(fun="mean") +
+  labs(title="naming reaction time by initial phoneme voicing across age",x="voicing",y="name reaction time")
+  
+```
+
