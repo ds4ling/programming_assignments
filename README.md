@@ -123,7 +123,7 @@ am using my name, you will use your name):
                 └── wickham_2015_summary.md
 
 Remember to check the [GitHub setup
-tutorial](https://ds4ling.github.io/sources/tuts/github_setup/index.html)
+tutorial](https://www.ds4ling.jvcasillas.com/misc/tutorials/github_setup/)
 if you need help pushing your changes and submitting a pull request.
 
 ------------------------------------------------------------------------
@@ -146,7 +146,7 @@ Moreover, you will show your data visualization skills using `ggplot2`.
 1.  Fetch the latest updates in `programming_assignments` to your forked
     branch and pull the changes to your local copy (i.e., the copy on
     your computer). Review the [GitHub setup
-    tutorial](https://ds4ling.github.io/sources/tuts/github_setup/index.html)
+    tutorial](https://www.ds4ling.jvcasillas.com/misc/tutorials/github_setup/)
     if you need a refresher.
 2.  Create a folder, `pa2`, inside your personal
     dropbox.<sup>[1](#myfootnote1)</sup>
@@ -158,9 +158,9 @@ Moreover, you will show your data visualization skills using `ggplot2`.
 
     title: "Programming assignment 2"  
     author: "Your name"  
-    date: "Last update: 2023-02-05 21:50:47"  
+    date: "Last update: `r Sys.time()`"  
     output:  
-      github_document:  
+      html_document:  
         highlight: kate  
         keep_md: yes  
         theme: united
@@ -236,7 +236,7 @@ above and follow all the instructions.
 Review Ch. 1 of R4DS for help with `ggplot`. **DO NOT** copy the plots
 directly from the book or the internet (I’ll know). Review the [GitHub
 setup
-tutorial](https://ds4ling.github.io/sources/tuts/github_setup/index.html),
+tutorial](https://www.ds4ling.jvcasillas.com/misc/tutorials/github_setup/),
 especially if you are struggling with git-specific terminology. Pay
 special attention to file names, letter case, etc. in order to get the
 appropriate results.
