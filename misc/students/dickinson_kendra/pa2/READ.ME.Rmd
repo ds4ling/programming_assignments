@@ -7,6 +7,8 @@ output:
     highlight: kate
     keep_md: yes
     theme: united
+editor_options: 
+  chunk_output_type: console
 ---
 **Load required packages
 ```{r}
@@ -31,7 +33,7 @@ beginningReaders %>%
   aes(x=LogFrequency, y=ProportionOfErrors)+
   geom_point()+
   geom_smooth(method="lm", se=TRUE)+
-  ggtitle("Word frequency by portion of errors \n")+
+  ggtitle("Word frequency by proportion of errors \n")+
   xlab("\n Log-transformed word frequency from Vermeer’s dictionary of Dutch children’s texts")+
   ylab("Porportion of errors for a given word \n")+
   theme(legend.position = "none")+
