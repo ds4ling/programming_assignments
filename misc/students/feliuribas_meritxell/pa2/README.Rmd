@@ -1,0 +1,41 @@
+---
+title: "Programming assignment 2"  
+author: "Meritxell Feliu Ribas"  
+date: "Last update: `r Sys.Date()`"  
+output:  
+  html_document:  
+    highlight: kate  
+    keep_md: yes  
+    theme: "united"
+---
+
+```{r, load-packages}
+library("tidyverse")
+library("languageR")
+```
+
+```{r, load data}
+beginningReaders = beginningReaders
+danish -> danish
+dativeSimplified -> dativeSimplified
+english -> english
+spanishFunctionWords -> spanishFunctionWords
+```
+
+```{r, bivariate-scatterplot}
+beginningReaders %>% 
+  ggplot() + 
+  aes(x = LogFrequency, y = LogRT) + 
+  geom_point() +
+  labs(y = "Reaction Time", x = "Word Frequency",
+       title = "Reaction Times by Word Frequency")
+```
+
+```{r, boxplot with different fill colors}
+danish %>% 
+  ggplot() + 
+  aes(x = factor(Rank), y = LogRT, fill = Sex) + 
+  geom_boxplot() + 
+  geom_point() 
+```
+

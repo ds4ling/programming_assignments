@@ -2,6 +2,10 @@
 
 ## Programming assignments for Data Science for Linguistics.
 
+-   [pa1](#assignment-1)
+-   [pa2](#assignment-2)
+-   [pa3](#assignment-3)
+
 ------------------------------------------------------------------------
 
 ## Assignment 1
@@ -123,7 +127,7 @@ am using my name, you will use your name):
                 └── wickham_2015_summary.md
 
 Remember to check the [GitHub setup
-tutorial](https://ds4ling.github.io/sources/tuts/github_setup/index.html)
+tutorial](https://www.ds4ling.jvcasillas.com/misc/tutorials/github_setup/)
 if you need help pushing your changes and submitting a pull request.
 
 ------------------------------------------------------------------------
@@ -146,7 +150,7 @@ Moreover, you will show your data visualization skills using `ggplot2`.
 1.  Fetch the latest updates in `programming_assignments` to your forked
     branch and pull the changes to your local copy (i.e., the copy on
     your computer). Review the [GitHub setup
-    tutorial](https://ds4ling.github.io/sources/tuts/github_setup/index.html)
+    tutorial](https://www.ds4ling.jvcasillas.com/misc/tutorials/github_setup/)
     if you need a refresher.
 2.  Create a folder, `pa2`, inside your personal
     dropbox.<sup>[1](#myfootnote1)</sup>
@@ -158,9 +162,9 @@ Moreover, you will show your data visualization skills using `ggplot2`.
 
     title: "Programming assignment 2"  
     author: "Your name"  
-    date: "Last update: 2023-02-05 21:50:47"  
+    date: "Last update: `r Sys.time()`"  
     output:  
-      github_document:  
+      html_document:  
         highlight: kate  
         keep_md: yes  
         theme: united
@@ -236,7 +240,7 @@ above and follow all the instructions.
 Review Ch. 1 of R4DS for help with `ggplot`. **DO NOT** copy the plots
 directly from the book or the internet (I’ll know). Review the [GitHub
 setup
-tutorial](https://ds4ling.github.io/sources/tuts/github_setup/index.html),
+tutorial](https://www.ds4ling.jvcasillas.com/misc/tutorials/github_setup/),
 especially if you are struggling with git-specific terminology. Pay
 special attention to file names, letter case, etc. in order to get the
 appropriate results.
@@ -260,6 +264,118 @@ review your classmates assignments. You can learn from them and you will
 notice that it is possible to solve data science problems using a
 variety of different methods. That being said, you should only review
 the work of your classmates **after** the assignment has been turned in.
+
+------------------------------------------------------------------------
+
+## Assignment 3
+
+**Topics**: Project management, Tidying data, GitHub Pages
+
+### Overview
+
+In this assignment you will create your own RStudio project in which you
+get, tidy, transform and plot data from a publicly available dataset.
+You will host your project in a GitHub repo and create a project
+website.
+
+**Assigned**: Week 5, 02/20  
+**Due**: Monday, 02/27 before 10pm
+
+### Instructions
+
+Choose any data set you want from the `languageR` package (it can be the
+same one you used last week). To see all the options, run the following
+code in RStudio:
+
+    data(package = "languageR")
+
+#### Setup
+
+1.  Create a new repo from GitHub.com called `pa3` and clone it to your
+    desktop.
+2.  Create a new project for your repo using RStudio.
+3.  Inside your new project, create an RMarkdown document called
+    `index.Rmd` (the default output format should be html).
+
+#### EDA
+
+1.  Load the data set of your choice and get information about its
+    structure (remember all code needs to be inside a knitr code chunk).
+2.  Tidy the data set (every variable gets a column, every observation
+    occupies a single row), if necessary.
+3.  Calculate descriptive statistics of your choice.
+4.  Select two continuous variables and fit a model to the data
+    (bivariate regression).
+5.  Generate a plot that includes a regression line.
+6.  Write up some general observations (1-2 paragraphs max)
+
+#### Share
+
+1.  Commit your changes and push them to GitHub.
+2.  Publish your repo using GitHub Pages.
+3.  Update your fork of the `programming_assignments` repo. Next, create
+    a new folder inside **your** dropbox in `programming_assignments`
+    called `pa3`. Include a README.md file with a link to your published
+    pa3 website. Submit a pull request to the master
+    `programming_assignments` repo.
+
+### Evaluation
+
+This is programming assignment 3 of 5. It is worth 10 of the 50 possible
+points. In order to receive full credit you must complete all steps in
+**Setup**, **EDA**, and **Share** detailed above, and follow **all** the
+instructions. Moreover, steps 1-5 in *EDA* **must** be completed in
+separate code chunks, and you must comment every step in your code.
+
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Task</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tidy data</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Descriptive stats</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Plot data</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fit bivariate regression</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Publish to GitHub Pages</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Successfully submit pull request</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+
+### Tips
+
+-   Review the RStudio Projects tutorial to refresh your memory.
+-   Review the recommended readings for tips on tidying your data.
+-   Only submit a pull request to `programming_assignments` once
+    everything is working properly in your repo.
+-   Always include a README in your repos.
+-   Make sure you **look** at the output after knitting. Is it clean?
+    Make it look good (i.e., don’t type everything in bold!).
+-   **Use slack to ask questions**
 
 ------------------------------------------------------------------------
 
