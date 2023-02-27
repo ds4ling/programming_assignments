@@ -1,0 +1,52 @@
+---
+title: "Index"
+output: html_document
+author: "Meritxell Feliu Ribas"
+date: "2023-02-23"
+---
+
+# Load Packages
+```{r, load-packages}
+library("tidyverse")
+library("languageR")
+```
+
+# Load Data
+```{r, load-data}
+beginningReaders = beginningReaders
+```
+
+# Descriptive Statistics
+```{r, summary-descriptive-statistics}
+beginningReaders %>%
+  group_by(Word) %>% 
+  summarize(
+    mean = mean(LogRT),
+    sd = sd(LogRT),
+    min = min(LogRT),
+    max = max(LogRT)
+    )
+```
+
+# Linear Model Correlation
+```{r, correlation}
+rt_freq <- lm(LogRT ~ LogFrequency, data = beginningReaders)
+summary(rt_freq)
+```
+
+# Plot with regression line
+```{r, plot}
+beginningReaders %>% 
+  ggplot() + 
+  aes(x = LogFrequency, y = LogRT) + 
+  geom_point() +
+  geom_smooth(method = lm) +
+  labs(y = "Reaction Time", x = "Word Frequency",
+       title = "Reaction Times by Word Frequency")
+```
+
+# General Observations
+The data set chosen for this analysis is BeginningReaders, which provides information about visual lexical decision with 8-year-old Dutch children. We have analyzed the effect of word frequency (independent variable, x) on reaction times (dependent variable, y) for a total of 184 words. As we can see from the R-squared value calculated from the model and the plot with the regression line, we find a weak negative correlation between RT and word frequency. 
+
+# Comment
+I worked in this assignment with Stephanie and Patrick, which helped me understand better what we did in class the other day. However, I wrote the general observations alone. 
