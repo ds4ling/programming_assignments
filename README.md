@@ -5,6 +5,7 @@
 -   [pa1](#assignment-1)
 -   [pa2](#assignment-2)
 -   [pa3](#assignment-3)
+-   [pa4](#assignment-4)
 
 ------------------------------------------------------------------------
 
@@ -379,7 +380,128 @@ separate code chunks, and you must comment every step in your code.
 
 ------------------------------------------------------------------------
 
+## Assignment 4
+
+**Topics**: Project management, tidying data, HTML Presentations
+
+### Overview
+
+In this assignment you will create an RStudio project in which you get,
+tidy, transform, analyze and plot data from a publicly available
+dataset. You will host your project in a GitHub repo and create HTML
+slides to present your analysis.
+
+**Assigned**: 03/20  
+**Due**: Monday, 03/27 before 10pm
+
+### Instructions
+
+1.  Create a new project in RStudio called `pa4`. Inside your new
+    project, create three folders: `data_raw`, `data_tidy`, and
+    `slides`.
+2.  Download the dataset available
+    [here](https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_4_data/fricatives.zip)
+    and store it in `data_raw`.
+3.  Generate an HTML presentation using **xaringan**. Save the RMarkdown
+    file as `index.Rmd` inside of the folder `slides`.
+4.  Load the dataset from inside your `index.Rmd` file.
+5.  Tidy the data and save the tidy version as a .csv file in
+    `data_tidy`.
+6.  Provide a table of descriptive statistics.
+7.  Make a boxplot of center of gravity as a function of phoneme. In
+    another slide, plot skewness as a function of phoneme. Use a
+    statistical transformation (i.e., not a boxplot, but rather
+    `stat_summary()`).
+8.  Fit a model that examines center of gravity as a function of
+    skewness for the \[s\] segments (hint: you will have to transform
+    the data). Make a table of the model summary.
+9.  Make a scatter plot that illustrates the relationship in (8).
+10. Check model diagnostics (make plots).
+11. Write up the results (as if it were for a journal article).
+12. In a new slide, load the `assumptions.csv` dataset. Make a
+    scatterplot. Explain in a few sentences why it would not be
+    appropriate to fit a model to this data.
+13. Host your project in a GitHub repo called `pa4`.
+14. Turn the slides into a website using GitHub pages.
+15. Inside your dropbox in `programming_assignments`, create a folder
+    called `pa4` that includes a `README.md` file with a link to your
+    slides.
+16. Push changes to your forked version of `programming_assignments` and
+    submit a pull request to the master `programming_assignments` repo
+    in ds4ling.
+
+### Evaluation
+
+This is programming assignment 4 of 5. It is worth 10 of the 50 possible
+points. In order to receive full credit you must complete steps 1-16
+above and follow **all** the instructions.
+
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Task</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tidy data</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Descriptive stats</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Plot data</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fit a model</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Assess and interpret model</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Publish HTML slides using GitHub
+Pages</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Complete question 12</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Successfully submit pull request</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+
+### Tips
+
+-   Follow every instruction step-by-step.
+-   Worry about tidying your data, fitting your models, making plots,
+    etc., **before** you worry about making the presentation (i.e.,
+    making each individual slide). It might be a good idea to use an R
+    script first, as we have done in class, and then turn it into a
+    presentation.
+-   Search for help when you get stuck, use stackoverflow and slack, not
+    Patrick.
+-   Think of this PA as a practice exam. Use all of the skills you have
+    developed up to this point in the class.
+-   Review fetching changes in GitHub (to update your
+    **programming\_assignments** repo) and submitting pull-requests (to
+    ‘turn in’ your assignment).
+
+------------------------------------------------------------------------
+
 <!--
-[pa4_fricatives]: https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_4_data/fricatives.zip
 [pa5_learning]: https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_5_data/pa_5_data.zip
 -->
