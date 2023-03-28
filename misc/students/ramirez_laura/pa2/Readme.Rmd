@@ -53,7 +53,8 @@ beginningReaders %>%
 ```{r}
 beginningReaders %>%
   select(Word,ProportionOfErrors) %>% 
-  filter(Word =="^A") %>% 
+  wordswithA <- pull(beginningReaders, Word)  %>% 
+  filter(str_detect(wordswithA, "^A")) %>%
   ggplot () +
   aes(x = Word, y =ProportionOfErrors) + 
   geom_bar() 
