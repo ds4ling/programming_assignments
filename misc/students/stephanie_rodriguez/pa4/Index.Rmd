@@ -1,0 +1,146 @@
+---
+title: "PA4"
+author: "Stephanie Rodriguez"
+institute: "Rutgers University"
+date: "2023/03/27 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["hygge", "rutgers", "rutgers-fonts"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+# Load Packages
+```{r, load-packages}
+library(tidyverse)
+library(ds4ling)
+library(here)
+library("broom")
+```
+
+---
+# Load Data
+
+```{r, load-data}
+read_csv(file = "./data_raw/fricatives/fricatives.csv")
+data_fricatives <- read_csv(file = "./data_raw/fricatives/fricatives.csv")
+
+fricatives_data <- read.csv(here("data_raw","fricatives","fricatives.csv"))
+```
+
+---
+# Tidy Data
+```{r, data-tidy}
+tidy_fricatives <- data_fricatives %>% 
+  pivot_longer(
+    cols = c("s_cog", "sh_cog"), 
+    names_to = "phoneme", 
+    values_to = "cog") %>% 
+  pivot_longer(
+    cols = c("s_skewness", "sh_skewness"), 
+    names_to = "phoneme1", 
+    values_to = "skewness") %>% 
+  unite(phoneme , phoneme1) %>% 
+  relocate(phoneme, .before = cog) 
+```
+
+---
+# Create CSV
+
+```{r, create-csv}
+write.csv(tidy_fricatives, "./data_tidy/tidy_fricatives.csv")
+```
+
+---
+# Descriptive Stats
+```{r, descriptive-stats}
+tidy_fricatives %>% 
+  group_by(phoneme) %>% 
+  summarise(mean_cog = mean(cog), sd_cog = sd(cog), mean_skewness = mean(skewness), sd_skewness = sd(skewness)) %>% 
+  knitr::kable()
+```
+
+---
+# Plot of COG
+```{r, boxplot}
+tidy_fricatives %>% 
+ggplot(aes(x = phoneme, y = cog)) + 
+  geom_boxplot() + 
+  labs(title , "Center of Gravity as a Function of Phoneme",
+       x = "Phoneme",
+       y = "COG")
+```
+
+---
+# Plot of Skewness
+```{r, plot}
+tidy_fricatives %>% 
+  ggplot(aes(x = phoneme, y = skewness)) +
+  geom_point() + 
+  stat_summary(fun.data = mean_se, geom = "pointrange") +
+  labs(title , "Skewness as a Function of Phoneme",
+       x = "Phoneme",
+       y = "Skewness")
+```
+
+---
+# Model Summary
+```{r, model-summary}
+phoneme_s <- filter(tidy_fricatives, phoneme == "s_skewness")
+
+model_0 <- lm(cog ~ 1, data = phoneme_s)
+model_s <- lm(cog ~ skewness, data = phoneme_s)
+
+summary(model_s)
+tidy(model_s) %>% 
+  knitr::kable(format = "pandoc")
+         
+```
+
+---
+# Scatterplot
+```{r}
+tidy_fricatives %>%
+  ggplot(aes(x = skewness, y = cog)) + 
+  geom_point() +
+  geom_smooth(method = lm) +
+  labs(x = "Skewness", y = "COG", title = "Center of Gravity as a Function of Skewness for the [s]")
+```
+
+---
+# Model Diagnostics Anova
+```{r, anova-diagnostics}
+anova(model_0, model_s)
+```
+
+---
+# Assumptions
+```{r, assumptions-data}
+assumptions_data <- read.csv(here("data_raw","fricatives","assumptions.csv"))
+```
+
+---
+# Assumptions Plot
+```{r, assumptions-plot}
+assumptions_data %>% 
+  ggplot(aes(x = x, y = y )) +
+  geom_point() 
+```
+
+---
+# Results
+
+A linear regression analysis was performed to examine the relationship between the center of gravity and the skewness of the phoneme [s]. The dependent variable was center of gravity and the predictor was and skewness. 
+
+The results of the analysis indicated a positive linear relationship between the two variables, as evidenced by the plot. The adjusted R-squared value of 0.4024 indicated that 40.24% of the variation in the center of gravity could be explained by skewness. Furthermore, a one unit increase in skewness was associated with an increase of 2664.3 in the center of gravity, with a standard error of 526.7. The statistical significance of the model was confirmed by a p-value of 1.105e-05, indicating that the model as a whole was significant at a level of alpha = 0.05.
+
+The model revealed a main effect of skewness on center of gravity.
+
+
+
+
+
+
+
