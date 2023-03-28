@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>PA4</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Stephanie Rodriguez" />
+    <script src="libs/header-attrs-2.20/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/hygge.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/rutgers.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/rutgers-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# PA4
+]
+.author[
+### Stephanie Rodriguez
+]
+.institute[
+### Rutgers University
+]
+.date[
+### 2023/03/27 (updated: 2023-03-27)
+]
+
+---
+
+# Load Packages
+
+```r
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+## ✔ ggplot2 3.4.1     ✔ purrr   1.0.1
+## ✔ tibble  3.1.8     ✔ dplyr   1.1.0
+## ✔ tidyr   1.3.0     ✔ stringr 1.5.0
+## ✔ readr   2.1.4     ✔ forcats 1.0.0
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
+```r
+library(ds4ling)
+```
+
+```
+## 
+##  ds4ling loaded
+##  Happy coding!
+```
+
+```r
+library(here)
+```
+
+```
+## here() starts at /Users/stephanierodriguez/Desktop/Data Science/pa4
+```
+
+```r
+library("broom")
+```
+
+---
+# Load Data
+
+
+```r
+read_csv(file = "./data_raw/fricatives/fricatives.csv")
+```
+
+```
+## Rows: 20 Columns: 5
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: ","
+## dbl (5): obs, s_cog, s_skewness, sh_cog, sh_skewness
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```
+## # A tibble: 20 × 5
+##      obs s_cog s_skewness sh_cog sh_skewness
+##    &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;
+##  1     1 3285.     -1.22   2409.     -0.248 
+##  2     2 4664.     -1.19   2823.     -0.0165
+##  3     3 4680.     -1.07   2898.      0.118 
+##  4     4 4874.     -1.06   3617.      0.198 
+##  5     5 4879.     -1.03   3668.      0.212 
+##  6     6 5195.     -0.949  3685.      0.262 
+##  7     7 5455.     -0.909  3875.      0.324 
+##  8     8 5484.     -0.878  3918.      0.494 
+##  9     9 5684.     -0.867  3953.      0.510 
+## 10    10 5830.     -0.859  3955.      0.522 
+## 11    11 5890.     -0.701  3957.      0.541 
+## 12    12 5987.     -0.692  4060.      0.574 
+## 13    13 6076.     -0.681  4310.      0.589 
+## 14    14 6094.     -0.625  4334.      0.632 
+## 15    15 6238.     -0.621  4496.      0.710 
+## 16    16 6321.     -0.576  4611.      0.767 
+## 17    17 6444.     -0.551  4626.      0.800 
+## 18    18 6625.     -0.512  4735.      1.13  
+## 19    19 7012.     -0.318  4880.      1.42  
+## 20    20 7095.     -0.127  5087.      1.52
+```
+
+```r
+data_fricatives &lt;- read_csv(file = "./data_raw/fricatives/fricatives.csv")
+```
+
+```
+## Rows: 20 Columns: 5
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: ","
+## dbl (5): obs, s_cog, s_skewness, sh_cog, sh_skewness
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```r
+fricatives_data &lt;- read.csv(here("data_raw","fricatives","fricatives.csv"))
+```
+
+---
+# Tidy Data
+
+```r
+tidy_fricatives &lt;- data_fricatives %&gt;% 
+  pivot_longer(
+    cols = c("s_cog", "sh_cog"), 
+    names_to = "phoneme", 
+    values_to = "cog") %&gt;% 
+  pivot_longer(
+    cols = c("s_skewness", "sh_skewness"), 
+    names_to = "phoneme1", 
+    values_to = "skewness") %&gt;% 
+  unite(phoneme , phoneme1) %&gt;% 
+  relocate(phoneme, .before = cog) 
+```
+
+---
+# Create CSV
+
+
+```r
+write.csv(tidy_fricatives, "./data_tidy/tidy_fricatives.csv")
+```
+
+---
+# Descriptive Stats
+
+```r
+tidy_fricatives %&gt;% 
+  group_by(phoneme) %&gt;% 
+  summarise(mean_cog = mean(cog), sd_cog = sd(cog), mean_skewness = mean(skewness), sd_skewness = sd(skewness)) %&gt;% 
+  knitr::kable()
+```
+
+
+
+|phoneme     | mean_cog|   sd_cog| mean_skewness| sd_skewness|
+|:-----------|--------:|--------:|-------------:|-----------:|
+|s_skewness  | 4842.673| 1174.881|    -0.7714211|   0.2797462|
+|sh_skewness | 4842.673| 1174.881|     0.5527295|   0.4354200|
+
+---
+# Plot of COG
+
+```r
+tidy_fricatives %&gt;% 
+ggplot(aes(x = phoneme, y = cog)) + 
+  geom_boxplot() + 
+  labs(title , "Center of Gravity as a Function of Phoneme",
+       x = "Phoneme",
+       y = "COG")
+```
+
+![](Index_files/figure-html/boxplot-1.png)&lt;!-- --&gt;
+
+---
+# Plot of Skewness
+
+```r
+tidy_fricatives %&gt;% 
+  ggplot(aes(x = phoneme, y = skewness)) +
+  geom_point() + 
+  stat_summary(fun.data = mean_se, geom = "pointrange") +
+  labs(title , "Skewness as a Function of Phoneme",
+       x = "Phoneme",
+       y = "Skewness")
+```
+
+![](Index_files/figure-html/plot-1.png)&lt;!-- --&gt;
+
+---
+# Model Summary
+
+```r
+phoneme_s &lt;- filter(tidy_fricatives, phoneme == "s_skewness")
+
+model_0 &lt;- lm(cog ~ 1, data = phoneme_s)
+model_s &lt;- lm(cog ~ skewness, data = phoneme_s)
+
+summary(model_s)
+```
+
+```
+## 
+## Call:
+## lm(formula = cog ~ skewness, data = phoneme_s)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1473.0  -780.7  -414.2   927.1  1221.0 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   6897.9      431.5  15.985  &lt; 2e-16 ***
+## skewness      2664.3      526.7   5.059  1.1e-05 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 920.1 on 38 degrees of freedom
+## Multiple R-squared:  0.4024,	Adjusted R-squared:  0.3867 
+## F-statistic: 25.59 on 1 and 38 DF,  p-value: 1.105e-05
+```
+
+```r
+tidy(model_s) %&gt;% 
+  knitr::kable(format = "pandoc")
+```
+
+
+
+term           estimate   std.error   statistic   p.value
+------------  ---------  ----------  ----------  --------
+(Intercept)    6897.946    431.5371   15.984595   0.0e+00
+skewness       2664.268    526.6596    5.058804   1.1e-05
+
+---
+# Scatterplot
+
+```r
+tidy_fricatives %&gt;%
+  ggplot(aes(x = skewness, y = cog)) + 
+  geom_point() +
+  geom_smooth(method = lm) +
+  labs(x = "Skewness", y = "COG", title = "Center of Gravity as a Function of Skewness for the [s]")
+```
+
+```
+## `geom_smooth()` using formula = 'y ~ x'
+```
+
+![](Index_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+
+---
+# Model Diagnostics Anova
+
+```r
+anova(model_0, model_s)
+```
+
+```
+## Analysis of Variance Table
+## 
+## Model 1: cog ~ 1
+## Model 2: cog ~ skewness
+##   Res.Df      RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1     39 53833449                                  
+## 2     38 32168940  1  21664510 25.591 1.105e-05 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+# Assumptions
+
+```r
+assumptions_data &lt;- read.csv(here("data_raw","fricatives","assumptions.csv"))
+```
+
+---
+# Assumptions Plot
+
+```r
+assumptions_data %&gt;% 
+  ggplot(aes(x = x, y = y )) +
+  geom_point() 
+```
+
+![](Index_files/figure-html/assumptions-plot-1.png)&lt;!-- --&gt;
+
+---
+# Results
+
+A linear regression analysis was performed to examine the relationship between the center of gravity and the skewness of the phoneme [s]. The dependent variable was center of gravity and the predictor was and skewness. 
+
+The results of the analysis indicated a positive linear relationship between the two variables, as evidenced by the plot. The adjusted R-squared value of 0.4024 indicated that 40.24% of the variation in the center of gravity could be explained by skewness. Furthermore, a one unit increase in skewness was associated with an increase of 2664.3 in the center of gravity, with a standard error of 526.7. The statistical significance of the model was confirmed by a p-value of 1.105e-05, indicating that the model as a whole was significant at a level of alpha = 0.05.
+
+The model revealed a main effect of skewness on center of gravity.
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
