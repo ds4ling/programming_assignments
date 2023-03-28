@@ -13,7 +13,7 @@ library(knitr)
 
 ## Programming assignments for Data Science for Linguistics.
 
-```{r, echo=FALSE, results='asis', eval=F}
+```{r, echo=FALSE, results='asis', eval=T}
 #
 # Automate TOC
 # - After each PA is assigned, update list_elements[X]
@@ -43,7 +43,7 @@ for (element in 1:length(link_names)) {
 }
 
 # Combine everything into an unordered list
-#cat(paste0('- ', link_names[1:5], link_ref[1:5], '\n'))
+cat(paste0('- ', link_names[1:4], link_ref[1:4], '\n'))
 ```
 
 
@@ -53,13 +53,13 @@ for (element in 1:length(link_names)) {
 ```{r, child='./staging/pa1.md', eval=T}
 ```
 
-```{r, child='./staging/pa2.md', eval=F}
+```{r, child='./staging/pa2.md', eval=T}
 ```
 
-```{r, child='./staging/pa3.md', eval=F}
+```{r, child='./staging/pa3.md', eval=T}
 ```
 
-```{r, child='./staging/pa4.md', eval=F}
+```{r, child='./staging/pa4.md', eval=T}
 ```
 
 ```{r, child='./staging/pa5.md', eval=F}
@@ -68,8 +68,8 @@ for (element in 1:length(link_names)) {
 
 [w2015]: https://nhorton.people.amherst.edu/mererenovation/17_Wickham.PDF
 [R4DS]: http://r4ds.had.co.nz/index.html
-[githubtut]: https://ds4ling.github.io/sources/tuts/github_setup/index.html
-<!--
+[githubtut]: https://www.ds4ling.jvcasillas.com/misc/tutorials/github_setup/
 [pa4_fricatives]: https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_4_data/fricatives.zip
+<!--
 [pa5_learning]: https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_5_data/pa_5_data.zip
 -->
