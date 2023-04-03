@@ -545,8 +545,9 @@ you want to know if proficiency scores vary as a function of age
     newest changes to update your local repo.
 2.  Create a new project in RStudio called `pa5`. Inside your new
     project, create two folders: `data_raw` and `data_clean`.
-3.  Download the dataset available [here](pa5_learning) and store the
-    entire folder in `data_raw`.  
+3.  Download the dataset available
+    [here](https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_5_data/pa_5_data.zip)
+    and store the entire folder in `data_raw`.  
 4.  Create a new RMarkdown file called `index.Rmd` (‘index’ is *not*
     capitalized) and save it at the root level of your project (i.e.,
     inside `pa5`). The output of the Rmd file should be a word document.
