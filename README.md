@@ -6,6 +6,7 @@
 -   [pa2](#assignment-2)
 -   [pa3](#assignment-3)
 -   [pa4](#assignment-4)
+-   [pa5](#assignment-5)
 
 ------------------------------------------------------------------------
 
@@ -502,6 +503,203 @@ Pages</td>
 
 ------------------------------------------------------------------------
 
-<!--
-[pa5_learning]: https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_5_data/pa_5_data.zip
--->
+## Assignment 5
+
+**Topics**: Project management, tidying data, fitting linear models,
+testing hypotheses, reporting results.
+
+### Overview
+
+In this assignment you will create an RStudio project in which you load,
+tidy, transform, plot, analyze and report data. You will host your
+project on GitHub in a personal repo and create a report (word doc) to
+present your analysis.
+
+**Assigned**: 04/03  
+**Due**: 04/10 by 10:00 pm
+
+### Background
+
+You are interested in researching how different people learn a second
+language. You have collected the data in `lang_data_raw.csv`.
+Specifically, you are interested in determining if it is easier/harder
+to learn an L2 based on age, and language aptitude. You hypothesize that
+younger people learn languages better than older people (for the sake of
+this exercise assume that younger implies before puberty and older
+implies over 20 years old). Moreover, you think age interacts with
+language aptitude, that is, some people are just better at learning
+languages, regardless of the age at which they learn. To test your
+hypotheses, you have given 200 language learners a proficiency test. You
+also have data regarding their iq and a measurement of overall
+motivation (for the sake of this exercise also assume that language
+aptitude can be assessed with just iq and motivation). Previous
+literature on the subject utilizes iq and motivation data to create a
+composite language learning ability metric. You need to create this
+metric for all of the models you will fit (instructions below). In sum,
+you want to know if proficiency scores vary as a function of age
+(younger/older) and composite aptitude score.
+
+### Instructions
+
+1.  Get the latest version of `programming_assignments`, i.e., fetch the
+    newest changes to update your local repo.
+2.  Create a new project in RStudio called `pa5`. Inside your new
+    project, create two folders: `data_raw` and `data_clean`.
+3.  Download the dataset available
+    [here](https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_5_data/pa_5_data.zip)
+    and store the entire folder in `data_raw`.  
+4.  Create a new RMarkdown file called `index.Rmd` (‘index’ is *not*
+    capitalized) and save it at the root level of your project (i.e.,
+    inside `pa5`). The output of the Rmd file should be a word document.
+    You can use the `papaja` package to generate an APA formatted
+    manuscript if you’d like. If you choose not to use `papaja`, the
+    yaml front matter of your document should have the “output” set to
+    `word_document`. Be sure to give an informative title and to include
+    your name.
+5.  Load the dataset from inside your `index.Rmd` file. Pay special
+    attention to the path. Don’t forget where the .csv file lives. Print
+    the first 6 rows of the dataframe (make sure `echo=TRUE` in all
+    knitr code chunks).
+6.  Tidy the dataset as necessary to run your models and plot your data.
+    Keep in mind the principles of tidy data. Use sections, text,
+    comments, etc. to explain in prose every step of the tidying
+    process.
+7.  Create a new column in the dataset for the composite language
+    learning score by taking the log of iq divided by 80 plus the log of
+    motivation (note: the `log()` function will be useful. See `?log`
+    for more info). Call this variable `composite_score`. After you have
+    created this variable, you can standardize or center it if you want
+    (i.e., create z-scores, or subtract the mean from each value), but
+    this is not obligatory.
+8.  Provide a table of descriptive statistics. You decide what is
+    relevant based on the variables you have and your hypotheses.
+    Include an explanation in prose of any observations you make from
+    the table. Be sure to print the table in a way that will show up in
+    your knitted document (see previous examples from class).
+9.  Create an informative plot of the data. You only get one plot, so
+    make it count. Keep in mind the types of variables that you have,
+    particularly those that are relevant to your hypotheses. Interpret
+    the plot (in prose).
+10. Again, you are interested in determining if proficiency scores vary
+    as a function of `age` and `composite_score`. Fit the appropriate
+    model. Test the two-way interaction, the main effect of `age`, and
+    the main effect of `composite_score` using nested model comparisons.
+11. Print a summary of the best model and test that the model
+    assumptions have been met (you can use plots for this, but you are
+    not required to include them in the final version of your
+    assignment).
+12. Write up the results. You should include (1) a description of the
+    statistical analyses you have done in one paragraph, and (2) the
+    actual interpretation of the results in another (see class slides
+    for examples). Don’t forget to include an overall assessment of
+    goodness of fit (variance explained).
+13. Once you have finished steps 1-12, make sure your documents will
+    knit successfully. Read that last sentence again. Host your project
+    in a **private** GitHub repo (call it `pa5`), and share it with me
+    (jvcasillas). You can share a private repo from the settings tab on
+    github.com (essentially you add me as a contributor). You do not
+    need to make it a website.
+14. Create a new folder in your `programming_assignments` dropbox
+    folder. Include a `README.md` file with a link to your repo (just
+    the repo, not a website).
+15. Celebrate. You survived. So far.
+
+### Evaluation
+
+This is programming assignment 5. There are a total of 10 possible
+points. In order to receive full credit you must complete steps 1-15
+above and follow **all** the instructions.
+
+<table>
+<colgroup>
+<col style="width: 90%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Task</th>
+<th style="text-align: right;">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Create <code>pa5</code> project with
+correct structure</td>
+<td style="text-align: right;">0.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Create <code>index.Rmd</code> with title
+and author info</td>
+<td style="text-align: right;">0.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Load data and print first 6 rows</td>
+<td style="text-align: right;">0.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tidy the data</td>
+<td style="text-align: right;">0.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Create <code>composite_score</code>
+variable</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Create table of relevant descriptive
+stats</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Generate an informative plot data and
+accurately describe it</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Fit inclusive model and appropriate nested
+models</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Test two-way interaction and main
+effects</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Print model summary and test
+assumptions</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Write up results for publication</td>
+<td style="text-align: right;">2.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Create private repo</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Successfully submit pull request</td>
+<td style="text-align: right;">0.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+
+### Hints
+
+-   Make use of markdown syntax. Include appropriate sections,
+    subsections, etc.
+-   Comment all of your code. If you get stuck, explain what you are
+    trying to do. If you find help on the internet or in slides from
+    class, include a link in your comments.
+-   The equation for the composite score can be written like this:  
+
+<!-- -->
+
+    composite_score = log(iq / 80) + log(motivation)
+
+-   You get lifelines. Use slack to ask if you need help.
