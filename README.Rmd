@@ -8,9 +8,6 @@ library(knitr)
 
 # programming_assignments
 
-
-
-
 ## Programming assignments for Data Science for Linguistics.
 
 ```{r, echo=FALSE, results='asis', eval=T}
@@ -43,26 +40,26 @@ for (element in 1:length(link_names)) {
 }
 
 # Combine everything into an unordered list
-cat(paste0('- ', link_names[1:5], link_ref[1:5], '\n'))
+#cat(paste0('- ', link_names[1:5], link_ref[1:5], '\n'))
 ```
 
 
 ---
 
 
-```{r, child='./staging/pa1.md', eval=T}
+```{r, child='./staging/pa1.md', eval=F}
 ```
 
-```{r, child='./staging/pa2.md', eval=T}
+```{r, child='./staging/pa2.md', eval=F}
 ```
 
-```{r, child='./staging/pa3.md', eval=T}
+```{r, child='./staging/pa3.md', eval=F}
 ```
 
-```{r, child='./staging/pa4.md', eval=T}
+```{r, child='./staging/pa4.md', eval=F}
 ```
 
-```{r, child='./staging/pa5.md', eval=T}
+```{r, child='./staging/pa5.md', eval=F}
 ```
 
 
