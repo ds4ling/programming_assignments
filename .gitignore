@@ -5,5 +5,6 @@
 
 *.DS_Store
 
-misc/data/pa_5_answers.zip
+#misc/data/pa_5_answers.zip
+misc/
 staging/
