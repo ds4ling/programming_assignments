@@ -1,5 +1,0 @@
-# Teaching Safe-Stats, Not Statistical Abstinence
-
-## Wickham (2015) summary
-
-Wickham identifies that researchers not trained specifically in statistics are nervous to calculate statistics for their research, but there are not enough trained statisticians to consult on every single project that comes up. Instead of relying 100% on trained statisticians for everything related to statistics, Wickham suggests that a statistics curriculum should be developed for undergraduates that provides them with a basic "grammar" or toolbox, so that they may address "90% of most common problems" they may encounter in research and thus become more independent. This new curriculum's aim would be to introduce undergraduates to the basics of statistics and coding, which are inherently intertwined nowadays, through manageable code snippets that can be adjusted as needed. An example he gives is introducing students to ggplot2 graphics, as students would be able to receive a template or formula and fill in the variables as they need.
