@@ -1,8 +1,10 @@
 ---
-output: md_document
+format: gfm
 ---
 
-```{r echo=FALSE}
+```{r}
+#| label: setup
+#| echo: false
 library(knitr)
 ```
 
@@ -12,16 +14,17 @@ Beginning of semester prep:
 - hide all PAs by setting eval=F below
 - Remove misc directory from commit history and add back (in .gitignore) 
   when appropriate
-
-
 -->
 
 # programming_assignments
 
 ## Programming assignments for Data Science for Linguistics.
 
-```{r, echo=FALSE, results='asis', eval=T}
-#
+```{r}
+#| label: print-links
+#| echo: false 
+#| results: 'asis'
+
 # Automate TOC
 # - After each PA is assigned, update list_elements[X]
 # - Reknit after update and push to github
@@ -33,7 +36,7 @@ pas <- dir(path = "./staging", pattern = "*.md")
 list_elements <- substr(pas, start = 1, stop = max(nchar(pas)) - 3)
 
 # Use pa file names for link references
-link_names <- paste0('[', list_elements[1:5], ']')
+link_names <- paste0('[', list_elements[1], ']')
 
 #
 # Get section ref for link
@@ -50,14 +53,17 @@ for (element in 1:length(link_names)) {
 }
 
 # Combine everything into an unordered list
-#cat(paste0('- ', link_names[1:5], link_ref[1:5], '\n'))
+cat(paste0('- ', link_names[1:1], link_ref[1:1], '\n'))
 ```
 
 
 ---
 
 
-```{r, child='./staging/pa1.md', eval=F}
+```{r}
+#| label: pa1
+#| child: './staging/pa1.md' 
+#| eval: true
 ```
 
 ```{r, child='./staging/pa2.md', eval=F}
