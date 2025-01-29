@@ -1,0 +1,4 @@
+- **Name**: Merlin Balihaxi (officially Hashan Balihaxi)
+- **Email**: merlin.udinov@rutgers.edu
+- **Website**: [Merlin](https://en.wikipedia.org/wiki/Merlin)
+- **Goal**: I'm currently working on some sentiment analysis stuff on Kazakh with a friend from CS dptment, and I think I should know more coding.
