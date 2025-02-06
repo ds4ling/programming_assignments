@@ -1,0 +1,4 @@
+- **Name:** Eva Corregidor
+- **Email:** eva.corregidor@rutgers.edu
+- **Website:** [My LinkedIn Account](www.linkedin.com/in/emcorregidor)
+- **Goal:** To learn R and being able to enjoy my data analysis.
