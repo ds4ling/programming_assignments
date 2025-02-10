@@ -1,0 +1,55 @@
+---
+title: "Programming assignment 2"  
+author: "Alex Rogers"  
+date: "Last update: `r Sys.time()`"  
+output:  
+  html_document:  
+    highlight: kate  
+    keep_md: yes  
+    theme: united
+---
+
+```{r}
+library(tidyverse)
+library(languageR)
+```
+
+```{r}
+glimpse(danish)
+glimpse(beginningReaders)
+glimpse(english)
+```
+
+
+```{r}
+#| label: english_plot
+english |>
+  ggplot() +
+  aes(x = RTlexdec, y = RTnaming, color = AgeSubject) +
+  labs(x = "Lexical Decision", y = "Naming", title = "Reaction Times by Age Group", color = "Age") +
+  geom_point()
+```
+
+```{r}
+#| label: beginning_readers_plot
+
+beginningReaders |>
+  ggplot() +
+  aes(x = ReadingScore, y = Trial) +
+  stat_summary(fun = "mean", colour = "red", size = 2, geom = "point") +
+  facet_wrap(~OrthLength) +
+  labs(x = "Reading Score", y = "Trial", title = "Effect of Trial # on Reading Score")
+```
+
+```{r}
+#| label: danish_plot
+
+danish |>
+  ggplot() +
+  aes(x = PrevError, y = LogRT, fill = PrevError) +
+  geom_boxplot() +
+  theme(legend.position = "none") +
+  labs(x = "Correctness", y = "Log RT", title = "Boxplot")
+```
+
+
