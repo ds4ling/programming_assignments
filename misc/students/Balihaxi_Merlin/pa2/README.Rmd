@@ -78,5 +78,5 @@ english |>
    facet_grid(len ~ cat) +
   stat_summary(
     fun.data = mean_sdl, 
-    alpha=0.1, colour = "indianred1")
+    alpha=0.1, colour = "tomato")
 ```

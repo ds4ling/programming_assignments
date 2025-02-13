@@ -1,7 +1,7 @@
 ---
 title: "Programming assignment 2"
 author: "Merlin Balihaxi"
-date: "Last update: 2025-02-12 23:51:01.657829" 
+date: "Last update: 2025-02-12 23:59:17.55597" 
 output:
   html_document:  
     highlight: kate  
@@ -73,7 +73,7 @@ english |>
    facet_grid(len ~ cat) +
   stat_summary(
     fun.data = mean_sdl, 
-    alpha=0.1, colour = "indianred1")
+    alpha=0.1, colour = "tomato")
 ```
 
 ![](README_files/figure-html/Plot 3-1.png)<!-- -->
