@@ -1,0 +1,62 @@
+---
+title: "Programming assignment 2"  
+author: "Yhosep Barba"  
+date: "15/02/2025"  
+output:  
+  html_document:  
+    highlight: kate  
+    keep_md: yes  
+    theme: united
+---
+
+```{r}
+install.packages("languageR")
+```
+
+```{r}
+packageDescription("languageR")
+```
+
+```{r}
+library("languageR")
+```
+
+```{r}
+library("tidyverse")
+```
+
+```{r}
+ggplot(data = beginningReaders) +
+  geom_point(mapping = aes(x = LogFrequency, y = ProportionOfErrors)) +
+  labs(title = "Scaterplot of Proportion of Errors by Frequency",
+       x = "Word Frequency",
+       y = "Proportion of Errors")
+```
+
+```{r}
+ggplot(data = dativeSimplified) + 
+  geom_boxplot(mapping = aes(x = AnimacyOfRec, y = LengthOfTheme, fill = RealizationOfRec)) +
+  labs(title = "Boxplot of Length of Theme by Animacy of Recipient and Realization",
+       x = "Animacy of Recipient",
+       y = "Length of Theme (Number of Words)") +
+  scale_fill_manual(values = c("red", "lightblue")) +
+  theme_minimal()
+```
+
+```{r}
+ggplot(data = danish) +
+  aes(x = Sex, y = LogRT) +
+  stat_summary(fun = "mean", geom = "point") +
+  facet_wrap(~ PrevError) + 
+  labs(title = "Reaction Time Vs Word Frequency by Sex",
+    x = "log of Word Frequency",
+    y = "Log of Reaction time (ms)")
+```
+
+
+
+
+
+
+
+
