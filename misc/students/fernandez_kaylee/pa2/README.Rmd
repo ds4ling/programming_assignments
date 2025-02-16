@@ -1,0 +1,87 @@
+---
+title: "Programming assignment 2"
+author: "Kaylee Fernandez"
+date: "`r Sys.time()`"
+output: 
+  html_document:
+    highlight: kate
+    keep_md: yes
+    theme: united
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false #to hide the code
+library("languageR")
+library("dplyr")
+library("ggplot2")
+```
+
+## datasets
+
+```{r}
+summary(beginningReaders)
+str(beginningReaders)
+
+summary(danish)
+str(danish)
+
+summary(dativeSimplified)
+str(dativeSimplified)
+
+summary(english)
+str(english)
+
+summary(spanishFunctionWords)
+str(spanishFunctionWords)
+```
+
+# beginningReaders dataset
+
+```{r}
+#| label: Proportion of errors by log frequency 
+#| message: false
+#| warning: false
+#| echo: false #to hide the code
+#| out-width: "100%" # to adjust the width of the figure
+ggplot(data = beginningReaders, mapping = aes (x = LogFrequency, y = ProportionOfErrors)) +
+  geom_point() +
+  geom_smooth() +
+  labs(title = "Proportion of errors by log frequency")
+```
+
+# english dataset
+
+```{r}
+#| label: RT naming by age of subject (young vs. old)
+#| message: false
+#| warning: false
+#| echo: false #to hide the code
+#| out-width: "100%" # to adjust the width of the figure
+ggplot(data = english, mapping = aes (x = AgeSubject, y = RTnaming)) +
+  geom_boxplot(mapping = aes(fill = AgeSubject)) +
+  labs(title = "RT naming by age of subject (young vs. old)")
+```
+
+
+# danish dataset
+
+```{r}
+#| label: Log RT (correct vs. incorrect) in males vs females 
+#| message: false
+#| warning: false
+#| echo: false #to hide the code
+#| out-width: "100%" # to adjust the width of the figure
+ggplot(data = danish) +
+  facet_wrap(~PrevError) + 
+  stat_summary(
+    mapping = aes(x = Sex, y = LogRT),
+    fun.min = min,
+    fun.max = max,
+    fun = median, 
+    geom = "pointrange"
+  ) +
+  labs(title = "Log RT (correct vs. incorrect) in males vs females")
+```
+
