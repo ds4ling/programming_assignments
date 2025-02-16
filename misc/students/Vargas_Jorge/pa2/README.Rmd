@@ -1,0 +1,86 @@
+---
+title: "Programming assignment 2"  
+author: "Jorge Vargas"  
+date: "Last update: `r Sys.time()`"  
+output:  
+  html_document:  
+    highlight: kate  
+    keep_md: yes  
+    theme: united
+---
+
+```{r}
+library(languageR)
+library(tidyverse)
+glimpse(danish)  
+glimpse(english)
+glimpse(spanishFunctionWords)
+glimpse(dativeSimplified)
+glimpse(beginningReaders)
+```
+
+
+# 1. Scatter plot: Beginning Readers
+
+```{r}
+beginningReaders |>
+  ggplot() +
+  aes(x = LogFrequency, y = ProportionOfErrors) +  
+  geom_point() +
+  labs(x = "Log Frequency", y = "Proportion of errors", title = "Log Frequency and proportion of errors") + 
+  theme_minimal()  
+
+```
+
+#Summary: This scatter plot shows that there is not a strong correlation between Log frequency and proportion of errors.  
+
+# 2. Bloxplot: Danish
+```{r}
+danish |>
+  ggplot() +
+  (aes(x = Affix, y = LogRT)) +  
+  geom_boxplot() +  
+  labs(x = "Affix", y = "Log Reaction Time", title = "Reaction Times per Affix") + 
+  theme_minimal()  
+
+```
+
+# Summary: The reaction times does not seem to vary across each affix type. The mean range seems to be between 6.5 and 7.0 Log RT. This might suggest that different affix types do not affect affect participants' RTs.
+
+```{r}
+english$AgeSubject <- as.factor(english$AgeSubject)
+```
+
+
+
+#3. Barplot: English
+```{r}
+
+english |>
+  ggplot() +
+  (aes(x = AgeSubject, y = RTnaming, fill = AgeSubject)) +  
+  geom_col () +  
+   scale_fill_manual(values = c("young" = "green", "old" = "purple")) + 
+  labs(x = "Age group", y = "RT naming", title = "RT per age group") + 
+  theme_minimal()  
+
+```
+
+# Summary: this bar code shows that young and old individuals have similar RT time values in the naming task, but the old group seems to have slightly higher values. 
+
+
+
+
+
+
+
+
+
+
+```
+
+
+
+
+
+
