@@ -44,7 +44,7 @@ english$AgeSubject <- as.factor(english$AgeSubject)
 english |>  
   ggplot() +  
   (aes(x = AgeSubject, y = RTnaming, fill = AgeSubject)) +  
-  geom_boxplot(outlier.shape = 21, outlier.color = "black", outlier.fill = "white") +  
+  geom_boxplot() +  
   scale_fill_manual(values = c("young" = "green", "old" = "purple")) +  
   labs(x = "Age group", y = "RT naming", title = "RT per age group") +  
   theme_minimal()
