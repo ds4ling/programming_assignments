@@ -26,58 +26,44 @@ glimpse(beginningReaders)
 beginningReaders |>
   ggplot() +
   aes(x = LogFrequency, y = ProportionOfErrors) +  
-  geom_point() +
+  stat_summary(fun="mean", geom="point")+
   labs(x = "Log Frequency", y = "Proportion of errors", title = "Log Frequency and proportion of errors") + 
   theme_minimal()  
 
 ```
 
-#Summary: This scatter plot shows that there is not a strong correlation between Log frequency and proportion of errors.  
 
-# 2. Bloxplot: Danish
-```{r}
-danish |>
-  ggplot() +
-  (aes(x = Affix, y = LogRT)) +  
-  geom_boxplot() +  
-  labs(x = "Affix", y = "Log Reaction Time", title = "Reaction Times per Affix") + 
-  theme_minimal()  
+#2. Boxplot: English
 
-```
-
-# Summary: The reaction times does not seem to vary across each affix type. The mean range seems to be between 6.5 and 7.0 Log RT. This might suggest that different affix types do not affect affect participants' RTs.
 
 ```{r}
 english$AgeSubject <- as.factor(english$AgeSubject)
 ```
 
-
-
-#3. Barplot: English
 ```{r}
-
-english |>
-  ggplot() +
+english |>  
+  ggplot() +  
   (aes(x = AgeSubject, y = RTnaming, fill = AgeSubject)) +  
-  geom_col () +  
-   scale_fill_manual(values = c("young" = "green", "old" = "purple")) + 
-  labs(x = "Age group", y = "RT naming", title = "RT per age group") + 
+  geom_boxplot(outlier.shape = 21, outlier.color = "black", outlier.fill = "white") +  
+  scale_fill_manual(values = c("young" = "green", "old" = "purple")) +  
+  labs(x = "Age group", y = "RT naming", title = "RT per age group") +  
+  theme_minimal()
+```
+
+
+#3. Point range: Danish
+```{r}
+danish |>
+  ggplot() +
+  aes(x = Affix, y = LogRT) + 
+  facet_grid(. ~ Sex) +
+  stat_summary(fun.data ="mean_sdl", geom= "pointrange") +  
+  labs(x = "Affix", y = "Log Reaction Time", title = "Reaction Times per Affix") + 
   theme_minimal()  
 
 ```
 
-# Summary: this bar code shows that young and old individuals have similar RT time values in the naming task, but the old group seems to have slightly higher values. 
 
-
-
-
-
-
-
-
-
-
-```
 
 
 
