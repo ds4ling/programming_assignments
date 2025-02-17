@@ -6,14 +6,15 @@ output:
   html_document:  
     highlight: kate  
     keep_md: yes  
-    theme: united---
+    theme: united
+---
 
 ```{r}
-library (languageR)
-library (tidyverse)
-glimpse (danish)
-glimpse (english)
-glimpse (dativeSimplified)
+library(languageR)
+library(tidyverse)
+glimpse(danish)
+glimpse(english)
+glimpse(dativeSimplified)
 ```
 
 
@@ -29,37 +30,36 @@ beginningReaders |>
 
 ```
 
-# There does not seem to be a correlation between Log Frequency and the Proportion of Errors. There is a weak correlation because it looks scattered.
 
 
 
-# 2. Boxplot
+
+
+# 2 Barplot
+```{r}
+english |>
+  ggplot() +
+  (aes(x = AgeSubject, y = RTnaming, fill = AgeSubject)) +
+  geom_boxplot () +
+  scale_fill_manual(values = c ("young" = "green", "old" = "purple"))
+  labs(x = "Age Subject", y = "RTnaming", title = "Reaction times per Age Group") +
+  theme_minimal()
+
+```
+
+
+# 3. Point Range
 
 ```{r}
 danish |>
   ggplot() +
   aes(x = Affix, y = LogRT) +
-  geom_boxplot(width = 0.2, alpha = 0.6) +
+  facet_grid(.~ Sex) +
+  stat_summary(fun.data="mean_sdl", geom="pointrange") +
   labs(x = "Affix", y = "Log Reaction Time", title = "Reaction times per Affix") +
   theme_minimal()
 
 ```
-
-# similar reaction times in means for all affixes, with some participants (outliers) taking much longer
-
-# 3 Barplot
-```{r}
-english |>
-  ggplot() +
-  aes(x = AgeSubject, y = RTnaming, fill = AgeSubject)+
-  geom_col (width = 0.2, alpha = 0.6) +
-  labs(x = "Age Subject", y = "Reaction Time Naming", title = "Reaction times per Age Subject") +
-  theme_minimal()
-
-scale_fill_manual (values = c ("young" = "skyblue", "old" = "purple"))
-```
-
-# These two bars show that young and old reaction times for naming are almost identical.
 
 
 
