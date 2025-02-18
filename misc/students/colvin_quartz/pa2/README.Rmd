@@ -1,0 +1,65 @@
+---
+title: "Programming assignment 2"  
+author: "Quartz Colvin"  
+date: "Last update: `r Sys.time()`"  
+output:  
+  html_document:  
+    highlight: kate  
+    keep_md: yes  
+    theme: united
+---
+
+
+```{r}
+#| label: dativeSimplified
+#| out-width: "100%"
+#| message: false
+
+library("tidyverse")
+library("languageR")
+
+
+```
+
+This is a bivariate scatterplot. 
+```{r}
+#| label: english
+#| out-width: "100%"
+#| message: false
+
+ggplot(english) +
+  aes(x = RTlexdec, y = RTnaming, color = WordCategory) +
+  geom_point() +
+  geom_smooth() +
+  labs(title = "Lexdec and RTnaming by Word Category")
+```
+
+This is a boxplot with different fill colors. 
+```{r}
+#| label: danish
+#| out-width: "100%"
+#| message: false
+ggplot(danish) + 
+  aes(x = PC1, y = PC2, fill = Affix) +
+  geom_boxplot() +
+  labs(title = "PC1 and PC2 by Affix")
+```
+
+
+This is a boxplot with a summary and facets. 
+```{r}
+#| label: dativeSimplified-summary
+#| out-width: "100%"
+#| message: false
+
+ggplot(dativeSimplified) +
+  aes(x = AnimacyOfTheme, y = LengthOfTheme) +
+  geom_boxplot() +
+  stat_summary(fun = mean, fun.min = min, fun.max = max) +
+  facet_grid(. ~ RealizationOfRec) +
+  labs(title = "Animacy and Length of Themes")
+```
+
+
+
+
