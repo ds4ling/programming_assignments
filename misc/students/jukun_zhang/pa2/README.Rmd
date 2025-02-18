@@ -1,0 +1,55 @@
+---
+title: "Programming assignment 2"  
+author: "Jukun Zhang"  
+date: "Last update: `r Sys.time()`"  
+output:  
+  html_document:  
+    highlight: kate  
+    keep_md: yes  
+    theme: united
+---
+
+```{r}
+#| Label: load-library
+
+library("ggplot2")
+library("languageR")
+library("tidyverse")
+library("dplyr")
+```
+
+```{r}
+#A bivariate scatterplot for english DataFrame
+english |>
+  ggplot() +
+  aes(x = WrittenSpokenFrequencyRatio, y = Familiarity) +
+  geom_point()
+```
+
+
+```{r}
+#A boxplot with different fill colors for dativeSimplified DataFrame
+dativeSimplified |>
+  ggplot() +
+  aes(x = factor(AnimacyOfTheme), y = LengthOfTheme, fill = factor(AnimacyOfTheme)) +
+  geom_boxplot() +
+  scale_fill_viridis_d() +
+  theme_minimal()
+```
+
+
+
+```{r}
+#A plot of your choice that includes a stat_summary and a facet for danish DataFrame
+
+danish |>
+  ggplot() +
+  aes(x = factor(Sex), y = LogRT, color = factor(Sex)) +
+  stat_summary(
+    fun.data = mean_sdl,
+    geom = 'pointrange'
+  ) +
+  facet_grid(~ PrevError) +
+  theme_minimal()
+```
+
