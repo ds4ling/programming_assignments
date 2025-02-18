@@ -1,0 +1,78 @@
+---
+title: "Programming assignment 2"  
+author: "A Valeria Carbone"  
+date: "Last update: `r Sys.time()`"  
+output:  
+  html_document:  
+    highlight: kate  
+    keep_md: yes  
+    theme: united
+---
+
+```{r}
+library(languageR)
+library(tidyverse)
+glimpse(danish)
+glimpse(english)
+glimpse(dativeSimplified)
+```
+
+
+
+# 1 Scatterplot
+```{r}
+beginningReaders |>
+  ggplot() +
+  aes(x = LogFrequency, y = ProportionOfErrors) +
+  geom_point() +
+  labs(x = "LogFrequency", y = "Proportion of Errors", title = "Log Frequency and Proportion of Errors") +
+  theme_minimal()
+
+```
+
+
+
+
+
+
+# 2 Barplot
+```{r}
+english |>
+  ggplot() +
+  (aes(x = AgeSubject, y = RTnaming, fill = AgeSubject)) +
+  geom_boxplot () +
+  scale_fill_manual(values = c ("young" = "green", "old" = "purple"))
+  labs(x = "Age Subject", y = "RTnaming", title = "Reaction times per Age Group") +
+  theme_minimal()
+
+```
+
+
+# 3. Point Range
+
+```{r}
+danish |>
+  ggplot() +
+  aes(x = Affix, y = LogRT) +
+  facet_grid(.~ Sex) +
+  stat_summary(fun.data="mean_sdl", geom="pointrange") +
+  labs(x = "Affix", y = "Log Reaction Time", title = "Reaction times per Affix") +
+  theme_minimal()
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
