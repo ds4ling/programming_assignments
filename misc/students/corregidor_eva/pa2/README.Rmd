@@ -1,0 +1,103 @@
+---
+title: "Programming assignment 2"  
+author: "Eva Corregidor"  
+date: "Last update: `r Sys.time()`"  
+output:  
+  html_document:  
+    highlight: kate  
+    keep_md: yes  
+    theme: united
+---
+
+install.packages("languageR")
+library("languageR")
+
+ # Familiarizing myself with datatets
+
+data(beginningReaders)
+summary(beginningReaders)
+?beginningReaders
+
+data(danish)
+?danish
+
+data(dativeSimplified)
+?dativeSimplified
+
+data(english)
+?english
+
+data(spanishFunctionWords)
+?spanishFunctionWords
+
+library("ggplot2")
+library("ggthemes")
+
+ # Create a bivariate_scatterplot
+
+```{r}
+
+data(english)
+ggplot(
+  data = english,
+  aes(x = Familiarity, y = WrittenFrequency) 
+)+
+  geom_point(aes(color = LengthInLetters, shape = WordCategory)) +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Written frequency and familiarity (English)",
+    subtitle = "Written frequency and subjective familiarity ratings",
+    x = "Familarity (0-7)", y = "Written Frequency (0-12)",
+    color = "Word Length, i.e number of letters", shape = "Word Category"
+)
+```
+
+ # Create a boxplot with different fill colors
+
+```{r}
+ggplot(danish, aes(x = PrevError, y = LogRT, color = Sex, fill = Sex)
+) +
+  geom_boxplot() +
+    labs(
+    title = "Auditory lexical decision latencies for Danish complex words",
+    subtitle = "Relation between the preciding trial and the RTs",
+    x = "Preciding trial: correct lexical decision or error", y = "Response time (ms)",
+    color = "Sex")
+```
+
+ # Create a plot of my choice (density_plot) that includes a stat_summary and a facet
+
+```{r}
+
+my_min <- min(dativeSimplified$LengthOfTheme)
+my_max <- max(dativeSimplified$LengthOfTheme)
+
+ggplot(dativeSimplified, aes(x = LengthOfTheme, fill = RealizationOfRec, color = RealizationOfRec)) +
+  geom_density(alpha = 0.5) +
+  facet_wrap(~AnimacyOfRec) +
+  scale_fill_viridis_d(begin = 0.2, end = 0.8) + 
+  scale_color_viridis_d(guide = "none", begin = 0.2, end = 0.8) + 
+  geom_vline(xintercept = my_min) +
+  geom_vline(xintercept = my_max) +
+  labs(
+    title = "Dative Alternation",
+    subtitle = "Distribution of number of words in the realization of the dative as NP or PP based on the animacy of the recipient",
+    x = "Number of words", y = "Density",
+    fill = "Dative Realization, dot = mean"
+    )
+```
+
+ # (actual_plot_stat_summary) Create a plot of my choice (density_plot) that includes a stat_summary and a facet`
+ 
+```{r}
+ggplot(dativeSimplified, aes(x = AnimacyOfTheme, y = LengthOfTheme, color = RealizationOfRec)) +
+  facet_wrap(~RealizationOfRec) +
+  geom_boxplot() +
+  stat_summary(fun.data = "mean_sdl") +
+  labs(
+    title = "Dative Simplified",
+    subtitle = "Distribution of the animacy of the theme in relation to the number of words comprising the theme, organized by the realization of the dative (NP or PP)",
+    x = "Animacy of theme", y = "Length of theme",
+    color = "Realization of rec")
+```
+ 
