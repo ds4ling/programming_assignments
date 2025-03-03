@@ -1,0 +1,59 @@
+---
+title: "juana"
+output: html_document
+date: "2025-02-03"
+---
+
+# Section
+
+## Section
+
+- this
+- is a
+- list
+
+1. stage 1
+2. stage 2
+3. stage 3
+
+```{r}
+#| label>test
+2 + 2
+```
+```{r}
+#| label: fig-cars
+#| message: false
+#| warning: false
+#| echo: false
+#| out-width: "100%"
+library(tidyverse)
+ggplot(mtcars) +
+  
+
+  aes(x = drat, y = mpg) +
+geom_point() +
+geom_smooth(method = "lm")
+
+```
+
+
+ggplot(mtcars) +
+  
+
+  aes(x = drat, y = mpg) +
+geom_point() +
+geom_smooth(method = "lm")
+
+```
+```{r}
+
+```
+```{r}
+#| label: in-line-code
+#| echo:false
+x<- 2+2
+```
+Hello this is prose.
+The bilingual group had a mean of `r x`
+
+#|
