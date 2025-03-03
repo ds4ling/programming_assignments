@@ -1,0 +1,13 @@
+---
+title: "pa3"
+author: "Kaylee Fernandez"
+date: "2025-03-02"
+output: html_document
+---
+
+
+
+## Link to my pa3 website
+
+ <https://knf43.github.io/pa3/>.
+
