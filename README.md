@@ -13,6 +13,7 @@ Beginning of semester prep:
 
 - [pa1](#assignment-1)
 - [pa2](#assignment-2)
+- [pa3](#assignment-3)
 
 ------------------------------------------------------------------------
 
@@ -221,5 +222,97 @@ review your classmates assignments. You can learn from them and you will
 notice that it is possible to solve data science problems using a
 variety of different methods. That being said, you should only review
 the work of your classmates **after** the assignment has been turned in.
+
+------------------------------------------------------------------------
+
+## Assignment 3
+
+**Topics**: Project management, Tidying data, GitHub Pages
+
+### Overview
+
+In this assignment you will create your own RStudio project in which you
+get, tidy, transform and plot data from a publicly available dataset.
+You will host your project in a GitHub repo and create a project
+website.
+
+**Assigned**: Week 5, 02/24  
+**Due**: Monday, 03/03 before 10pm
+
+### Instructions
+
+Choose any data set you want from the `languageR`,
+[untidydata](https://www.jvcasillas.com/untidydata/), or
+[worldlanguages](https://www.jvcasillas.com/worldlanguages/) packages
+(it can be the same one you used last week, but if you prefer something
+different get permission first). To see all the options, run the
+following code in RStudio:
+
+    data(package = "languageR") 
+    data(package = "untidydata")
+    data(package = "worldlangauges")
+
+or check the documentation on the package website (note: you may need to
+install the package first).
+
+#### Setup
+
+1.  Create a new repo from GitHub.com called `pa3` and clone it to your
+    desktop.
+2.  Create a new project for your repo using RStudio.
+3.  Inside your new project, create an RMarkdown document called
+    `index.Rmd` (the default output format should be html).
+
+#### EDA
+
+4.  Load the data set of your choice and get information about its
+    structure (remember all code needs to be inside a knitr code chunk).
+5.  Tidy the data set (every variable gets a column, every observation
+    occupies a single row), if necessary.
+6.  Calculate descriptive statistics of your choice.
+7.  Select two continuous variables and fit a model to the data
+    (bivariate regression).
+8.  Generate a plot that includes a regression line.
+9.  Write up some general *observations* (1-2 paragraphs max)
+
+#### Share
+
+10. Commit your changes and push them to GitHub.
+11. Publish your repo using GitHub Pages.
+12. Update your fork of the `programming_assignments` repo. Next, create
+    a new folder inside **your** dropbox in `programming_assignments`
+    called `pa3`. Include a README.md file with a link to your published
+    pa3 website. Submit a pull request to the master
+    `programming_assignments` repo.
+
+### Evaluation
+
+This is programming assignment 3 of 4. It is worth 10 of the 40 possible
+points. In order to receive full credit you must complete all steps in
+**Setup**, **EDA**, and **Share** detailed above, and follow **all** the
+instructions. Moreover, steps 1-5 in *EDA* **must** be completed in
+separate code chunks, you must comment every step in your code, and you
+**MUST** knit your project before submitting.
+
+| Task                             | Points |
+|:---------------------------------|-------:|
+| Tidy data                        |      2 |
+| Descriptive stats                |    0.5 |
+| Plot data                        |      1 |
+| Fit bivariate regression         |      1 |
+| Publish to GitHub Pages          |      5 |
+| Successfully submit pull request |    0.5 |
+| **Total**                        |     10 |
+
+### Tips
+
+- Review the RStudio Projects tutorial to refresh your memory.
+- Review the recommended readings for tips on tidying your data.
+- Only submit a pull request to `programming_assignments` once
+  everything is working properly in your repo.
+- Always include a README in your repos.
+- Make sure you **look** at the output after knitting. Is it clean? Make
+  it look good (i.e., don’t type everything in bold!).
+- **Use slack to ask questions**
 
 ------------------------------------------------------------------------
