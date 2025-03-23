@@ -6,6 +6,8 @@
 *.DS_Store
 
 misc/data/pa_5_data
+misc/data/pa_5_answers.zip
+
 misc/data/pa_4_data/assumptions.csv
 misc/data/pa_4_data/create_fricative_data.R
 misc/data/pa_4_data/fricatives.csv
