@@ -1,0 +1,7 @@
+---
+title: "pa4"
+author: "AVCarbone"
+date: "2025-03-31"
+output: html_document
+---
+website: https://andreavcarbone.github.io/pa4/slides/index.html#1
