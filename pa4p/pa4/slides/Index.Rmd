@@ -1,0 +1,53 @@
+---
+title: "Index"
+output: html_document
+---
+```{r}
+data <- read.csv("../data_raw/fricatives/fricatives.csv")
+```
+
+# Data Preparation
+
+```{r reshape-data, echo=FALSE, message=FALSE}
+library(tidyr)
+library(dplyr)
+
+# Convert from wide to long format
+data_long <- data %>%
+  pivot_longer(
+    cols = -obs,
+    names_to = c("phoneme", ".value"),
+    names_sep = "_"
+  ) %>%
+  mutate(phoneme = factor(phoneme, levels = c("s", "sh"))) %>%  # Fixed: Added closing parenthesis
+  select(-obs)  # Remove observation column if not needed
+# Save to tidy data folder
+write.csv(data_long, 
+          file = "../data_tidy/tidy_fricatives.csv", 
+          row.names = FALSE)  # Important: don't save row numbers
+
+# Verify the new structure
+head(data_long)
+```
+---
+# Descriptive Statistics
+
+```{r descriptive-stats, echo=FALSE}
+library(dplyr)
+
+# Calculate summary stats
+desc_stats <- data_long %>%
+  group_by(phoneme) %>%
+  summarise(
+    N = n(),
+    `CoG Mean (Hz)` = mean(cog) %>% round(1),
+    `CoG SD` = sd(cog) %>% round(1),
+    `Skew Mean` = mean(skewness) %>% round(2),
+    `Skew SD` = sd(skewness) %>% round(2)
+  )
+
+# Print clean table with built-in knitr
+knitr::kable(desc_stats, 
+             caption = "Descriptive Statistics by Phoneme",
+             align = c('l', 'r', rep('c', 3)))
+```
