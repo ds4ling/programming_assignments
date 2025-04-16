@@ -1,0 +1,8 @@
+---
+title: "README"
+author: "Alexander Rogers"
+date: "2025-02-27"
+output: html_document
+---
+
+https://a-k-rogers.github.io/pa3/

@@ -1,0 +1,8 @@
+---
+title: "README"
+author: "yhosep"
+date: "2025-03-03"
+output: html_document
+---
+Link to my website:
+https://ybarba.github.io/pa3/ 
