@@ -15,6 +15,7 @@ Beginning of semester prep:
 - [pa2](#assignment-2)
 - [pa3](#assignment-3)
 - [pa4](#assignment-4)
+- [pa5](#assignment-5)
 
 ------------------------------------------------------------------------
 
@@ -401,3 +402,227 @@ above and follow **all** the instructions.
   ‘turn in’ your assignment).
 
 ------------------------------------------------------------------------
+
+## Assignment 5
+
+**Topics**: Project management, tidying data, fitting linear models,
+testing hypotheses, reporting results.
+
+### Overview
+
+In this assignment you will create an RStudio project in which you load,
+tidy, transform, plot, analyze and report data. You will host your
+project on GitHub in a personal repo and create a report to present your
+analysis.
+
+**Assigned**: 04/24  
+**Due**: 04/28 by 12:00 pm
+
+### Background
+
+You will receive a `ratings` data set. You already know about the data,
+but I will briefly describe it anyway. The data set consists of
+`enjoyment` and `difficulty` ratings provided by current and former
+students in the ds4ling class. Each week at the beginning of class the
+students provided an assessment of their perceived difficulty of the
+material and their overall enjoyment of the class from the previous
+week. There are a total of 11 weeks of data from 2 sections of the class
+(2023, 2025). The students used a sliding rating scale that ranged from
+0 to 1 (0 = no enjoyment, no difficulty; 1 = max enjoyment, max
+difficulty).
+
+Your task is to explore **two** of the following three research
+questions:
+
+- Q<sub>1</sub>: Is there a difference in overall enjoyment between the
+  2023 class and the 2025 class?
+- Q<sub>2</sub>: How do difficulty ratings change over time (i.e.,
+  within a semester)?
+- Q<sub>3</sub>: What is the nature of the relationship between
+  perceived difficulty and enjoyment?
+
+The data set poses several non-trivial challenges. It is incomplete in
+several ways. Not every student provided ratings for each week. Some
+students did not use unique identifiers, thus it is not always possible
+to determine *who* a given observation comes from. You will need to take
+these issues into account when answering the aforementioned research
+questions. You must explain and justify all decisions you make.
+
+You can complete this project independently or with one other person
+from class. If you work with somebody, you complete one project (one
+repo) and share the final grade.
+
+### General instructions
+
+1.  Get the latest version of `programming_assignments`, i.e., fetch the
+    newest changes to update your local repo.
+2.  Create a new project in RStudio called `pa5`. Inside your new
+    project, create two folders: `data_raw` and `data_clean`.
+3.  Download the data set available \[here\]\[COMING SOON\] and store it
+    in `data_raw`.
+4.  Create a new RMarkdown file called `index.Rmd` (‘index’ is *not*
+    capitalized) and save it at the root level of your project (i.e.,
+    inside `pa5`). The output of the Rmd file can be word, pdf or html.
+    You can use the `papaja` package to generate an APA formatted
+    manuscript if you’d like. You can use `xaringan` to create html
+    slides. You decide, but only pick one. Be sure to give an
+    informative title and to include your name(s).
+5.  Load the dataset from inside your `index.Rmd` file. Pay special
+    attention to the path. Don’t forget where the .csv file lives.
+6.  You will need to tidy the data set as necessary to run your models
+    and plot your data. Keep in mind the principles of tidy data. You
+    may need to format the data in different ways depending on what you
+    are trying to achieve. Remember to use sections (#), subsections
+    (##), text, comments, etc. to explain in prose every step.
+
+### Q<sub>1</sub>: Enjoyment as a function of class (10 points)
+
+Recall that this research questions aims to assess whether there is a
+difference in enjoyment ratings between the 2023 class and the 2025
+class. If you choose this question, you must do the following:
+
+1.  Tidy the data set as necessary and provide a table of relevant
+    descriptive statistics. You decide what is relevant based on the
+    variables you have and the research question. Include an explanation
+    in prose of any observations you make from the table. Be sure to
+    print the table in a way that will show up in your knitted document
+    (see previous examples from class).
+2.  Create an informative plot of the data. You only get one plot, so
+    make it count. Keep in mind the types of variables that you have,
+    particularly those that are relevant to this specific question.
+    Interpret the plot (in prose).
+3.  Decide on a model you can use to answer the research question to the
+    best of your abilities.
+4.  Print a summary of the model and test that the model assumptions
+    have been met (you can use plots for this, but you are not required
+    to include them in the final version of your assignment).
+5.  Write up the results. You should include (1) a description of the
+    statistical analyses you have done in one paragraph, and (2) the
+    actual interpretation of the results in another (see class slides
+    for examples). Don’t forget to include an overall assessment of
+    goodness of fit (variance explained).
+6.  **Important**: In a separate paragraph discuss model assumptions.
+    Did you violate any important assumptions? What decisions did you
+    have to make in order to arrive at an answer? What are the
+    advantages and disadvantages of the decisions you made?
+
+### Q<sub>2</sub>: Difficulty as a function of time (10 points)
+
+This question aims to better understand if/how perceived difficulty
+ratings change over the course of the semester. If you choose this
+question, you must do the following:
+
+0.  Establish an a priori hypothesis about how difficulty ratings will
+    change over time.
+1.  Tidy the data set as necessary and provide a table of relevant
+    descriptive statistics. You decide what is relevant based on the
+    variables you have and the research question. Include an explanation
+    in prose of any observations you make from the table. Be sure to
+    print the table in a way that will show up in your knitted document
+    (see previous examples from class).
+2.  Create an informative plot of the data. You only get one plot, so
+    make it count. Keep in mind the types of variables that you have,
+    particularly those that are relevant to your specific hypothesis.
+    Interpret the plot (in prose).
+3.  Decide on a model you can use to answer the research question to the
+    best of your abilities. You should use a nested model and an
+    inclusive model to test for the main effect of time. You will need
+    to report the main effect using a nested model comparison and then
+    parameter estimates from the final model.
+4.  Print a summary of the model and test that the model assumptions
+    have been met (you can use plots for this, but you are not required
+    to include them in the final version of your assignment).
+5.  Write up the results. You should include (1) a description of the
+    statistical analyses you have done in one paragraph, and (2) the
+    actual interpretation of the results in another (see class slides
+    for examples). Don’t forget to include an overall assessment of
+    goodness of fit (variance explained).
+6.  **Important**: In a separate paragraph discuss model assumptions.
+    Did you violate any important assumptions? What decisions did you
+    have to make in order to arrive at an answer? What are the
+    advantages and disadvantages of the decisions you made?
+
+### Q<sub>3</sub>: The relationship between enjoyment and difficulty (10 points)
+
+In Q<sub>3</sub> you will assess the relationship between enjoyment and
+difficult ratings. If you choose this question, you must do the
+following:
+
+0.  Establish an a priori hypothesis about the relationship between
+    difficulty and enjoyment.
+1.  Tidy the data set as necessary and provide a table of relevant
+    descriptive statistics. You decide what is relevant based on the
+    variables you have and the research question. Include an explanation
+    in prose of any observations you make from the table. Be sure to
+    print the table in a way that will show up in your knitted document
+    (see previous examples from class).
+2.  Create an informative plot of the data. You only get one plot, so
+    make it count. Keep in mind the types of variables that you have,
+    particularly those that are relevant to your specific hypothesis.
+    Interpret the plot (in prose).
+3.  Decide on a model you can use to answer the research question to the
+    best of your abilities.
+4.  Print a summary of the model and test that the model assumptions
+    have been met (you can use plots for this, but you are not required
+    to include them in the final version of your assignment).
+5.  Write up the results. You should include (1) a description of the
+    statistical analyses you have done in one paragraph, and (2) the
+    actual interpretation of the results in another (see class slides
+    for examples). Don’t forget to include an overall assessment of
+    goodness of fit (variance explained).
+6.  **Important**: In a separate paragraph discuss model assumptions.
+    Did you violate any important assumptions? What decisions did you
+    have to make in order to arrive at an answer? What are the
+    advantages and disadvantages of the decisions you made?
+
+### Final instructions
+
+- Once you have completed two of the three research questions, make sure
+  your document will knit successfully. Read that last sentence again.
+- Host your project in a **private** GitHub repo (call it `pa5`), and
+  share it with me (jvcasillas). You can share a private repo from the
+  settings tab on github.com (essentially you add me as a contributor).
+  You do not need to make it a website.
+- Create a new folder in your `programming_assignments` dropbox folder.
+  Include a `README.md` file with a link to your repo (just the repo,
+  not a website).
+- Celebrate. You survived. So far.
+
+### Evaluation
+
+This is programming assignment 5. There are a total of 25 possible
+points. In order to receive full credit you must complete all of the
+steps described above following **all** instructions.
+
+| Task                                          | Points |
+|:----------------------------------------------|-------:|
+| Create `pa5` project with correct structure   |      1 |
+| Create `index.Rmd` with title and author info |      1 |
+| Complete 1 of 3 the RQs                       |     10 |
+| Complete 2 of 3 the RQs                       |     10 |
+| Create private repo                           |      1 |
+| Successfully submit pull request              |      2 |
+| **Total**                                     |     25 |
+
+The breakdown for the 10 points of the research questions is as follows:
+
+| Task                                                         | Points |
+|:-------------------------------------------------------------|-------:|
+| Tidy the data as necessary                                   |    1.0 |
+| Create table of relevant descriptive stats                   |    1.0 |
+| Generate an informative plot data and accurately describe it |    1.0 |
+| Fit model(s)                                                 |    2.0 |
+| Write up results for publication                             |    2.0 |
+| Discuss model assumptions                                    |    3.0 |
+
+Bonus points: You can earn up to two bonus points if you do something
+meaningful with the qualitative data (i.e., the `comments` column).
+
+### Hints
+
+- Make use of markdown syntax. Include appropriate sections,
+  subsections, etc.
+- Comment all of your code. If you run into problems, explain what you
+  are trying to do. If you find help on the internet, chatGPT, or in
+  slides from class, include a link in your comments.
+- You get lifelines. Talk to me if you get stuck.
