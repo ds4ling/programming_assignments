@@ -458,8 +458,9 @@ repo) and share the final grade.
     newest changes to update your local repo.
 2.  Create a new project in RStudio called `pa5`. Inside your new
     project, create two folders: `data_raw` and `data_clean`.
-3.  Download the data set available \[here\]\[COMING SOON\] and store it
-    in `data_raw`.
+3.  Download the data set available
+    [here](https://github.com/ds4ling/programming_assignments/raw/master/misc/data/ratings/ratings_data_2025-04-23.csv)
+    and store it in `data_raw`.
 4.  Create a new RMarkdown file called `index.Rmd` (‘index’ is *not*
     capitalized) and save it at the root level of your project (i.e.,
     inside `pa5`). The output of the Rmd file can be word, pdf or html.
@@ -477,7 +478,7 @@ repo) and share the final grade.
 
 ### Q<sub>1</sub>: Enjoyment as a function of class (10 points)
 
-Recall that this research questions aims to assess whether there is a
+Recall that this research question aims to assess whether there is a
 difference in enjoyment ratings between the 2023 class and the 2025
 class. If you choose this question, you must do the following:
 
@@ -596,13 +597,13 @@ steps described above following **all** instructions.
 
 | Task                                          | Points |
 |:----------------------------------------------|-------:|
-| Create `pa5` project with correct structure   |      1 |
-| Create `index.Rmd` with title and author info |      1 |
-| Complete 1 of 3 the RQs                       |     10 |
-| Complete 2 of 3 the RQs                       |     10 |
-| Create private repo                           |      1 |
-| Successfully submit pull request              |      2 |
-| **Total**                                     |     25 |
+| Create `pa5` project with correct structure   |    1.0 |
+| Create `index.Rmd` with title and author info |    1.0 |
+| Complete 1 of the 3 RQs                       |   10.0 |
+| Complete 2 of the 3 RQs                       |   10.0 |
+| Create private repo                           |    1.0 |
+| Successfully submit pull request              |    2.0 |
+| **Total**                                     |   25.0 |
 
 The breakdown for the 10 points of the research questions is as follows:
 
@@ -610,10 +611,10 @@ The breakdown for the 10 points of the research questions is as follows:
 |:-------------------------------------------------------------|-------:|
 | Tidy the data as necessary                                   |    1.0 |
 | Create table of relevant descriptive stats                   |    1.0 |
-| Generate an informative plot data and accurately describe it |    1.0 |
+| Generate an informative plot data and accurately describe it |    2.0 |
 | Fit model(s)                                                 |    2.0 |
 | Write up results for publication                             |    2.0 |
-| Discuss model assumptions                                    |    3.0 |
+| Discuss model assumptions                                    |    2.0 |
 
 Bonus points: You can earn up to two bonus points if you do something
 meaningful with the qualitative data (i.e., the `comments` column).

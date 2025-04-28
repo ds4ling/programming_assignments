@@ -7,7 +7,7 @@
 
 misc/data/pa_5_data
 misc/data/pa_5_answers.zip
-misc/data/ratings/
+#misc/data/ratings/
 
 
 misc/data/pa_4_data/assumptions.csv
