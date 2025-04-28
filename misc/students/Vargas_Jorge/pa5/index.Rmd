@@ -1,0 +1,118 @@
+---
+title: "Programming Assigment 5"
+author: "Jorge Vargas-Mutizabal & Valeria Carbone"
+institute: "Rutgers - The State University of New Jersey"
+date: "2016/12/12 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: ["hygge", "rutgers", "rutgers-fonts"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+##We uploaded the libraries below:
+```{r}
+#| echo: false
+library(here)
+library (tidyverse)
+library (ggplot2)
+library(lme4)
+library(lmerTest)
+
+```
+---
+
+##Then, we load the data
+
+```{r}
+data_untidy <- read.csv(here("data_raw", "ratings_data_2025-04-23.csv"))
+```
+
+---
+## We used the function separate to keep the years into its own column
+```{r}
+data_tidy1 <- data_untidy |>
+  separate(date, into = c("year", "month", "day"), sep = "-") 
+  
+```
+---
+##To attempt to answer question 1, we calculated the mean for each year. We used the function summarise to get the mean enjoymen and generated a table with knitr:kable-
+```{r}
+Table_enjoyment <- data_tidy1|>
+  group_by(year)|>
+  summarise(
+    mean_enjoyment = mean(enjoy)
+  )
+
+knitr::kable(Table_enjoyment)
+```
+
+---
+## Now, we will create a box plot to illustrate the difference in enjoyment between 2023 and 2025. 
+
+```{r}
+data_tidy1|>
+  ggplot() +
+  (aes(x = year, y = enjoy, fill = year))+
+  geom_boxplot()+
+  labs(title = "Enjoyment in 2023 and 2025",
+       x = "Year", y = "Enjoyment")
+
+```
+---
+## Ideally, with more time, we would have liked to fit a mixed model and have year as a random effect to assess whether 23 or 25 had a bigger effect.
+---
+# Q2: How do difficulty ratings change over time (i.e., within a semester)?
+
+## Over the course of the semester, we expect difficulty ratings to increase because content gets harder.
+
+---
+We attempt to plot difficulty over the course of 11 weeks
+
+```{r}
+data_tidy1|>
+  ggplot() +
+  (aes(x = week, y = enjoy)) +
+  geom_point()+
+  labs(title = "Difficulty over the semester",
+       x = "Weeks", y = "Difficulty")
+     
+```
+
+
+
+
+---
+#Testing models (We follow previous class example)
+##Our null model will have difficulty as a fixed effect and student (id) as a random effect
+```{r}
+null_model <- lmer(difficulty ~ 1 + (1 | id), data = data_tidy1)
+summary(null_model)
+```
+
+---
+## In this model (1), we put difficulty and week as fixed effects and student (id) as random effect
+```{r}
+model_1 <- lmer(difficulty ~ 1 + week + (1 | id), data = data_tidy1)
+summary(model_1)
+```
+---
+## In this model (2), we put difficulty and week as fixed effects and student (id) and again week as random effect to test a another possibility
+
+```{r}
+model_2 <-lmer(difficulty ~ 1 + week + (1 + week | id), data = data_tidy1)
+summary(model_2)
+```
+---
+##Our last step step is to compare between models (1) and (2) with the function anova and using Chi square to assess which model is the most appropiate to assess difficulty ratings over the course of the semester (weeks)
+```{r}
+model_1 <- lmer(difficulty ~ 1 + week + (1 | id), data = data_tidy1)
+model_2 <-lmer(difficulty ~ 1 + week + (1 + week | id), data = data_tidy1)
+##anova is used to check whether adding more predictors the model is stronger
+anova(model_1, model_2, "Chisq")
+
+```
+
