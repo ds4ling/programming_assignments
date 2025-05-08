@@ -29,7 +29,7 @@ It is already downloaded and lives at the root level of my `pa5` directory.
 
 ```{r}
 #| label: load-data
-dat <- read_csv(here("ratings_data_2025-04-23.csv"))
+dat <- read_csv("ratings_data_2025-04-23.csv")
 ```
 
 Ok. 
@@ -137,8 +137,8 @@ Let's interpret the output anyway...
 
 > The enjoyment data were analyzed using a standard linear model examining average enjoyment as a function of year. 
 > The `year` predictor was dummy coded with 2023 set as the baseline. 
-> During 2023, the average enjoyment was `r round(coef(mod_q1_1)[1], 2)` $\pm$ 0.05 standard errors (t = 11.83, p < 0.001), indicating that average enjoyment was not statistical equivalent to 0. 
-> For 2025, the average enjoyment increased realtive to 2023 by `r round(coef(mod_q1_1)[2], 2)` $\pm$ 0.09 standard errors (t = 0.77, p = 0.45), but this difference is not statistically significant. 
+> During 2023, the average enjoyment was `r round(coef(mod_q1_1)[1], 2)` $\pm$ 0.05 standard errors (t = 11.83, p < 0.001), indicating that average enjoyment was not statistically equivalent to 0. 
+> For 2025, the average enjoyment increased relative to 2023 by `r round(coef(mod_q1_1)[2], 2)` $\pm$ 0.09 standard errors (t = 0.77, p = 0.45), but this difference is not statistically significant. 
 
 Let's take a look at the model assumptions. 
 
