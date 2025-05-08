@@ -158,7 +158,7 @@ It seems fair to assume that the residuals are not normally distributed.
 I probably wouldn't put a ton of faith in this model and I think the small sample size might be an issue. 
 A larger issue, however, has to do with the nature of the dependent variable. 
 If we take another look at @tbl-q1, we see that the min and max values of the enjoyment ratings range essentially from 0 to 1. 
-This implies that, not only is the DV is not normally distributed, it also does not range from -∞ to ∞. 
+This implies that, not only is the DV not normally distributed, it also does not range from -∞ to ∞. 
 In other words, the standard linear model is not the best choice for this data set. 
 We would be better off using a GLM with a beta likelihood and a logit linking function, i.e., beta regression. 
 This type of distribution would be a good choice for our likelihood because it accounts for values ranging from 0 to 1 (i.e., probabilities). 
@@ -170,7 +170,7 @@ This type of distribution would be a good choice for our likelihood because it a
 **Problem**: Repeated measures (again).  
 **Solution**: This time we will use a multilevel model. 
 We need to be sure that we have 1 data point per id per week. 
-This should be the case already, but *SOME PEOPLE* didn't use the same ID every week. 
+This should be the case already, but *some people* didn't use the same ID every week. 
 In other words, there is an inflated number of data points from Anonymous ID. 
 Let's check this out and come up with a solution. 
 
