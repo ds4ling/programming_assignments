@@ -627,3 +627,7 @@ meaningful with the qualitative data (i.e., the `comments` column).
   are trying to do. If you find help on the internet, chatGPT, or in
   slides from class, include a link in your comments.
 - You get lifelines. Talk to me if you get stuck.
+
+PA5 answers will be available
+[here](https://www.ds4ling.jvcasillas.com/programming_assignments/misc/data/pa_5_answers/index.html)
+at a later date.

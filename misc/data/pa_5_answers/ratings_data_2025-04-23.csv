@@ -1,0 +1,197 @@
+id,week,date,enjoy,difficulty,comment
+Anon1,1,2025-02-03,0.9975880514000001,0.2492773729,Nothing was particularly difficult. Some of the ggplot stuff in the readings was a little cumbersome to figure out at first but it did not take long to really click.
+Anon1,2,2025-02-10,1,0.2955646287,"If this is about the in-class content from week 2, then nothing in particular. If this is about the readings I had to do for today, then probably the dplyr functions. I tried to layer them and use as few pipes as possible and I struggled a bit."
+Anon1,3,2025-02-17,0.590119893,0.7500213222,"I don't think NHST stuff was too hard, but I know I will struggle when it comes to actually deciding whether or not to use it in my analyses in the future."
+Anon1,4,2025-02-24,0.9204425822000001,0.2927593191,"If I recall correctly, last week we did bivariate correlations and then practiced with data tidying (filtering, mutating, etc.). If this is correct, I don't recall anything being particularly difficult. If I'm thinking of the wrong week's content, then clearly last week was too difficult and I purged it from my memory."
+Anon1,5,2025-03-03,0.9996920176,0.5003506268,I've learned from working on my QP that certain types of models or analyses are really confusing to me for whatever reason. So last week helped clarify things for me.
+Anon1,6,2025-03-10,0.9996920176,0.2282377112,Nothing. :D
+Anon1,7,2025-03-24,0.980756322,0.3123963581,Nothing in particular. It helps that I don't exactly recall what we did.
+Anon1,8,2025-03-31,0.9744444235,0.04589393331,NA
+Anon1,9,2025-04-07,0.9505993879000001,0.7044353456,"i'm starting to find everything difficult. I enjoy it all and I know it's important and necessary to know, but it is all getting hard. "
+Anon1,10,2025-04-14,0.5003506268,0.5003506268,NA
+Anon1,11,2025-04-21,0.8475050453999999,0.3208122228,NA
+Anonymous ID2,5,2023-02-27,0.45847362510000006,0.06565656566,Wasn't in class the whole time…very useful to see this a second time.
+Anonymous ID,5,2023-02-27,0.401010101,0.3898989899,formulas and its explanations
+Anonymous ID,1,2025-02-03,0.8879945286,0.3448021886,The readings were a LOT of information
+Anonymous ID,2,2025-02-10,0.9478114478,0.00617283951,nothing
+Anonymous ID,2,2025-02-10,0.1876169312,0.5420875421,Everything is very difficult. Having two breaks during class really helps. 
+Anonymous ID,2,2025-02-10,0.8985164140999999,0.1738215488,Remembering the functions (especially the aesthetic ones)
+Anonymous ID,2,2025-02-10,1,0.4797979798,Everything is good!
+Anonymous ID,3,2025-02-17,0.1876169312,0.5205761745,I'm still trying to find my feet. Everything is difficult!
+Anonymous ID,3,2025-02-17,0.8562471148,0.6181436577,"nothing, really"
+Anonymous ID,3,2025-02-17,0.6117950337,0.669665404,math...
+Anonymous ID,4,2025-02-24,0.7183291246,0.5065761785,NA
+Anonymous ID,4,2025-02-24,0.9676393564999999,0.7946127946,To keep up with the class. I find the concepts and the activities are really difficult and I can't work on my own after class. I am unable to do the tasks on my own.
+Anonymous ID,4,2025-02-24,0.8538290895,0.194869704,Connections with the beginning of the class and how it applies to data science for linguistics
+Anonymous ID,5,2025-03-03,0.8801031145,0.5802293771,It is really hard to retain information from stats readings...
+Anonymous ID,5,2025-03-03,0.6556300217000001,0.4846207587,NA
+Anonymous ID,6,2025-03-10,0.6762415824999999,0.7735690236,The readings 
+Anonymous ID,6,2025-03-10,0.8542989208999999,0.2958535003,All good so far!
+Anonymous ID,7,2025-03-24,0.5841750842,0.7472643098,Reading statistics stuff is really hard to focus on
+Anonymous ID,7,2025-03-24,0.3063973349,0.7197904975999999,"The last 20 minutes were excessively difficult. In general, I'd need for you to go a bit more slowly."
+Anonymous ID,7,2025-03-24,0.7780972126000001,0.4447772749,n.a
+Anonymous ID,8,2025-03-31,0.5351678853,0.6091659934,NA
+Anonymous ID,8,2025-03-31,0.7130681818,0.0554503367,Always the readings
+Anonymous ID,9,2025-04-07,0.8490460156999999,0.2070707071,NA
+Anonymous ID,10,2025-04-14,0.6893939394,0.5013152357,I hate the pdfs of the readings that aren't text searchable so I can't highlight things easily in my pdf reader.
+Anonymous ID,11,2025-04-21,0.5157828283,0.5157828283,NA
+Catling,5,2023-02-27,1,0.485001929,"I found it very interesting and a bit more manageable than assignments in the past, but I struggle with knowing which plot to use to correctly visualize specific variables. "
+Catling,6,2023-03-06,0.7379392887,0.7545594837,"I'm still adapting to github, but I know with practice I'll understand it. I'm uncertain between standard coefficient and beta coefficient."
+Catling,2,2023-02-06,1,0.26595380890000003,"When completing the readings, I attempted the R code in Chapter 2 and found I couldn't replicate it. "
+Catling,3,2023-02-13,1,0.7252121914,"The assignment was enjoyable, however, I worked with Meritxell and Patrick on it because I struggled in knowing which dataset works best with each plot. Also, the GitHub tutorial that's linked, doesn't work. "
+Catling,8,2023-03-27,0.9987329896,0.8385811237,I really struggled with this assignment even after looking at the notes and readings. I'm a bit confused with when to use anova and when to apply standardization. Would it be possible in future classes to review the assignments together or have an assignment-like process in class? 
+Catling,9,2023-04-03,0.6308668974,0.7154583151999999,"I'm understanding the material a bit better than before, however, I struggle with determining which code to use. Also not entirely sure which code to use to complete a model diagnostics. "
+Dasani,1,2025-02-03,0.7337433444,0.09782421656000001,Not anything at all. 
+Dasani,2,2025-02-10,0.7684667996000001,0.4034958828,Visualizing and finding the meaning of the different concepts. 
+Dasani,3,2025-02-17,0.7845795329,0.4859192374,Tidying the data. 
+Dasani,4,2025-02-24,0.6952673573,0.7018601132000001,Just to keep up with the syntax of some of the code we did (to fully understand it).
+Dasani,5,2025-03-03,0.7965222154,0.7031156837,Getting all the coding for each function.
+Dasani,6,2025-03-10,0.5912269394999999,0.8068392804,The theoretical part that was presented at the beginning of the class.
+Dasani,7,2025-03-24,0.4781906522,0.6481458191,The theoretical framework
+Dasani,8,2025-03-31,0.3623912053,0.8368477527,The theory behind it.
+Dasani,9,2025-04-07,0.384232338,0.7042488415,N/A
+Dasani,10,2025-04-14,0.1569188521,0.8757236536,N/A
+Dasani,11,2025-04-21,0.2293527862,0.8152402798999999,Following up with the theory.
+Juaquín,1,2025-02-03,0.7305665349,0.09705753184,The concepts in the readings are a bit hard to understand with some statistical background assumed. Further explanations would be helpful.
+Juaquín,2,2025-02-10,0.8436539306,0.2496706192,NA
+Juaquín,4,2025-02-24,0.7009222661,0.2364953887,There seems to be various ways to achieve the same goal. It will become clearer if we know why we can do that and how they are related. 
+Juaquín,6,2025-03-10,0.7646025472,0.3616600791,More practice with case studies would be great 
+Juaquín,7,2025-03-24,0.6811594203,0.36495388669999995,"When doing the practice, if I don't follow typing the code in R, it will take more time to keep on the track and move on. Last time my code didn't work just because of a single space which stopped me there. "
+Juaquín,8,2025-03-31,0.6174791392,0.42314448839999996,"
+"
+Juaquín,9,2025-04-07,0.5307422047,0.4824330259,a lot of terms to process which takes time 
+Juaquín,10,2025-04-14,0.619675011,0.4703557312,NA
+Juaquín,11,2025-04-21,0.6635924462,0.5406236276,NA
+Jukun Zhang,1,2025-02-03,1,0.5016835531,"Everything is new for me, it is really cool to learn the Github web."
+Jukun Zhang,2,2025-02-10,1,0.4941077955,Everything is good!
+Jukun Zhang,3,2025-02-17,1,0.49158254300000004,Very Good!!
+Jukun Zhang,4,2025-02-24,1,0.4814815329,good!
+Jukun Zhang,5,2025-03-03,1,0.5075757576000001,good!
+Jukun Zhang,6,2025-03-10,1,0.4553872311,Good!
+Jukun Zhang,7,2025-03-24,1,0.4654882412,Good!
+Jukun Zhang,8,2025-03-31,1,0.5092593106000001,Nice!
+Jukun Zhang,9,2025-04-07,1,0.47727272730000003,Good!!
+Jukun Zhang,10,2025-04-14,1,0.49747474750000004,Good!
+Jukun Zhang,11,2025-04-21,1,0.6388888889,Good!
+Lolex,4,2023-02-25,0.6702207258,0.4027310138,NA
+Lolex,5,2023-02-27,0.5944632071,0.3410026473,NA
+Lolex,6,2023-03-06,0.6674149466999999,0.6627384961,"I reread the first part of 22 and 55 and I felt I understand much better. However, I am struggling with the new concepts presented -multiple regression and t values, but I am sure I will get them better after class!"
+Lolex,7,2023-03-20,0.6487093154,0.5336700337,NA
+Lolex,1,2023-01-30,0.9610924341,0.355031828,"The first week wasn't too challenging, but I'm afraid it won't always be like that!"
+Lolex,2,2023-02-06,0.47100641699999996,0.6075570805,"The whole concept of extrapolating from the sample to the population, I am still not sure I fully grasp it"
+Lolex,3,2023-02-13,0.5448933782000001,0.6141040601000001,"The R reading was quite ok. The Statistics for Linguistics reading was dense. There are slight glimpses of light but otherwise reading it feels very often like a looong dark tunnel. But I trust my abilities, and my Professor's help, to get this!"
+Lolex,8,2023-03-27,0.6954733081000001,0.3905723906,i've been reviewing the presentations from week 1 and now it all makes much more sense! Still struggling with some concepts but the clouds are starting to clear.
+Lolex,9,2023-04-03,0.31387955040000004,0.6393565853,I confess I didn't do the readings :(
+anon86_a,1,2023-01-30,1,0.4180695847,"it was my first time using GitHub, so it looked a little intimidating -- but it actually turned out to ok, especially thanks to the tutorial!"
+anon86_a,3,2023-02-13,0.8490460156999999,0.5808080808,NA
+apricot_a,6,2023-03-06,0.3713239162,0.5404310986,"THE STAS PART AS it is my first time seeing some terms, so it's hard for me to cat up on the R coding for them"
+apricot_a,2,2023-02-06,0.5078207202,0.5078207202,NA
+cervatillo silvestre,4,2023-02-22,0.2976773405,0.6266265206,I had to watch some yt videos to follow along with the reading. Fun fact on Friday I fell asleep with the readings. This week was the hardest to me so far
+cervatillo silvestre,6,2023-03-06,0.2762626263,0.6606060605999999,"It took me a lot to understand the multiple regression, and the formulas of the weighted sum.I undertood it conceptually"
+cervatillo silvestre,1,2023-01-30,0.5136363636,0.5136363636,"No tenia conocimiento previo de estadistica, y las lecturas me costaron un poco. Hubo conceptos que tuve que buscar en internet. En general todo bien "
+cervatillo silvestre,2,2023-02-06,0.5611111111,0.4212121212,Book's syntax 
+cervatillo silvestre,3,2023-02-13,0.5994949495,0.5242424242,"The programming assignement was not 1h, as advertized, but the readings were not too hard"
+cervatillo silvestre,7,2023-03-20,0.5853535354,0.32121212120000003,Spring break allowed me to catch up a little bit.
+cervatillo silvestre,8,2023-03-27,0.303030303,0.5742424241999999,Having to combine the PA4 with the readings of this week. The PA4 took too long to complete.
+cervatillo silvestre,9,2023-04-03,0.3631313131,0.5712121212,Dummy variables lost me on the readings 
+charleshsueh,1,2025-02-03,0.7946127946,0.13860830529999998,NA
+charleshsueh,2,2025-02-10,0.9618406285000001,0.9618406285000001,NA
+charleshsueh,2,2025-02-10,0.9135802469,0.11840628510000001,NA
+charleshsueh,3,2025-02-17,0.9225589225999999,0.11391694729999999,NA
+charleshsueh,4,2025-02-24,0.9113355780000001,0.2514029181,NA
+charleshsueh,5,2025-03-03,0.9197530864,0.1997755331,NA
+charleshsueh,6,2025-03-10,0.88664422,0.08978675644999999,NA
+charleshsueh,7,2025-03-24,0.8372615039,0.1621773288,NA
+charleshsueh,8,2025-03-31,0.8271604938,0.182379349,NA
+charleshsueh,10,2025-04-14,0.8540965208,0.120650954,NA
+charleshsueh,11,2025-04-21,0.8748597082,0.1492704826,NA
+dusty,7,2023-03-20,0.49614389340000004,0.7166589123,I still have issues trying to generate the link to create a website. I also struggled to create slides in R
+dusty,1,2023-01-30,0.3275391721,0.6670808289,GitHub in general; it is not very intuitive and its purpose is not clear.
+dusty,2,2023-02-06,0.18713587839999998,0.6605128707,The book DS4L is such a bad book. It makes everything way more complicated than what it actually is. The explanations are not good and the examples are not useful. 
+dusty,3,2023-02-13,0.45767688,0.5682976547999999,Understanding how to work with dataset in R. They tend to be somewhat confusing and I believe we need a little more guidance
+dusty,5,2023-02-27,0.4185419736,0.7418412916,"I found the assignment quite difficult. I believe the examples that we do in class are easier than the assignments, and I feel like I am not making much progress."
+dusty,6,2023-03-06,0.5501754196,0.6383676582,Applying what we learn in class to the examples in the book and the assignments
+dusty,8,2023-03-27,0.1743571649,0.8653569933,"I still have trouble understanding and reading the code, and this prevents me from understanding what is going on and I cannot follow. Also, the content from last week was quite difficult to understand. I believe there is too much theory and not much practice and then, whenever we have to do the programming assignments, we do not understand the instructions. Perhaps there should be more scaffolding. "
+dusty,9,2023-04-03,0.4817726829,0.6016233982,I did not understand last week's topic too well.
+greentruck,1,2025-02-03,0.4980534512,0.3116319444,"nothing, the assignment was challenging enough but not too hard. "
+greentruck,2,2025-02-10,0.8964076529,0.18346661050000002,It was a bit confusing understanding how the concepts we talked about at the beginning of the class were going to relate with R
+greentruck,3,2025-02-17,0.7556686657999999,0.5662659582,NA
+greentruck,5,2025-03-03,0.5042043701,0.3778935185,NA
+greentruck,6,2025-03-10,0.9141457983,0.4539141414,"Not particularly difficult, but I enjoyed it more than the previous weeks!"
+greentruck,8,2025-03-31,0.8266913931000001,0.5109909863,"It was easier to understand than previous weeks, maybe because I'm more familiar with the materials. "
+greentruck,9,2025-04-07,0.9312701669000001,0.5103728255,it all made sense!
+greentruck,10,2025-04-14,0.8098344557,0.43947285350000004,NA
+greentruck,11,2025-04-21,0.9031065867,0.2438885382,NA
+jz,1,2025-02-03,0.1184062922,0.8703704274999999,"understanding where, what, when, howfeeling completely lost"
+jz,5,2025-03-03,0.46632998059999997,0.46632998059999997,To keep up with the class and be ready to replicate the actions we did in class on my own
+jz,6,2025-03-10,0.49438834200000004,0.6992143944,"To me, everything is difficult."
+jz,8,2025-03-31,0.257762799,0.7020201877,Things are getting too hard.
+jz,9,2025-04-07,0.1885381632,0.8722789648,it's getting too hard.
+jz,10,2025-04-14,0.1385191345,0.9485955515000001,Very difficult! 
+jz,11,2025-04-21,0.1302584812,0.8832831512,Everything is difficult for me!
+knf43,1,2025-02-03,0.914134838,0.051994189579999996,"For the reading, it would have been nice to have the answers to the exercises in the section about data visualization "
+knf43,2,2025-02-10,0.8486287937,0.563113046,"There was a lot of material to comprehend in the reading of QML, and I found some of the concepts a little hard to understand (e.g., central limit theorem, cumulative probability, probability density) "
+knf43,3,2025-02-17,0.8296272913999999,0.614644711,"For PA2, understanding the statsummary function was the hardest part for me "
+knf43,4,2025-02-24,0.773952634,0.6074036078,All good so far. I found the chapter on regression very helpful. 
+knf43,5,2025-03-03,0.7688524422,0.3091410342,everything was ok this week! 
+lingcat,1,2023-01-30,0.9949845679,0.48063096240000003,"I wasn't able to successfully complete the tidyverse exercises, but I'll give it a try again this week. "
+me,5,2023-02-27,0.7683080808,0.5486637205,NA
+me,6,2023-03-06,0.7130681818,0.610479798,NA
+me,1,2023-01-30,0.9997895622999999,0.00547138047,NA
+me,2,2023-02-06,0.9879524411,0.2330071549,"the qualtitative methods book's writing style feels like i'm listening to someone present a powerpoint, but i dont have access to the slides. "
+me,3,2023-02-13,0.8972011784999999,0.3237584175,enjoyed learning new ways to plot data based on their type eg categorical or continuous
+me,4,2023-02-20,0.9024621211999999,0.23695286200000001,"book had quite a few similar-looking formulas and long, difficult-to-remember names, but your presentation today made everything 100% more solid with the visuals."
+me,8,2023-03-27,0.7329416615,0.8741496599,NA
+me,9,2023-04-03,0.444760101,0.6959701178000001,NA
+mmmerlinski,1,2025-02-03,1,0.2328424431,"readings are interesting, do we have answers to those exiercise?"
+mmmerlinski,2,2025-02-10,1,1,I'm not quite sure about the exercise 5.4.1 question 4 in R4DS
+mmmerlinski,3,2025-02-17,1,0.2743793071,NA
+mmmerlinski,4,2025-02-24,1,0.20829793259999999,NA
+mmmerlinski,6,2025-03-10,0.4990559804,0.4990559804,"I did not attend the class... sad, so I put mid for all comments. NO OFFENSE * *"
+mmmerlinski,7,2025-03-24,1,0.19413763809999998,waiting for summer!!!!!!!!!!!! T^T (crying out loud)
+mmmerlinski,8,2025-03-31,0.8643915792999999,0.2857075427,I'm surviving ^ ^
+mmmerlinski,9,2025-04-07,1,0.061764697210000004,"sad, still have not starting reading for the online presentation cuz I need to finish the QP draft."
+mmmerlinski,10,2025-04-14,1,0.07896724252000001,"sad I picked an article too hard to present hahahahaha. The content of it is fine, but the details are toooooooo many."
+mmmerlinski,11,2025-04-21,0.962767207,0.01139299977,network issue
+notasuperhero,7,2023-03-20,0.5209412923,0.687535484,"It is still difficult for me to interpret the data that we code in R. Moreover, I don't understand sometimes the ""syntax"" of our code, which makes it even more difficult for me to follow what we are doing."
+notasuperhero,1,2023-01-30,0.39506097490000003,0.37882781540000005,I did not find anything difficult. I think I only need more practice. 
+notasuperhero,2,2023-02-06,0.505637292,0.5333519795,"Some concepts were hard to understand and, I must be honest, I haven't understood everything. I think that the problem is that all these concepts now seem kind of abstract."
+notasuperhero,3,2023-02-13,0.5867920607,0.5666597069,"There are still some concepts that are hard for me to understand. However, I went over what we did in class last week and I could understand it better. "
+notasuperhero,4,2023-02-21,0.5685113806,0.5415891911,"I think I understood the readings quite well. And then your explanation in class helped me revise the contents. I am not sure, though, how the PA will go."
+notasuperhero,5,2023-02-27,0.5675172816,0.5698212047,"I am still going over what we do in class to have a ""more solid"" base. I found the assignment a little bit difficult. I know it was probably not that hard, but it was a little bit confusing for me. I can follow the classes more or less, but then when I am at home I feel like I understand nothing. "
+notasuperhero,6,2023-03-06,0.6421867054,0.6729035553999999,"Like always, still trying to figure out and understand everything. Although I don't understand all the information in the chapters, I know that multiple regressions are important for our research. That's why I kind of enjoyed the content :)"
+notasuperhero,8,2023-03-27,0.3215586858,0.8224211927,I am still having problems to understand the results and to relate the theory and the concepts with the code and what we have to do in R.
+notasuperhero,9,2023-04-03,0.5501290438,0.7002112049,NA
+pear,1,2025-02-03,0.6604344245,0.0014154741100000001,nothing
+pear,2,2025-02-10,0.6649769251,0.44461412269999995,Textbook is wordy
+pear,4,2025-02-24,0.7469007952,0.6571112719,NA
+pear,6,2025-03-10,0.5970884374,0.4731786376,NA
+pear,9,2025-04-07,0.4522994499,0.3579717194,n.a
+pear,10,2025-04-14,0.6670850232,0.49769440189999997,n.a
+pear,11,2025-04-21,0.5428532125000001,0.4575804289,n.a
+sherlock_holmes,5,2023-02-27,0.9248481177,0.30647772759999997,NA
+sherlock_holmes,6,2023-03-06,0.9698341886999999,0.711735713,"I'm having trouble remembering regression assumptions, but I think that will come with practice."
+sherlock_holmes,7,2023-03-20,0.7941594039000001,0.6405066556,"What do interactions represent, and what is their significance?"
+sherlock_holmes,1,2023-01-30,0.9465573157999999,0.1782009069,Interested in learning more about different types of distributions and implementing them in R
+sherlock_holmes,2,2023-02-06,0.9564566564,0.1953728844,I'm having trouble differentiating between the probability density function and the cumulative probability function
+sherlock_holmes,3,2023-02-13,0.9246971396000001,0.6382730571999999,NA
+spiderman,5,2023-02-27,0.9723157501,0.1109240696,Nope :)
+spiderman,6,2023-03-06,1,0.279274238,Nope :)
+spiderman,1,2023-01-30,0.9302282080000001,0.1230826858,Nope :)
+spiderman,2,2023-02-06,0.9161990273,0.13243547290000002,Nope :)
+spiderman,7,2023-03-20,0.9395809950999999,0.215675257,Nope :)
+spiderman,8,2023-03-27,0.8591471114,0.3335204319,Nope :)
+spiderman,9,2023-04-03,0.7824542141999999,0.2661803217,Nope :)
+spiderman,3,2023-02-13,1,0.1118593341,Nope :)
+spiderman,4,2023-02-20,0.9910213244,0.1015712825,Nope :)
+sunflower_a,6,2023-03-06,0.9621696462,0.3781340188,NA
+sunflower_a,7,2023-03-20,0.6617405870999999,0.339269848,NA
+sunflower_a,1,2023-01-30,0.8696689112999999,0.16808461600000002,NA
+sunflower_a,3,2023-02-13,0.6567218147,0.04551300037,NA
+sunflower_a,4,2023-02-20,0.49225889850000004,0.2276209516,NA
+sunflower_a,5,2023-02-27,0.7088385508999999,0.2184602306,NA
+syntaxisscary,1,2023-01-30,0.4337822671,0,I am somewhat familiar with these concepts.
+syntaxisscary,2,2023-02-06,0.24747474749999998,0.1318742985,This is review for me as I have become familiar with these concepts through previous…exposure :)
+syntaxisscary,3,2023-02-13,0.9287317621,0,I have taken this course so this was all review.
+syntaxisscary,4,2023-02-21,0.9197530864,0.07575757576,I've taken this class before…review!
+syntaxisscary,8,2023-03-27,0.4842873176,0.4842873176,"Oops, I was actually in another place last week. Sorry!"

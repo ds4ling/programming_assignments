@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>PA5 example answers</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-f85e247ed3aade255839148e3ddd6479.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-2f4b6ad8e0b65cae9e2b360948391637.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
+  <ul>
+  <li><a href="#q1---enjoyment-as-a-function-of-class" id="toc-q1---enjoyment-as-a-function-of-class" class="nav-link" data-scroll-target="#q1---enjoyment-as-a-function-of-class">Q1 - Enjoyment as a function of class</a></li>
+  <li><a href="#q2---difficulty-as-a-function-of-time" id="toc-q2---difficulty-as-a-function-of-time" class="nav-link" data-scroll-target="#q2---difficulty-as-a-function-of-time">Q2 - Difficulty as a function of time</a></li>
+  <li><a href="#q3---the-relationship-between-enjoyment-and-difficulty" id="toc-q3---the-relationship-between-enjoyment-and-difficulty" class="nav-link" data-scroll-target="#q3---the-relationship-between-enjoyment-and-difficulty">Q3 - The relationship between enjoyment and difficulty</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PA5 example answers</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<p>Let’s start by loading some libraries.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(<span class="st">"here"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(<span class="st">"broom"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(<span class="st">"knitr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Now we will load the dataset. It is already downloaded and lives at the root level of my <code>pa5</code> directory.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"ratings_data_2025-04-23.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 195 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (2): id, comment
+dbl  (3): week, enjoy, difficulty
+date (1): date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>Ok. Now we are ready to get started. Let’s go straight through the questions.</p>
+<p><br></p>
+</section>
+<section id="questions" class="level1">
+<h1>Questions</h1>
+<p>I will address each question brielfy. First, I will highlight the main issue the questions presents. Second, I will mention the possible solutions. After, I will go through the process of answering the questions.</p>
+<section id="q1---enjoyment-as-a-function-of-class" class="level2">
+<h2 class="anchored" data-anchor-id="q1---enjoyment-as-a-function-of-class">Q1 - Enjoyment as a function of class</h2>
+<p><strong>Problem</strong>: The dataset contains repeated measures.<br>
+<strong>Solution</strong>: We will have to use a complicated multilevel model or average over participants/time in order to get a single observation per individual. The latter probably isn’t ideal, but it is a solution the meshes well with what we have done in class, so we will go with that.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Separate the `date` column to get access to 'year'</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># Then group by id and year and calculate the overall average enjoyment for each id</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>enjoy_avg_id <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">separate</span>(date, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>), <span class="at">sep =</span> <span class="st">"-"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">group_by</span>(id, year) <span class="sc">|&gt;</span> </span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">summarize</span>(<span class="at">avg_enj =</span> <span class="fu">mean</span>(enjoy), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co"># Take a look at the first 6 rows</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="fu">head</span>(enjoy_avg_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  id            year  avg_enj
+  &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt;
+1 Anon1         2025    0.887
+2 Anonymous ID  2023    0.401
+3 Anonymous ID  2025    0.702
+4 Anonymous ID2 2023    0.458
+5 Catling       2023    0.895
+6 Dasani        2025    0.544</code></pre>
+</div>
+</div>
+<p>Now the data is in a useable format. Let’s make a table of average enjoyment for 2023 and 2025.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>enjoy_avg_id <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="at">min =</span> <span class="fu">min</span>(avg_enj), </span>
+<span id="cb6-6"><a href="#cb6-6"></a>    <span class="at">max =</span> <span class="fu">max</span>(avg_enj), </span>
+<span id="cb6-7"><a href="#cb6-7"></a>    <span class="at">avg_enjoy =</span> <span class="fu">mean</span>(avg_enj), </span>
+<span id="cb6-8"><a href="#cb6-8"></a>    <span class="at">sd_enjoy =</span> <span class="fu">sd</span>(avg_enj)</span>
+<span id="cb6-9"><a href="#cb6-9"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb6-10"><a href="#cb6-10"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(min<span class="sc">:</span>sd_enjoy, \(x) <span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">2</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb6-11"><a href="#cb6-11"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="tbl-q1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Average class enjoyment as a function of year.
+</figcaption>
+<div aria-describedby="tbl-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">year</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">avg_enjoy</th>
+<th style="text-align: right;">sd_enjoy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2023</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">0.22</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2025</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.74</td>
+<td style="text-align: right;">0.21</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>We can see from <a href="#tbl-q1" class="quarto-xref">Table&nbsp;1</a> that enjoyment seems to be slightly higher in 2025. Now we can make a plot to see if there are any concerns.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>enjoy_avg_id <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> avg_enj, <span class="at">y =</span> year, <span class="at">color =</span> year) <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">y =</span> <span class="sc">-</span><span class="fl">0.1</span>), <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">"pointrange"</span>, <span class="at">pch =</span> <span class="dv">21</span>, </span>
+<span id="cb7-7"><a href="#cb7-7"></a>    <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">lineend =</span> <span class="st">"round"</span>, <span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">1</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>  ) <span class="sc">+</span> </span>
+<span id="cb7-9"><a href="#cb7-9"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">guide =</span> <span class="st">"none"</span>, <span class="at">begin =</span> <span class="fl">0.4</span>, <span class="at">end =</span> <span class="fl">0.75</span>) <span class="sc">+</span> </span>
+<span id="cb7-10"><a href="#cb7-10"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="st">"Average enjoyment"</span>) <span class="sc">+</span> </span>
+<span id="cb7-11"><a href="#cb7-11"></a>  ds4ling<span class="sc">::</span><span class="fu">ds4ling_bw_theme</span>() <span class="sc">+</span> </span>
+<span id="cb7-12"><a href="#cb7-12"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-q1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-q1-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Average enjoyment ratings as a function of year. Transparent points represent raw data. Larger, white points represent means <span class="math inline">\(\pm\)</span>SE.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>It looks like the average difference between years is quite small. We will fit a linear model to test the hypothesis that the mean difference = 0. The inclusive model formula is <code>enjoy ~ year</code>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Fit null model</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>mod_q1_0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(avg_enj <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> enjoy_avg_id)</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Fit inclusive model</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>mod_q1_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(avg_enj <span class="sc">~</span> year, <span class="at">data =</span> enjoy_avg_id)</span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># Nested model comparison</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="fu">anova</span>(mod_q1_0, mod_q1_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: avg_enj ~ 1
+Model 2: avg_enj ~ year
+  Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
+1     25 1.1847                           
+2     24 1.1560  1  0.028684 0.5955 0.4478</code></pre>
+</div>
+</div>
+<p>It looks like there is no evidence of a main effect of time (F(1) = 0.59, p = 0.45). Note, we didn’t really need to do the model comparison to find this though, as we could also just examine the summary of <code>mod_q1_1</code>:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">tidy</span>(mod_q1_1) <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">mutate_if</span>(is.numeric, round, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="tbl-mod-q1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mod-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Summary of enjoyment ~ time model.
+</figcaption>
+<div aria-describedby="tbl-mod-q1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">11.83</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">year2025</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.77</td>
+<td style="text-align: right;">0.45</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Let’s interpret the output anyway…</p>
+<blockquote class="blockquote">
+<p>The enjoyment data were analyzed using a standard linear model examining average enjoyment as a function of year. The <code>year</code> predictor was dummy coded with 2023 set as the baseline. During 2023, the average enjoyment was 0.67 <span class="math inline">\(\pm\)</span> 0.05 standard errors (t = 11.83, p &lt; 0.001), indicating that average enjoyment was not statistical equivalent to 0. For 2025, the average enjoyment increased realtive to 2023 by 0.07 <span class="math inline">\(\pm\)</span> 0.09 standard errors (t = 0.77, p = 0.45), but this difference is not statistically significant.</p>
+</blockquote>
+<p>Let’s take a look at the model assumptions.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>ds4ling<span class="sc">::</span><span class="fu">diagnosis</span>(mod_q1_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-q1-assumptions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-q1-assumptions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-q1-assumptions-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-q1-assumptions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Residuals vs.&nbsp;fitted values (left panel), histrogram of residuals (middle panel), and a qq-plot (right panel) for the enjoyment (<code>mod_q1_1</code>) model.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>It’s a bit wonky for serveral reasons. First, our only predictor is discontinuous, so the leftmost plot cannot tell us about homoscedasticity. The mean value for the residuals is essentially 0, but the distribution doesn’t not appear to be normal. Finally, we see from the qq plot that the end points don’t look great. It seems fair to assume that the residuals are not normally distributed. I probably wouldn’t put a ton of faith in this model and I think the small sample size might be an issue. A larger issue, however, has to do with the nature of the dependent variable. If we take another look at <a href="#tbl-q1" class="quarto-xref">Table&nbsp;1</a>, we see that the min and max values of the enjoyment ratings range essentially from 0 to 1. This implies that, not only is the DV is not normally distributed, it also does not range from -∞ to ∞. In other words, the standard linear model is not the best choice for this data set. We would be better off using a GLM with a beta likelihood and a logit linking function, i.e., beta regression. This type of distribution would be a good choice for our likelihood because it accounts for values ranging from 0 to 1 (i.e., probabilities).</p>
+<p><br><br></p>
+</section>
+<section id="q2---difficulty-as-a-function-of-time" class="level2">
+<h2 class="anchored" data-anchor-id="q2---difficulty-as-a-function-of-time">Q2 - Difficulty as a function of time</h2>
+<p><strong>Problem</strong>: Repeated measures (again).<br>
+<strong>Solution</strong>: This time we will use a multilevel model. We need to be sure that we have 1 data point per id per week. This should be the case already, but <em>SOME PEOPLE</em> didn’t use the same ID every week. In other words, there is an inflated number of data points from Anonymous ID. Let’s check this out and come up with a solution.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Get a vector of all unique IDs</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>dat <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">pull</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Anon1"                "Anonymous ID2"        "Anonymous ID"        
+ [4] "Catling"              "Dasani"               "Juaquín"             
+ [7] "Jukun Zhang"          "Lolex"                "anon86_a"            
+[10] "apricot_a"            "cervatillo silvestre" "charleshsueh"        
+[13] "dusty"                "greentruck"           "jz"                  
+[16] "knf43"                "lingcat"              "me"                  
+[19] "mmmerlinski"          "notasuperhero"        "pear"                
+[22] "sherlock_holmes"      "spiderman"            "sunflower_a"         
+[25] "syntaxisscary"       </code></pre>
+</div>
+</div>
+<p>What we see here is that we have 3 anonymous-like IDs (Anon1, Anonymous ID2, and Anonymous ID). I suspect that <code>Anonymous ID</code> will be the only problem, but let’s check to be sure.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Get number of data points from Anon1, AnonymousID2, and Anonymous ID</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>dat <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">filter</span>(id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Anon1"</span>, <span class="st">"Anonymous ID2"</span>, <span class="st">"Anonymous ID"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+# Groups:   id [3]
+  id                n
+  &lt;chr&gt;         &lt;int&gt;
+1 Anon1            11
+2 Anonymous ID     24
+3 Anonymous ID2     1</code></pre>
+</div>
+</div>
+<p>A given participant should have a maximum of 11 data points. To simplify the problem, we will just filter out anybody with more than 11.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Get vector of IDs with 11 or fewer data points</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>good_ids <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;=</span> <span class="dv">11</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">pull</span>(id)</span>
+<span id="cb16-7"><a href="#cb16-7"></a></span>
+<span id="cb16-8"><a href="#cb16-8"></a>dat_avg_time <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span> </span>
+<span id="cb16-9"><a href="#cb16-9"></a>  <span class="fu">filter</span>(id <span class="sc">%in%</span> good_ids) <span class="sc">|&gt;</span> </span>
+<span id="cb16-10"><a href="#cb16-10"></a>  <span class="fu">group_by</span>(id, week) <span class="sc">|&gt;</span> </span>
+<span id="cb16-11"><a href="#cb16-11"></a>  <span class="fu">summarize</span>(<span class="at">difficulty =</span> <span class="fu">mean</span>(difficulty), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-12"><a href="#cb16-12"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> week <span class="sc">-</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Now let’s take a look at how complete the data set is. I want to see how many time data points we have for each ID.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>dat_avg_time <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">count</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="tbl-q2-ids" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-q2-ids-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Number of data points from each unique ID.
+</figcaption>
+<div aria-describedby="tbl-q2-ids-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Anon1</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anonymous ID2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Catling</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dasani</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Juaquín</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jukun Zhang</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lolex</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">anon86_a</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">apricot_a</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cervatillo silvestre</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">charleshsueh</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dusty</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">greentruck</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">jz</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">knf43</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lingcat</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">me</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mmmerlinski</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">notasuperhero</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pear</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sherlock_holmes</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">spiderman</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sunflower_a</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">syntaxisscary</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><a href="#tbl-q2-ids" class="quarto-xref">Table&nbsp;3</a> shows us that we have <em>really</em> incomplete data. Ok. Let’s see average difficulty for each week.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>dat_avg_time <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">group_by</span>(week) <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb18-4"><a href="#cb18-4"></a>    <span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb18-5"><a href="#cb18-5"></a>    <span class="at">min =</span> <span class="fu">min</span>(difficulty), </span>
+<span id="cb18-6"><a href="#cb18-6"></a>    <span class="at">max =</span> <span class="fu">max</span>(difficulty), </span>
+<span id="cb18-7"><a href="#cb18-7"></a>    <span class="at">avg_difficulty =</span> <span class="fu">mean</span>(difficulty), </span>
+<span id="cb18-8"><a href="#cb18-8"></a>    <span class="at">sd_difficulty =</span> <span class="fu">sd</span>(difficulty)</span>
+<span id="cb18-9"><a href="#cb18-9"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb18-10"><a href="#cb18-10"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(min<span class="sc">:</span>sd_difficulty, \(x) <span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">2</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb18-11"><a href="#cb18-11"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="tbl-q2-avg-diff" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-q2-avg-diff-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Average difficulty as a function of week.
+</figcaption>
+<div aria-describedby="tbl-q2-avg-diff-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">week</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">avg_difficulty</th>
+<th style="text-align: right;">sd_difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">0.23</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.44</td>
+<td style="text-align: right;">0.24</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.70</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.74</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.20</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">0.19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.72</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.20</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.54</td>
+<td style="text-align: right;">0.26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.21</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">0.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Nice! Let’s plot it.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>dat_avg_time <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> difficulty) <span class="sc">+</span> </span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> id), <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">show.legend =</span> F) <span class="sc">+</span> </span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">"pointrange"</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span> </span>
+<span id="cb19-6"><a href="#cb19-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">labels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>) <span class="sc">+</span> </span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Avg. difficulty rating"</span>, <span class="at">x =</span> <span class="st">"Week"</span>) <span class="sc">+</span> </span>
+<span id="cb19-8"><a href="#cb19-8"></a>  ds4ling<span class="sc">::</span><span class="fu">ds4ling_bw_theme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-q2-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-q2-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-q2-plot-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-q2-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Average difficulty by week.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>It looks like difficulty increases slightly over time, particularly if we compare week 1 to week 11. That said, the trend does not appear to be linear (we’ll come back to this). Now we can fit a multilevel model testing difficulty over time. Our inclusive model is: <code>difficulty ~ week + (1 + time | id)</code>.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Load multilevel model packages</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">library</span>(<span class="st">"lme4"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="fu">library</span>(<span class="st">"lmerTest"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4"></a></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="co"># Fit nullmodel</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>q2_mod_0 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(difficulty <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> week <span class="sc">|</span> id), <span class="at">data =</span> dat_avg_time)</span>
+<span id="cb20-7"><a href="#cb20-7"></a></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="co"># Fit inclusive model</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a>q2_mod_1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(difficulty <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> week <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">+</span> week <span class="sc">|</span> id), <span class="at">data =</span> dat_avg_time)</span>
+<span id="cb20-10"><a href="#cb20-10"></a></span>
+<span id="cb20-11"><a href="#cb20-11"></a><span class="co"># Nested model comparisons</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a><span class="fu">anova</span>(q2_mod_0, q2_mod_1, <span class="at">reml =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Data: dat_avg_time
+Models:
+q2_mod_0: difficulty ~ 1 + (1 + week | id)
+q2_mod_1: difficulty ~ 1 + week + (1 + week | id)
+         npar     AIC     BIC logLik -2*log(L)  Chisq Df Pr(&gt;Chisq)   
+q2_mod_0    5 -81.911 -66.232 45.955   -91.911                        
+q2_mod_1    6 -88.717 -69.902 50.359  -100.717 8.8061  1   0.003002 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">summary</span>(q2_mod_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: difficulty ~ 1 + week + (1 + week | id)
+   Data: dat_avg_time
+
+REML criterion at convergence: -87.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.4131 -0.5424 -0.0309  0.5017  3.8944 
+
+Random effects:
+ Groups   Name        Variance  Std.Dev. Corr 
+ id       (Intercept) 0.0258803 0.16087       
+          week        0.0007964 0.02822  -0.42
+ Residual             0.0213193 0.14601       
+Number of obs: 170, groups:  id, 24
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(&gt;|t|)    
+(Intercept)  0.346338   0.039250 21.129932   8.824 1.57e-08 ***
+week         0.023764   0.007504 20.954441   3.167  0.00465 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+     (Intr)
+week -0.532</code></pre>
+</div>
+</div>
+<p>Interpretation:</p>
+<blockquote class="blockquote">
+<p>The difficulty data was analyzed using a multilevel model. We fit difficulty ratings as a function of week (1-11). Week was set as a continuous predictor and was allowed to vary for each individual id. We assessed the main effect of time using a nested model comparison. There was a main effect of time (<span class="math inline">\(\chi\)</span>(1) = 8.79, p = 0.003). At week 1, average difficulty was approximately 0.35 <span class="math inline">\(\pm\)</span> 0.03 standard errors (t = 9.33, p &lt; 0.001). As each week progressed the average difficulty rating increased by approximately 0.02 <span class="math inline">\(\pm\)</span> 0.007 standard errors (t = 3.15, p = 0.004). In other words, the average perception of difficulty increased, though slightly, as the semester unfolded.</p>
+</blockquote>
+<p>Some assumptions:<br>
+While we were able to account for the structure of the data using a multilevel model, i.e., the repeated measures <code>week</code>, we are still not using the best model because we have a dependent variable that is bounded between 0 and 1. We could fit a better model with beta regression (i.e., beta likelihood with logit link). Furthermore, as noted above, the relationship between difficulty rating and time does not seem to be linear (recall that this is a key assumption). This makes sense, as some content might be considered to be more or less difficult. We would probably be better off using a non-linear model, like a GAMM.</p>
+<p><br> <br></p>
+</section>
+<section id="q3---the-relationship-between-enjoyment-and-difficulty" class="level2">
+<h2 class="anchored" data-anchor-id="q3---the-relationship-between-enjoyment-and-difficulty">Q3 - The relationship between enjoyment and difficulty</h2>
+<p><strong>Problem</strong>: Repeated measures (again).<br>
+<strong>Solution</strong>: Lots of averaging or use a multilevel model</p>
+<p>Lets average to go fast. For the purposes of this question, we will forget about the effect of time. We are merely considering a global rating of enjoyment and difficult for the class.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Calculate average enjoyment rating and average difficulty per ID</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>enj_diff <span class="ot">&lt;-</span> dat <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">summarize</span>(<span class="at">enjoyment =</span> <span class="fu">mean</span>(enjoy, <span class="at">na.rm =</span> T), <span class="at">difficulty =</span> <span class="fu">mean</span>(difficulty, <span class="at">na.rm =</span> T))</span>
+<span id="cb24-5"><a href="#cb24-5"></a></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="fu">head</span>(enj_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  id            enjoyment difficulty
+  &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt;
+1 Anon1             0.887     0.382 
+2 Anonymous ID      0.690     0.466 
+3 Anonymous ID2     0.458     0.0657
+4 Catling           0.895     0.631 
+5 Dasani            0.544     0.644 
+6 Juaquín           0.684     0.358 </code></pre>
+</div>
+</div>
+<p>Let’s make a table of some basic descriptive statistics.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>enj_diff <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb26-3"><a href="#cb26-3"></a>    <span class="at">cols =</span> enjoyment<span class="sc">:</span>difficulty, </span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="at">names_to =</span> <span class="st">"Metric"</span>, </span>
+<span id="cb26-5"><a href="#cb26-5"></a>    <span class="at">values_to =</span> <span class="st">"Rating"</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb26-7"><a href="#cb26-7"></a>  <span class="fu">group_by</span>(Metric) <span class="sc">|&gt;</span> </span>
+<span id="cb26-8"><a href="#cb26-8"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb26-9"><a href="#cb26-9"></a>    <span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb26-10"><a href="#cb26-10"></a>    <span class="at">Min. =</span> <span class="fu">min</span>(Rating), </span>
+<span id="cb26-11"><a href="#cb26-11"></a>    <span class="at">Max. =</span> <span class="fu">max</span>(Rating), </span>
+<span id="cb26-12"><a href="#cb26-12"></a>    <span class="at">Average =</span> <span class="fu">mean</span>(Rating), </span>
+<span id="cb26-13"><a href="#cb26-13"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Rating)</span>
+<span id="cb26-14"><a href="#cb26-14"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb26-15"><a href="#cb26-15"></a>  <span class="fu">mutate</span>(<span class="at">Metric =</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(Metric)) <span class="sc">|&gt;</span> </span>
+<span id="cb26-16"><a href="#cb26-16"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(Min.<span class="sc">:</span>SD, \(x) <span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">2</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb26-17"><a href="#cb26-17"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="tbl-q2-desc" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-q2-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Descriptive statistics of global difficulty and enjoyment ratings.
+</figcaption>
+<div aria-describedby="tbl-q2-desc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Metric</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">Min.</th>
+<th style="text-align: right;">Max.</th>
+<th style="text-align: right;">Average</th>
+<th style="text-align: right;">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Difficulty</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">0.43</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Enjoyment</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0.26</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.71</td>
+<td style="text-align: right;">0.21</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Ok. <a href="#tbl-q2-desc" class="quarto-xref">Table&nbsp;5</a> gives us a good feel of the overall rating of the course. It doesn’t appear to be too difficult and the students <em>seem</em> to enjoy it. Win! However, this doesn’t tell us anything about the relationship between difficulty and enjoyment ratings. Let’s make a plot.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>enj_diff <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> difficulty, <span class="at">y =</span> enjoyment) <span class="sc">+</span> </span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">formula =</span> <span class="st">"y ~ x"</span>) <span class="sc">+</span> </span>
+<span id="cb27-6"><a href="#cb27-6"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Avg. enjoyment rating"</span>, <span class="at">x =</span> <span class="st">"Avg. difficulty rating"</span>) <span class="sc">+</span> </span>
+<span id="cb27-7"><a href="#cb27-7"></a>  ds4ling<span class="sc">::</span><span class="fu">ds4ling_bw_theme</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-q3-scatter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-q3-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-q3-scatter-1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-q3-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Scatter plot of global enjoyment and difficulty ratings from 2023 and 2025.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The quick and dirty plot suggests a negative correlation between enjoyment and difficulty. In other words, people might enjoy class less when the content is difficult. We will test this hypothesis with a standard linear model. We don’t really need any nested model comparisons here, but we will do it for the sake of completeness.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Fit null model</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>q3_mod_0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(enjoyment <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> enj_diff)</span>
+<span id="cb28-3"><a href="#cb28-3"></a></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co"># Fit inclusive model</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>q3_mod_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(enjoyment <span class="sc">~</span> difficulty, <span class="at">data =</span> enj_diff)</span>
+<span id="cb28-6"><a href="#cb28-6"></a></span>
+<span id="cb28-7"><a href="#cb28-7"></a><span class="co"># Nusted model comparison</span></span>
+<span id="cb28-8"><a href="#cb28-8"></a><span class="fu">anova</span>(q3_mod_0, q3_mod_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: enjoyment ~ 1
+Model 2: enjoyment ~ difficulty
+  Res.Df     RSS Df Sum of Sq      F Pr(&gt;F)
+1     24 1.09266                           
+2     23 0.98022  1   0.11244 2.6383 0.1179</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Hide the code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">tidy</span>(q3_mod_1) <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">mutate_if</span>(is.numeric, round, <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="tbl-mod-q3" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mod-q3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: Summary of enjoyment ~ time model.
+</figcaption>
+<div aria-describedby="tbl-mod-q3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">7.81</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">difficulty</td>
+<td style="text-align: right;">-0.39</td>
+<td style="text-align: right;">0.24</td>
+<td style="text-align: right;">-1.62</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Interpretation:</p>
+<blockquote class="blockquote">
+<p>When difficulty is 0, enjoyment is high (<span class="math inline">\(\beta\)</span> = 0.88, SE = 0.11, t = 7.81, p &lt; 0.001). A one unit increase in difficulty results in a decrease in enjoyment, but the relationship is not statistically significant (<span class="math inline">\(\beta\)</span> = -0.39, SE = 0.24, t = -1.62, p = 0.12).</p>
+</blockquote>
+<p>Aside from the other caveats (beta regression for DV), it is of note that we are certainly losing a lot of power by averaging over time. A multilevel model would probably make more sense for this data.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

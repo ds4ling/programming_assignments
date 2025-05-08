@@ -96,5 +96,5 @@ cat(paste0('- ', link_names[1:5], link_ref[1:5], '\n'))
 [githubtut]: https://www.ds4ling.jvcasillas.com/misc/tutorials/github_setup/
 [pa4_fricatives]: https://github.com/ds4ling/programming_assignments/raw/master/misc/data/pa_4_data/fricatives.zip
 [pa5_ratings]: https://github.com/ds4ling/programming_assignments/raw/master/misc/data/ratings/ratings_data_2025-04-23.csv
-
+[pa5_answers]: https://www.ds4ling.jvcasillas.com/programming_assignments/misc/data/pa_5_answers/index.html
 

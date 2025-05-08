@@ -1,0 +1,414 @@
+---
+title: "PA5 example answers"
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    code-fold: show
+    code-summary: "Hide the code"
+    code-line-numbers: true
+code-block-border-left: "#cc0033"
+highlight-style: monokai
+---
+
+# Setup
+
+Let's start by loading some libraries. 
+
+```{r}
+#| label: setup
+#| message: false
+library("tidyverse")
+library("here")
+library("broom")
+library("knitr")
+```
+
+Now we will load the dataset. 
+It is already downloaded and lives at the root level of my `pa5` directory. 
+
+```{r}
+#| label: load-data
+dat <- read_csv(here("ratings_data_2025-04-23.csv"))
+```
+
+Ok. 
+Now we are ready to get started. 
+Let's go straight through the questions. 
+
+<br>
+
+# Questions
+
+I will address each question brielfy. 
+First, I will highlight the main issue the questions presents. 
+Second, I will mention the possible solutions. 
+After, I will go through the process of answering the questions. 
+
+## Q1 - Enjoyment as a function of class
+
+**Problem**: The dataset contains repeated measures.  
+**Solution**: We will have to use a complicated multilevel model or average over participants/time in order to get a single observation per individual. 
+The latter probably isn't ideal, but it is a solution the meshes well with what we have done in class, so we will go with that. 
+
+```{r}
+#| label: q1-data-prep
+
+# Separate the `date` column to get access to 'year'
+# Then group by id and year and calculate the overall average enjoyment for each id
+enjoy_avg_id <- dat |>
+  separate(date, into = c("year", "month", "day"), sep = "-") |> 
+  group_by(id, year) |> 
+  summarize(avg_enj = mean(enjoy), .groups = "drop")
+
+# Take a look at the first 6 rows
+head(enjoy_avg_id)
+```
+
+Now the data is in a useable format. 
+Let's make a table of average enjoyment for 2023 and 2025. 
+
+```{r}
+#| label: tbl-q1
+#| tbl-cap: Average class enjoyment as a function of year.
+enjoy_avg_id |> 
+  group_by(year) |> 
+  summarize(
+    n = n(), 
+    min = min(avg_enj), 
+    max = max(avg_enj), 
+    avg_enjoy = mean(avg_enj), 
+    sd_enjoy = sd(avg_enj)
+  ) |> 
+  mutate(across(min:sd_enjoy, \(x) round(x, digits = 2))) |> 
+  knitr::kable()
+```
+
+We can see from @tbl-q1 that enjoyment seems to be slightly higher in 2025. 
+Now we can make a plot to see if there are any concerns. 
+
+```{r}
+#| label: fig-q1
+#| out-width: "100%"
+#| fig-asp: 0.46
+#| fig-cap: Average enjoyment ratings as a function of year. Transparent points represent raw data. Larger, white points represent means $\pm$SE. 
+enjoy_avg_id |> 
+  ggplot() + 
+  aes(x = avg_enj, y = year, color = year) + 
+  geom_point(position = position_nudge(y = -0.1), alpha = 0.8) + 
+  stat_summary(
+    fun.data = mean_se, geom = "pointrange", pch = 21, 
+    linewidth = 2, lineend = "round", fill = "white", size = 1
+  ) + 
+  scale_color_viridis_d(guide = "none", begin = 0.4, end = 0.75) + 
+  labs(y = NULL, x = "Average enjoyment") + 
+  ds4ling::ds4ling_bw_theme() + 
+  theme(axis.text.y = element_text(angle = 90, hjust = 0.5))
+```
+
+It looks like the average difference between years is quite small. 
+We will fit a linear model to test the hypothesis that the mean difference = 0. 
+The inclusive model formula is `enjoy ~ year`. 
+
+```{r}
+#| label: mod-q1
+# Fit null model
+mod_q1_0 <- lm(avg_enj ~ 1, data = enjoy_avg_id)
+
+# Fit inclusive model
+mod_q1_1 <- lm(avg_enj ~ year, data = enjoy_avg_id)
+
+# Nested model comparison
+anova(mod_q1_0, mod_q1_1)
+```
+
+It looks like there is no evidence of a main effect of time (F(1) = 0.59, p = 0.45). 
+Note, we didn't really need to do the model comparison to find this though, as we could also just examine the summary of `mod_q1_1`: 
+
+```{r}
+#| label: tbl-mod-q1
+#| tbl-cap: Summary of enjoyment ~ time model. 
+tidy(mod_q1_1) |> 
+  mutate_if(is.numeric, round, digits = 2) |> 
+  kable()
+```
+
+Let's interpret the output anyway...
+
+> The enjoyment data were analyzed using a standard linear model examining average enjoyment as a function of year. 
+> The `year` predictor was dummy coded with 2023 set as the baseline. 
+> During 2023, the average enjoyment was `r round(coef(mod_q1_1)[1], 2)` $\pm$ 0.05 standard errors (t = 11.83, p < 0.001), indicating that average enjoyment was not statistical equivalent to 0. 
+> For 2025, the average enjoyment increased realtive to 2023 by `r round(coef(mod_q1_1)[2], 2)` $\pm$ 0.09 standard errors (t = 0.77, p = 0.45), but this difference is not statistically significant. 
+
+Let's take a look at the model assumptions. 
+
+```{r}
+#| label: fig-q1-assumptions
+#| fig-asp: 0.45
+#| out-width: 100%
+#| fig-cap: Residuals vs. fitted values (left panel), histrogram of residuals (middle panel), and a qq-plot (right panel) for the enjoyment (`mod_q1_1`) model. 
+ds4ling::diagnosis(mod_q1_1)
+```
+
+It's a bit wonky for serveral reasons. 
+First, our only predictor is discontinuous, so the leftmost plot cannot tell us about homoscedasticity. 
+The mean value for the residuals is essentially 0, but the distribution doesn't not appear to be normal. 
+Finally, we see from the qq plot that the end points don't look great. 
+It seems fair to assume that the residuals are not normally distributed. 
+I probably wouldn't put a ton of faith in this model and I think the small sample size might be an issue. 
+A larger issue, however, has to do with the nature of the dependent variable. 
+If we take another look at @tbl-q1, we see that the min and max values of the enjoyment ratings range essentially from 0 to 1. 
+This implies that, not only is the DV is not normally distributed, it also does not range from -∞ to ∞. 
+In other words, the standard linear model is not the best choice for this data set. 
+We would be better off using a GLM with a beta likelihood and a logit linking function, i.e., beta regression. 
+This type of distribution would be a good choice for our likelihood because it accounts for values ranging from 0 to 1 (i.e., probabilities). 
+
+<br><br>
+
+## Q2 - Difficulty as a function of time
+
+**Problem**: Repeated measures (again).  
+**Solution**: This time we will use a multilevel model. 
+We need to be sure that we have 1 data point per id per week. 
+This should be the case already, but *SOME PEOPLE* didn't use the same ID every week. 
+In other words, there is an inflated number of data points from Anonymous ID. 
+Let's check this out and come up with a solution. 
+
+
+```{r}
+#| label: check-anons
+# Get a vector of all unique IDs
+dat |> 
+  pull(id) |> 
+  unique()
+```
+
+What we see here is that we have 3 anonymous-like IDs (Anon1, Anonymous ID2, and Anonymous ID). 
+I suspect that `Anonymous ID` will be the only problem, but let's check to be sure. 
+
+```{r}
+#| label: anon-counts
+
+# Get number of data points from Anon1, AnonymousID2, and Anonymous ID
+dat |> 
+  filter(id %in% c("Anon1", "Anonymous ID2", "Anonymous ID")) |> 
+  group_by(id) |> 
+  count()
+```
+
+A given participant should have a maximum of 11 data points. 
+To simplify the problem, we will just filter out anybody with more than 11. 
+
+```{r}
+#| label: q2-setup
+# Get vector of IDs with 11 or fewer data points
+good_ids <- dat |> 
+  group_by(id) |> 
+  count() |> 
+  filter(n <= 11) |> 
+  pull(id)
+
+dat_avg_time <- dat |> 
+  filter(id %in% good_ids) |> 
+  group_by(id, week) |> 
+  summarize(difficulty = mean(difficulty), .groups = "drop") |> 
+  mutate(week = week - 1) 
+```
+
+Now let's take a look at how complete the data set is. 
+I want to see how many time data points we have for each ID. 
+
+```{r}
+#| label: tbl-q2-ids
+#| tbl-cap: Number of data points from each unique ID. 
+dat_avg_time |> 
+  group_by(id) |> 
+  count() |> 
+  kable()
+```
+
+@tbl-q2-ids shows us that we have *really* incomplete data. 
+Ok. 
+Let's see average difficulty for each week. 
+
+```{r}
+#| label: tbl-q2-avg-diff
+#| tbl-cap: Average difficulty as a function of week.
+dat_avg_time |> 
+  group_by(week) |> 
+  summarize(
+    n = n(), 
+    min = min(difficulty), 
+    max = max(difficulty), 
+    avg_difficulty = mean(difficulty), 
+    sd_difficulty = sd(difficulty)
+  ) |> 
+  mutate(across(min:sd_difficulty, \(x) round(x, digits = 2))) |> 
+  kable()
+```
+
+
+
+Nice! 
+Let's plot it. 
+
+
+```{r}
+#| label: fig-q2-plot
+#| out-width: 100%
+#| fig-asp: 0.56
+#| fig-cap: Average difficulty by week.
+dat_avg_time |> 
+  ggplot() + 
+  aes(x = week, y = difficulty) + 
+  geom_point(aes(color = id), alpha = 0.4, show.legend = F) + 
+  stat_summary(fun.data = mean_se, geom = "pointrange", pch = 21, fill = "white") + 
+  scale_x_continuous(breaks = 0:10, labels = 1:11) + 
+  labs(y = "Avg. difficulty rating", x = "Week") + 
+  ds4ling::ds4ling_bw_theme()
+```
+
+It looks like difficulty increases slightly over time, particularly if we compare week 1 to week 11. 
+That said, the trend does not appear to be linear (we'll come back to this). 
+Now we can fit a multilevel model testing difficulty over time. 
+Our inclusive model is: `difficulty ~ week + (1 + time | id)`. 
+
+
+```{r}
+#| label: q2-mods
+#| message: false
+# Load multilevel model packages
+library("lme4")
+library("lmerTest")
+
+# Fit nullmodel
+q2_mod_0 <- lmer(difficulty ~ 1 + (1 + week | id), data = dat_avg_time)
+
+# Fit inclusive model
+q2_mod_1 <- lmer(difficulty ~ 1 + week + (1 + week | id), data = dat_avg_time)
+
+# Nested model comparisons
+anova(q2_mod_0, q2_mod_1, reml = F)
+```
+
+```{r}
+#| label: q2-mod-printout
+summary(q2_mod_1)
+```
+
+Interpretation:  
+
+> The difficulty data was analyzed using a multilevel model. 
+> We fit difficulty ratings as a function of week (1-11). 
+> Week was set as a continuous predictor and was allowed to vary for each individual id. 
+> We assessed the main effect of time using a nested model comparison. 
+> There was a main effect of time ($\chi$(1) = 8.79, p = 0.003). 
+> At week 1, average difficulty was approximately `r round(fixef(q2_mod_1)[[1]], 2)` $\pm$ 0.03 standard errors (t = 9.33, p < 0.001). 
+> As each week progressed the average difficulty rating increased by approximately `r round(fixef(q2_mod_1)[[2]], 2)` $\pm$ 0.007 standard errors (t = 3.15, p = 0.004). 
+> In other words, the average perception of difficulty increased, though slightly, as the semester unfolded. 
+
+Some assumptions:  
+While we were able to account for the structure of the data using a multilevel model, i.e., the repeated measures `week`, we are still not using the best model because we have a dependent variable that is bounded between 0 and 1. 
+We could fit a better model with beta regression (i.e., beta likelihood with logit link). 
+Furthermore, as noted above, the relationship between difficulty rating and time does not seem to be linear (recall that this is a key assumption). 
+This makes sense, as some content might be considered to be more or less difficult. 
+We would probably be better off using a non-linear model, like a GAMM. 
+
+<br> <br>
+
+## Q3 - The relationship between enjoyment and difficulty
+
+**Problem**: Repeated measures (again).  
+**Solution**: Lots of averaging or use a multilevel model
+
+Lets average to go fast. 
+For the purposes of this question, we will forget about the effect of time. 
+We are merely considering a global rating of enjoyment and difficult for the class. 
+
+```{r}
+#| label: q3-setup
+# Calculate average enjoyment rating and average difficulty per ID
+enj_diff <- dat |> 
+  group_by(id) |> 
+  summarize(enjoyment = mean(enjoy, na.rm = T), difficulty = mean(difficulty, na.rm = T))
+
+head(enj_diff)
+```
+
+Let's make a table of some basic descriptive statistics. 
+
+```{r}
+#| label: tbl-q2-desc
+#| tbl-cap: Descriptive statistics of global difficulty and enjoyment ratings. 
+enj_diff |> 
+  pivot_longer(
+    cols = enjoyment:difficulty, 
+    names_to = "Metric", 
+    values_to = "Rating"
+  ) |> 
+  group_by(Metric) |> 
+  summarize(
+    n = n(), 
+    Min. = min(Rating), 
+    Max. = max(Rating), 
+    Average = mean(Rating), 
+    SD = sd(Rating)
+  ) |> 
+  mutate(Metric = stringr::str_to_title(Metric)) |> 
+  mutate(across(Min.:SD, \(x) round(x, digits = 2))) |> 
+  kable()
+```
+
+Ok. 
+@tbl-q2-desc gives us a good feel of the overall rating of the course. 
+It doesn't appear to be too difficult and the students *seem* to enjoy it. 
+Win!
+However, this doesn't tell us anything about the relationship between difficulty and enjoyment ratings. 
+Let's make a plot. 
+
+```{r}
+#| label: fig-q3-scatter
+#| out-width: 100%
+#| fig-asp: 0.56
+#| fig-cap: Scatter plot of global enjoyment and difficulty ratings from 2023 and 2025.
+enj_diff |> 
+  ggplot() + 
+  aes(x = difficulty, y = enjoyment) + 
+  geom_point() + 
+  geom_smooth(method = "lm", formula = "y ~ x") + 
+  labs(y = "Avg. enjoyment rating", x = "Avg. difficulty rating") + 
+  ds4ling::ds4ling_bw_theme()
+```
+
+The quick and dirty plot suggests a negative correlation between enjoyment and difficulty. 
+In other words, people might enjoy class less when the content is difficult. 
+We will test this hypothesis with a standard linear model. 
+We don't really need any nested model comparisons here, but we will do it for the sake of completeness. 
+
+```{r}
+#| label: q3-mods
+# Fit null model
+q3_mod_0 <- lm(enjoyment ~ 1, data = enj_diff)
+
+# Fit inclusive model
+q3_mod_1 <- lm(enjoyment ~ difficulty, data = enj_diff)
+
+# Nusted model comparison
+anova(q3_mod_0, q3_mod_1)
+```
+
+```{r}
+#| label: tbl-mod-q3
+#| tbl-cap: Summary of enjoyment ~ time model. 
+tidy(q3_mod_1) |> 
+  mutate_if(is.numeric, round, digits = 2) |> 
+  kable()
+```
+
+Interpretation: 
+
+>When difficulty is 0, enjoyment is high ($\beta$ = 0.88, SE = 0.11, t = 7.81, p < 0.001). 
+>A one unit increase in difficulty results in a decrease in enjoyment, but the relationship is not statistically significant ($\beta$ = -0.39, SE = 0.24, t = -1.62, p = 0.12). 
+
+Aside from the other caveats (beta regression for DV), it is of note that we are certainly losing a lot of power by averaging over time. 
+A multilevel model would probably make more sense for this data. 

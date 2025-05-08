@@ -5,8 +5,8 @@
 
 *.DS_Store
 
-misc/data/pa_5_data
-misc/data/pa_5_answers.zip
+misc/data/old/pa_5_data
+misc/data/old/pa_5_answers.zip
 #misc/data/ratings/
 
 
