@@ -1,8 +1,0 @@
----
-title: "README"
-author: "Alexander Rogers"
-date: "2025-03-26"
-output: html_document
----
-
-https://a-k-rogers.github.io/pa4/slides/index.html#13

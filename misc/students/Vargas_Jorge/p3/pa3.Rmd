@@ -1,8 +1,0 @@
----
-title: "website"
-author: "Jorge VM"
-date: "2025-03-01"
-output: html_document
----
-
-#website: https://jorgevargasmu.github.io/pa3/

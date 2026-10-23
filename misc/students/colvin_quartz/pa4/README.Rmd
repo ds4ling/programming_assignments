@@ -1,8 +1,0 @@
----
-title: "README"
-author: "Quartz Colvin"  
-date: "Last update: `r Sys.time()`" 
-output: html_document
----
-
-link to my site: https://quartz-colvin.github.io/pa4/

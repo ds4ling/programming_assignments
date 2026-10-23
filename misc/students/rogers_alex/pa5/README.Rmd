@@ -1,7 +1,0 @@
----
-title: "README"
-author: "Alexander Rogers"
-date: "2025-04-28"
-output: html_document
----
-https://github.com/a-k-rogers/pa5 #link to my repo

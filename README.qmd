@@ -20,10 +20,13 @@ Beginning of semester prep:
 
 ## Programming assignments for Data Science for Linguistics.
 
+Coming soon.
+
 ```{r}
 #| label: print-links
 #| echo: false 
 #| results: 'asis'
+#| eval: false
 
 # Automate TOC
 # - After each PA is assigned, update list_elements[X]
@@ -63,31 +66,31 @@ cat(paste0('- ', link_names[1:5], link_ref[1:5], '\n'))
 ```{r}
 #| label: pa1
 #| child: './staging/pa1.md' 
-#| eval: true
+#| eval: false
 ```
 
 ```{r}
 #| label: pa2
 #| child: './staging/pa2.md' 
-#| eval: true
+#| eval: false
 ```
 
 ```{r}
 #| label: pa3
 #| child: './staging/pa3.md' 
-#| eval: true
+#| eval: false
 ```
 
 ```{r}
 #| label: pa4
 #| child: './staging/pa4.md' 
-#| eval: true
+#| eval: false
 ```
 
 ```{r}
 #| label: pa5
 #| child: './staging/pa5.md'
-#| eval: true
+#| eval: false
 ```
 
 
